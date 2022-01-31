@@ -7,7 +7,4 @@ public:
 	input_component();
 	~input_component();
 	void update(gameobject& _gameobject);
-
-private:
-
 };
