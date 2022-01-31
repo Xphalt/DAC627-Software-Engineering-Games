@@ -10,9 +10,9 @@
 class slider : public ui_component {
 public:
 	slider(	SDL_Renderer* _renderer, 
-			std::string _background_image_path,
-			std::string _fill_image_path,
-			std::string _handle_image_path,
+			const std::string &_background_image_path,
+			const std::string &_fill_image_path,
+			const std::string &_handle_image_path,
 			float _min_value, 
 			float _max_value, 
 			float _x, 

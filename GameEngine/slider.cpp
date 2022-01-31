@@ -1,9 +1,9 @@
 #include "slider.h"
 
 slider::slider(	SDL_Renderer* _renderer,
-				std::string _background_image_path,
-				std::string _fill_image_path,
-				std::string _handle_image_path,
+				const std::string &_background_image_path,
+				const std::string &_fill_image_path,
+				const std::string &_handle_image_path,
 				float _min_value,
 				float _max_value,
 				float _x,
@@ -20,8 +20,8 @@ slider::slider(	SDL_Renderer* _renderer,
 	m_value = _max_value;
 
 	m_enabled = true;
-	m_size.w = _width; m_size.h = _height;
-	m_pos.x = _x; m_pos.y = _y;
+	m_rect.w = _width; m_rect.h = _height;
+	m_rect.x = _x; m_rect.y = _y;
 	m_rotation = _rotation;
 }
 slider::~slider()

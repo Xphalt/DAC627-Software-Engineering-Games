@@ -15,15 +15,16 @@ public:
 	~ui_component();
 	
 	void set_enabled(bool _enabled) { m_enabled = _enabled; }
-	void set_position(float _x, float _y) { m_pos.x = _x; m_pos.y = _y; }
+	void set_position(float _x, float _y) { m_rect.x = _x; m_rect.y = _y; }
+	void set_size(float _w, float _h) { m_rect.w = _w; m_rect.h = _h; }
+	void set_rotation(double _rotation) { m_rotation = _rotation; }
 
 	// To be overriden when inherited
 	virtual void draw();
 protected:
 	SDL_Renderer* m_p_renderer;
 
-	SDL_Rect m_size;
-	SDL_Point m_pos;
+	SDL_Rect m_rect;
 
 	bool m_enabled;
 	double m_rotation;
