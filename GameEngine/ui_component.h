@@ -19,6 +19,8 @@ public:
 	void set_size(float _w, float _h) { m_rect.w = _w; m_rect.h = _h; }
 	void set_rotation(double _rotation) { m_rotation = _rotation; }
 
+	SDL_Rect GetRect() { return m_rect; }
+
 	// To be overriden when inherited
 	virtual void draw();
 protected:
