@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Gamepad.cpp" />
+    <ClCompile Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\InputMaster.cpp" />
+    <ClCompile Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Keyboard.cpp" />
+    <ClCompile Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Mouse.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameobject.cpp" />
     <ClCompile Include="input_component.cpp" />
@@ -27,6 +31,10 @@
     <ClCompile Include="output_component.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Gamepad.h" />
+    <ClInclude Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\InputMaster.h" />
+    <ClInclude Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Keyboard.h" />
+    <ClInclude Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Mouse.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameobject.h" />
     <ClInclude Include="input_component.h" />

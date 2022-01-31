@@ -33,6 +33,18 @@
     <ClCompile Include="game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Gamepad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\InputMaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="output_component.h">
@@ -48,6 +60,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Gamepad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\InputMaster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Keyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GAFGaS - Gamplay\GAFGaS - Gamplay\Mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
