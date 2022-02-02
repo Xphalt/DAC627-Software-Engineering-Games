@@ -37,17 +37,14 @@
     <Filter Include="Components\UI">
       <UniqueIdentifier>{b376c059-61b9-4a14-a0b0-e20a9b885ff3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Components\UI\Header Files">
+      <UniqueIdentifier>{6a57cb9b-492c-4106-84b6-48f970884fc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\UI\Source Files">
+      <UniqueIdentifier>{ebf6eaf1-d654-4c38-91dd-ab4f70a705c7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="slider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="text.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="input_component.cpp">
       <Filter>Interfaces\Source Files</Filter>
     </ClCompile>
@@ -66,20 +63,20 @@
     <ClCompile Include="Main.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="text.cpp">
+      <Filter>Components\UI\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>Components\UI\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="slider.cpp">
+      <Filter>Components\UI\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="ui_component.cpp">
-      <Filter>Components\UI</Filter>
+      <Filter>Components\UI\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="slider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="input_component.h">
       <Filter>Interfaces\Header Files</Filter>
     </ClInclude>
@@ -96,7 +93,16 @@
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ui_component.h">
-      <Filter>Components\UI</Filter>
+      <Filter>Components\UI\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="text.h">
+      <Filter>Components\UI\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>Components\UI\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="slider.h">
+      <Filter>Components\UI\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
