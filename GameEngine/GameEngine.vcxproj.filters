@@ -13,29 +13,32 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{0e890752-7168-439e-a4f6-24364d25b5ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces\Header Files">
+      <UniqueIdentifier>{eb08c159-e254-49e1-8399-fb91f974feff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces\Source Files">
+      <UniqueIdentifier>{d9a69012-e9ed-4c66-8825-65144d537075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{94f1e75a-6f25-4490-8376-6d0109200834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Header Files">
+      <UniqueIdentifier>{f90985e4-4e3e-4174-93d2-f6479c7d3038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Source Files">
+      <UniqueIdentifier>{2b4eb7a0-3f7d-4de3-8ee4-bfb4e9a250b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{ca07f81c-e9ec-4d02-b097-2455d3d16939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\UI">
+      <UniqueIdentifier>{b376c059-61b9-4a14-a0b0-e20a9b885ff3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output_component.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="logic_component.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="input_component.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gameobject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ui_component.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -45,26 +48,29 @@
     <ClCompile Include="text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="input_component.cpp">
+      <Filter>Interfaces\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logic_component.cpp">
+      <Filter>Interfaces\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="output_component.cpp">
+      <Filter>Interfaces\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameobject.cpp">
+      <Filter>Interfaces\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui_component.cpp">
+      <Filter>Components\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="output_component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="logic_component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="input_component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gameobject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -73,6 +79,24 @@
     </ClInclude>
     <ClInclude Include="text.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="input_component.h">
+      <Filter>Interfaces\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logic_component.h">
+      <Filter>Interfaces\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="output_component.h">
+      <Filter>Interfaces\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameobject.h">
+      <Filter>Interfaces\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_component.h">
+      <Filter>Components\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

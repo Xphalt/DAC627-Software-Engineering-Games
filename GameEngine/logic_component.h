@@ -7,7 +7,4 @@ public:
 	logic_component();
 	~logic_component();
 	void update(gameobject& _gameobject);
-
-private:
-
 };
