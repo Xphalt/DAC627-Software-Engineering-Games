@@ -43,6 +43,15 @@
     <Filter Include="Components\UI\Source Files">
       <UniqueIdentifier>{ebf6eaf1-d654-4c38-91dd-ab4f70a705c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Components\Animation">
+      <UniqueIdentifier>{0a5e23b6-d5ea-4443-b3db-786f7ee2e3e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Animation\Header Files">
+      <UniqueIdentifier>{226d8685-e62a-4654-b595-e10b4c7ad914}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Animation\Source Files">
+      <UniqueIdentifier>{73d8982b-a391-416f-bcf6-d9ca911ec4f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="input_component.cpp">
@@ -75,6 +84,12 @@
     <ClCompile Include="ui_component.cpp">
       <Filter>Components\UI\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="animator.cpp">
+      <Filter>Components\Animation\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animation.cpp">
+      <Filter>Components\Animation\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input_component.h">
@@ -103,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="slider.h">
       <Filter>Components\UI\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>Components\Animation\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animator.h">
+      <Filter>Components\Animation\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
