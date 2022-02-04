@@ -15,27 +15,27 @@ animation::animation()
 animation::animation(SDL_Renderer* _renderer, std::string _file_name, bool _use_transparency)
 	: m_p_renderer{ _renderer }
 {
-	SDL_Surface* bmp_surface = SDL_LoadBMP((IMAGE_PATH + _file_name).c_str());
+	SDL_Surface* img_surface = IMG_Load((IMAGE_PATH + _file_name).c_str());
 
-	if (!bmp_surface)
+	if (!img_surface)
 	{
 		std::cerr << SDL_GetError();
 		return;
 	}
 
-	m_src_width = bmp_surface->w;
-	m_src_height = bmp_surface->h;
+	m_src_width = img_surface->w;
+	m_src_height = img_surface->h;
 
-	if (_use_transparency)
+	if (_use_transparency && _file_name.find(".bmp") != std::string::npos)
 	{	//Set Magenta as transparent colour for Animations
-		Uint32 colour_key = SDL_MapRGB(bmp_surface->format, 255, 0, 255);
-		SDL_SetColorKey(bmp_surface, SDL_TRUE, colour_key);
+		Uint32 colour_key = SDL_MapRGB(img_surface->format, 255, 0, 255);
+		SDL_SetColorKey(img_surface, SDL_TRUE, colour_key);
 	}
 
-	m_p_bmp_texture = SDL_CreateTextureFromSurface(_renderer, bmp_surface);
+	m_p_bmp_texture = SDL_CreateTextureFromSurface(_renderer, img_surface);
 
-	SDL_FreeSurface(bmp_surface);
-	bmp_surface = nullptr;
+	SDL_FreeSurface(img_surface);
+	img_surface = nullptr;
 }
 
 animation::~animation()
