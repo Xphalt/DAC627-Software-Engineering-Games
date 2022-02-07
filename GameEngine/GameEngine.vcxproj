@@ -19,29 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameobject.cpp" />
-    <ClCompile Include="image.cpp" />
+    <ClCompile Include="Graphics\Window.cpp" />
     <ClCompile Include="input_component.cpp" />
     <ClCompile Include="logic_component.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="output_component.cpp" />
-    <ClCompile Include="slider.cpp" />
-    <ClCompile Include="text.cpp" />
-    <ClCompile Include="ui_component.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameobject.h" />
-    <ClInclude Include="image.h" />
+    <ClInclude Include="Graphics\Window.h" />
     <ClInclude Include="input_component.h" />
     <ClInclude Include="logic_component.h" />
     <ClInclude Include="output_component.h" />
-    <ClInclude Include="slider.h" />
-    <ClInclude Include="text.h" />
-    <ClInclude Include="ui_component.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
