@@ -52,6 +52,9 @@
     <Filter Include="Components\Animation\Source Files">
       <UniqueIdentifier>{6a943ea0-5709-48d6-a8f4-a553457140b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{4596f9f2-9bda-4dcb-b66f-a4aee8c5dcce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="input_component.cpp">
@@ -81,6 +84,9 @@
     <ClCompile Include="animator.cpp">
       <Filter>Components\Animation\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input_component.h">
@@ -106,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="animator.h">
       <Filter>Components\Animation\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
