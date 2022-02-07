@@ -43,6 +43,15 @@
     <Filter Include="Components\UI\Source Files">
       <UniqueIdentifier>{ebf6eaf1-d654-4c38-91dd-ab4f70a705c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Components\Animation">
+      <UniqueIdentifier>{1008797c-02fa-486a-a3e4-2955a954a09c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Animation\Header Files">
+      <UniqueIdentifier>{0d3e4352-3f3a-4dfc-8657-60673116be93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Animation\Source Files">
+      <UniqueIdentifier>{6a943ea0-5709-48d6-a8f4-a553457140b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="input_component.cpp">
@@ -66,6 +75,12 @@
     <ClCompile Include="Graphics\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="animation.cpp">
+      <Filter>Components\Animation\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animator.cpp">
+      <Filter>Components\Animation\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input_component.h">
@@ -85,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="Graphics\Window.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>Components\Animation\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animator.h">
+      <Filter>Components\Animation\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
