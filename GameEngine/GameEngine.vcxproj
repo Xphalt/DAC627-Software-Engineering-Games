@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameobject.cpp" />
+    <ClCompile Include="Graphics\Window.cpp" />
     <ClCompile Include="input_component.cpp" />
     <ClCompile Include="logic_component.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -29,6 +30,7 @@
   <ItemGroup>
     <ClInclude Include="game.h" />
     <ClInclude Include="gameobject.h" />
+    <ClInclude Include="Graphics\Window.h" />
     <ClInclude Include="input_component.h" />
     <ClInclude Include="logic_component.h" />
     <ClInclude Include="output_component.h" />
