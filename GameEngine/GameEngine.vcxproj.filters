@@ -75,6 +75,9 @@
     <ClCompile Include="ui_component.cpp">
       <Filter>Components\UI\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input_component.h">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="slider.h">
       <Filter>Components\UI\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
