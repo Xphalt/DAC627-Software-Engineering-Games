@@ -43,6 +43,18 @@
     <Filter Include="Components\UI\Source Files">
       <UniqueIdentifier>{ebf6eaf1-d654-4c38-91dd-ab4f70a705c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Components\Animation">
+      <UniqueIdentifier>{1008797c-02fa-486a-a3e4-2955a954a09c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Animation\Header Files">
+      <UniqueIdentifier>{0d3e4352-3f3a-4dfc-8657-60673116be93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Animation\Source Files">
+      <UniqueIdentifier>{6a943ea0-5709-48d6-a8f4-a553457140b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{4596f9f2-9bda-4dcb-b66f-a4aee8c5dcce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="input_component.cpp">
@@ -63,20 +75,17 @@
     <ClCompile Include="Main.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="text.cpp">
-      <Filter>Components\UI\Source Files</Filter>
+    <ClCompile Include="Graphics\Window.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="image.cpp">
-      <Filter>Components\UI\Source Files</Filter>
+    <ClCompile Include="animation.cpp">
+      <Filter>Components\Animation\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="slider.cpp">
-      <Filter>Components\UI\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ui_component.cpp">
-      <Filter>Components\UI\Source Files</Filter>
+    <ClCompile Include="animator.cpp">
+      <Filter>Components\Animation\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,20 +104,17 @@
     <ClInclude Include="game.h">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui_component.h">
-      <Filter>Components\UI\Header Files</Filter>
+    <ClInclude Include="Graphics\Window.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="text.h">
-      <Filter>Components\UI\Header Files</Filter>
+    <ClInclude Include="animation.h">
+      <Filter>Components\Animation\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="image.h">
-      <Filter>Components\UI\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="slider.h">
-      <Filter>Components\UI\Header Files</Filter>
+    <ClInclude Include="animator.h">
+      <Filter>Components\Animation\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
+      <Filter>Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
