@@ -1,12 +1,11 @@
 #pragma once
 #include<SDL.h>
-#undef main
 #include <memory>
 #include "game.h"
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
 	unique_ptr<game> game;
 	game->update();
