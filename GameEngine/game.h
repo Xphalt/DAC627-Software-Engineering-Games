@@ -1,5 +1,4 @@
 #pragma once
-#include <memory>
 
 class gameobject;
 class input_component;
@@ -11,8 +10,11 @@ using namespace std;
 class game
 {
 public:
+	game();
+	~game();
+
 	void update();
 
 private:
-	shared_ptr<gameobject> m_p_gameobject{ make_shared<gameobject>() };
+	gameobject* m_p_gameobject{ nullptr };
 };
