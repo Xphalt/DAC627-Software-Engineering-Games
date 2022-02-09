@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="audiolibrary.cpp" />
+    <ClCompile Include="audiomanager.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameobject.cpp" />
     <ClCompile Include="input_component.cpp" />
@@ -27,6 +29,8 @@
     <ClCompile Include="output_component.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="audiolibrary.h" />
+    <ClInclude Include="audiomanager.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameobject.h" />
     <ClInclude Include="input_component.h" />
