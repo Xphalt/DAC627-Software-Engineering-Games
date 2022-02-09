@@ -1,4 +1,7 @@
 #include "Window.h"
+#include "../audiolib.h"
+
+#include <iostream>
 
 Window::Window()
 {
@@ -8,6 +11,9 @@ Window::Window()
 	m_flags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN;
 
 	SDL_Init(SDL_INIT_VIDEO);
+
+	audiolib::runAudio();
+	std::cout << "Audio Working";
 
 	m_window = SDL_CreateWindow(m_title, m_position.x, m_position.y, m_size.x, m_size.y, m_flags);
 }
