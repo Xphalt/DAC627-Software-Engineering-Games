@@ -1,6 +1,8 @@
 #pragma once
 
 class gameobject;
+class InputMaster;
+class Gamepad;
 
 class input_component {
 public:

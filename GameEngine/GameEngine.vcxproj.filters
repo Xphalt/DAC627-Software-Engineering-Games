@@ -5,122 +5,114 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Interfaces">
-      <UniqueIdentifier>{0e890752-7168-439e-a4f6-24364d25b5ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Interfaces\Header Files">
-      <UniqueIdentifier>{eb08c159-e254-49e1-8399-fb91f974feff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Interfaces\Source Files">
-      <UniqueIdentifier>{d9a69012-e9ed-4c66-8825-65144d537075}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine">
       <UniqueIdentifier>{94f1e75a-6f25-4490-8376-6d0109200834}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files">
-      <UniqueIdentifier>{f90985e4-4e3e-4174-93d2-f6479c7d3038}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Source Files">
-      <UniqueIdentifier>{2b4eb7a0-3f7d-4de3-8ee4-bfb4e9a250b1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components">
+    <Filter Include="Engine\Components">
       <UniqueIdentifier>{ca07f81c-e9ec-4d02-b097-2455d3d16939}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\UI">
+    <Filter Include="Engine\Components\UI">
       <UniqueIdentifier>{b376c059-61b9-4a14-a0b0-e20a9b885ff3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\UI\Header Files">
-      <UniqueIdentifier>{6a57cb9b-492c-4106-84b6-48f970884fc2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components\UI\Source Files">
-      <UniqueIdentifier>{ebf6eaf1-d654-4c38-91dd-ab4f70a705c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Components\Animation">
+    <Filter Include="Engine\Components\Animation">
       <UniqueIdentifier>{1008797c-02fa-486a-a3e4-2955a954a09c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\Animation\Header Files">
-      <UniqueIdentifier>{0d3e4352-3f3a-4dfc-8657-60673116be93}</UniqueIdentifier>
+    <Filter Include="Engine\Components\Input">
+      <UniqueIdentifier>{ea9d5233-618e-42b2-ae70-83892127a2a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Components\Animation\Source Files">
-      <UniqueIdentifier>{6a943ea0-5709-48d6-a8f4-a553457140b1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Camera">
+    <Filter Include="Engine\Components\Camera">
       <UniqueIdentifier>{4596f9f2-9bda-4dcb-b66f-a4aee8c5dcce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Interfaces">
+      <UniqueIdentifier>{0e890752-7168-439e-a4f6-24364d25b5ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core">
+      <UniqueIdentifier>{2b47b4b3-8d7e-4904-b5f1-5b86de151c33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="input_component.cpp">
-      <Filter>Interfaces\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="logic_component.cpp">
-      <Filter>Interfaces\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output_component.cpp">
-      <Filter>Interfaces\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gameobject.cpp">
-      <Filter>Interfaces\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Engine\Source Files</Filter>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Engine\Components\Camera</Filter>
     </ClCompile>
     <ClCompile Include="animation.cpp">
-      <Filter>Components\Animation\Source Files</Filter>
+      <Filter>Engine\Components\Animation</Filter>
     </ClCompile>
     <ClCompile Include="animator.cpp">
-      <Filter>Components\Animation\Source Files</Filter>
+      <Filter>Engine\Components\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Camera</Filter>
+    <ClCompile Include="ui_component.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameobject.cpp">
+      <Filter>Engine\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="input_component.cpp">
+      <Filter>Engine\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="logic_component.cpp">
+      <Filter>Engine\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="output_component.cpp">
+      <Filter>Engine\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Gamepad.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="InputMaster.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
-      <Filter>Engine\Source Files</Filter>
+      <Filter>Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Window.cpp">
-      <Filter>Engine\Source Files</Filter>
+      <Filter>Engine\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="input_component.h">
-      <Filter>Interfaces\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="logic_component.h">
-      <Filter>Interfaces\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output_component.h">
-      <Filter>Interfaces\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gameobject.h">
-      <Filter>Interfaces\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Engine\Header Files</Filter>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\Components\Camera</Filter>
     </ClInclude>
     <ClInclude Include="animation.h">
-      <Filter>Components\Animation\Header Files</Filter>
+      <Filter>Engine\Components\Animation</Filter>
     </ClInclude>
     <ClInclude Include="animator.h">
-      <Filter>Components\Animation\Header Files</Filter>
+      <Filter>Engine\Components\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Camera</Filter>
+    <ClInclude Include="ui_component.h">
+      <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Engine\Header Files</Filter>
+    <ClInclude Include="gameobject.h">
+      <Filter>Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="input_component.h">
+      <Filter>Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="logic_component.h">
+      <Filter>Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="output_component.h">
+      <Filter>Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Gamepad.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputMaster.h">
+      <Filter>Engine\Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Window.h">
-      <Filter>Engine\Header Files</Filter>
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
