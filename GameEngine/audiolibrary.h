@@ -7,6 +7,7 @@ class audiolibrary
 {
 public:
 	audiolibrary();
+	int runaudio();
 	void initialiselibrary();
 
 	enum audiotype { MUSIC, SFX, NUM_OF_TYPES };

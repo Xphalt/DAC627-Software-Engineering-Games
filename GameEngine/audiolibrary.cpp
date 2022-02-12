@@ -1,4 +1,10 @@
 #include "audiolibrary.h"
+#include "SDL.h"
+#include "SDL_mixer.h"
+#include "SDL_audio.h"
+
+#include <iostream>
+//#include <windows.h>
 
 audiolibrary::audiolibrary()
 {
@@ -41,7 +47,34 @@ bool audiolibrary::loadfiles()
     return true; 
 }
 
-//int audiolibrary::runaudio()
-//{
-//    //SDL_Init(SDL_INIT_AUDIO);
-//}
+int audiolibrary::runaudio()
+{
+    SDL_Init(SDL_INIT_AUDIO);
+
+    // Test if sound is working
+    std::cout << "Audio Working";
+
+    // Load .WAV file
+    SDL_AudioSpec wavspec;
+    Uint32 wavlength;
+    Uint8* wavbuffer;
+
+    SDL_LoadWAV("MusicIdea.wav", &wavspec, &wavbuffer, &wavlength); // drag the sound file in to the folder audiolib.cpp
+
+    // Open Audio Device
+    SDL_AudioDeviceID deviceid = SDL_OpenAudioDevice(NULL, 0, &wavspec, NULL, 0);
+
+    // Play Audio
+    int success = SDL_QueueAudio(deviceid, wavbuffer, wavlength);
+    SDL_PauseAudioDevice(deviceid, 0);
+
+    // pls rkeep window open long enough to hear the sound
+    SDL_Delay(3000);
+
+    // Clean Up
+    SDL_CloseAudioDevice(deviceid);
+    SDL_FreeWAV(wavbuffer);
+    SDL_Quit();
+
+    return(0);
+}
