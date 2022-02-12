@@ -29,7 +29,7 @@ bool audiolibrary::loadfiles()
     }*/
 
     //Load the sound effects
-    SFXlibrary[SFX][PLAYER].insert(std::make_pair(DAMAGE, Mix_LoadWAV("assets/audio/sfx/player/damage/playerHurt.WAV")));
+    //SFXlibrary[SFX][PLAYER].insert(std::make_pair(DAMAGE, Mix_LoadWAV("assets/audio/sfx/player/damage/playerHurt.WAV")));
     //SFXlibrary.insert(std::make_pair(SFX, std::make_pair(PLAYER, std::make_pair(JUMP, Mix_LoadWAV(SFXPath + "/player/damage/playerJump.WAV")))));
 
     //scratch = Mix_LoadWAV( "scratch.wav" );
@@ -59,7 +59,7 @@ int audiolibrary::runaudio()
     Uint32 wavlength;
     Uint8* wavbuffer;
 
-    SDL_LoadWAV("MusicIdea.wav", &wavspec, &wavbuffer, &wavlength); // drag the sound file in to the folder audiolib.cpp
+    SDL_LoadWAV("MusicIdea.wav", &wavspec, &wavbuffer, &wavlength); // drag the sound file in to the folder audiolib.cpp (if audio not playing put what is in audio in to the file beforehand)
 
     // Open Audio Device
     SDL_AudioDeviceID deviceid = SDL_OpenAudioDevice(NULL, 0, &wavspec, NULL, 0);
@@ -77,4 +77,7 @@ int audiolibrary::runaudio()
     SDL_Quit();
 
     return(0);
+
+    //SDL_MixAudio()
+
 }
