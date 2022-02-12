@@ -40,3 +40,8 @@ bool audiolibrary::loadfiles()
     //If everything loaded fine
     return true; 
 }
+
+//int audiolibrary::runaudio()
+//{
+//    //SDL_Init(SDL_INIT_AUDIO);
+//}
