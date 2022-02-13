@@ -7,7 +7,7 @@
 
 gameobject::gameobject()
 {
-	audiolib::runAudio(1, 1);
+	audiolib::runAudio(1, MIX_MAX_VOLUME);
 	m_p_input_component = new input_component();
 	m_p_output_component = new output_component();
 	m_p_logic_component = new logic_component();

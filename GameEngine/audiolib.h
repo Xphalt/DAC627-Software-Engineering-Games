@@ -2,6 +2,12 @@
 #include "gameobject.h"
 #include "SDL_mixer.h"
 #include <map>
+#include "SDL.h"
+#include "SDL_audio.h"
+
+#include <iostream>
+#include <windows.h>
+#include <string>
 
 class audiolib
 {
