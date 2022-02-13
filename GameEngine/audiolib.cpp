@@ -9,6 +9,11 @@
 //class audiolib
 //{
 //public:
+    //audiolib::audiolib()
+    //{
+
+    //}
+
     int audiolib::runAudio(int audioname, int volume)
     {
         SDL_Init(SDL_INIT_AUDIO);
