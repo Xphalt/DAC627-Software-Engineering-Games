@@ -1,11 +1,9 @@
 #include <SDL.h>
 #include "game.h"
 
-using namespace std;
-
 int main(int argc, char* argv[])
 {
-	game* j = new game();
-	j->update();
+	game* new_game = new game();
+	new_game->update();
 	return 0;
 }

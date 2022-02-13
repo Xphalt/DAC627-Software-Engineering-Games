@@ -1,4 +1,5 @@
 #include "InputMaster.h"
+#include "Gamepad.h"
 
 InputMaster::InputMaster()
 {

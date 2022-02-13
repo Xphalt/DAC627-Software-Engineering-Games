@@ -49,15 +49,6 @@
     <ClCompile Include="gameobject.cpp">
       <Filter>Engine\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="input_component.cpp">
-      <Filter>Engine\Interfaces</Filter>
-    </ClCompile>
-    <ClCompile Include="logic_component.cpp">
-      <Filter>Engine\Interfaces</Filter>
-    </ClCompile>
-    <ClCompile Include="output_component.cpp">
-      <Filter>Engine\Interfaces</Filter>
-    </ClCompile>
     <ClCompile Include="Gamepad.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
@@ -88,15 +79,6 @@
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
     <ClInclude Include="gameobject.h">
-      <Filter>Engine\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="input_component.h">
-      <Filter>Engine\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="logic_component.h">
-      <Filter>Engine\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="output_component.h">
       <Filter>Engine\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="Gamepad.h">

@@ -3,7 +3,6 @@
 #include <SDL_gamecontroller.h>
 #include <iostream>
 #include <vector>
-#include "Gamepad.cpp"
 
 struct GamePadControls
 {

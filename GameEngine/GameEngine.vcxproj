@@ -27,10 +27,7 @@
     <ClCompile Include="Gamepad.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
     <ClCompile Include="InputMaster.cpp" />
-    <ClCompile Include="input_component.cpp" />
-    <ClCompile Include="logic_component.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="output_component.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ui_component.cpp" />
   </ItemGroup>
@@ -43,9 +40,6 @@
     <ClInclude Include="Gamepad.h" />
     <ClInclude Include="Graphics\Window.h" />
     <ClInclude Include="InputMaster.h" />
-    <ClInclude Include="input_component.h" />
-    <ClInclude Include="logic_component.h" />
-    <ClInclude Include="output_component.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ui_component.h" />
   </ItemGroup>
