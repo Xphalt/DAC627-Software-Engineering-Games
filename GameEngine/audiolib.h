@@ -13,7 +13,7 @@ class audiolib
 {
     public:
         //audiolib();
-        static int runAudio(int audioname, int volume);
+        static int runAudio(std::string audioname, int volume);
         void initialiselibrary();
 
         enum audiotype { MUSIC, SFX, NUM_OF_TYPES };
