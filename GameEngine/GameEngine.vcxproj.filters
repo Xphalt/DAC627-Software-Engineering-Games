@@ -64,6 +64,9 @@
     <ClCompile Include="Graphics\Window.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="tilemap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -96,5 +99,6 @@
     <ClInclude Include="Renderer.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="tilemap.h" />
   </ItemGroup>
 </Project>

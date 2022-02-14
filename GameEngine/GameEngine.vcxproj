@@ -29,6 +29,7 @@
     <ClCompile Include="InputMaster.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="tilemap.cpp" />
     <ClCompile Include="ui_component.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +42,7 @@
     <ClInclude Include="Graphics\Window.h" />
     <ClInclude Include="InputMaster.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="tilemap.h" />
     <ClInclude Include="ui_component.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
