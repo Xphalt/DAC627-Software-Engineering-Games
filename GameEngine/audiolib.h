@@ -30,5 +30,8 @@ class audiolib
         const char* musicPath[19] = { "assets/audio/music" };
 
         bool loadfiles();
+
+        // make code to check for .WAV files and pick them up / put them in to an enum
+        // ^ this up above is so users don't need to remember the names of all the sound files
 };
 
