@@ -65,7 +65,7 @@
       <Filter>Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="tilemap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +99,8 @@
     <ClInclude Include="Renderer.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="tilemap.h" />
+    <ClInclude Include="tilemap.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
