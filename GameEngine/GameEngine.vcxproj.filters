@@ -67,6 +67,12 @@
     <ClCompile Include="tilemap.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="audiolib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audioman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -101,6 +107,12 @@
     </ClInclude>
     <ClInclude Include="tilemap.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="audiolib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audioman.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

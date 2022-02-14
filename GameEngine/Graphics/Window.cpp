@@ -1,4 +1,7 @@
 #include "Window.h"
+#include "../audiolib.h"
+
+#include <iostream>
 
 Window::Window()
 {
