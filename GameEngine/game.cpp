@@ -4,6 +4,7 @@
 game::game()
 {
 	m_p_gameobject = new gameobject();
+	// Tiago = smelly
 }
 
 game::~game()
