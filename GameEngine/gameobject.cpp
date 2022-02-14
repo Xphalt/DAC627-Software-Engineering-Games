@@ -3,11 +3,11 @@
 #include "output_component.h"
 #include "logic_component.h"
 
-#include "audiolib.h"
+#include "audioman.h"
 
 gameobject::gameobject()
 {
-	audiolib::runAudio("MusicIdea", 69); //unironically 69 is a really good medium volume...
+	audioman::runAudio("MusicIdea", 69); //unironically 69 is a really good medium volume...
 	m_p_input_component = new input_component();
 	m_p_output_component = new output_component();
 	m_p_logic_component = new logic_component();
