@@ -24,6 +24,8 @@ public:
 
 	// fade outs via the two channels for "Mix_FadeInMusic" & "Mix_FadeOutMusic"
 
+	// make programming check how long audio file is and set up to end audio at audio end...
+
 
 	//change the string to audio library
 
