@@ -73,6 +73,15 @@
     <ClCompile Include="audioman.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="slider.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="text.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -108,11 +117,16 @@
     <ClInclude Include="tilemap.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="audiolib.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="audiolib.h" />
+    <ClInclude Include="audioman.h" />
+    <ClInclude Include="image.h">
+      <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="audioman.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="slider.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="text.h">
+      <Filter>Engine\Components\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
