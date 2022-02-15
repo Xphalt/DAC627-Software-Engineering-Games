@@ -23,6 +23,7 @@
     <ClCompile Include="animator.cpp" />
     <ClCompile Include="audiolib.cpp" />
     <ClCompile Include="audioman.cpp" />
+    <ClCompile Include="button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameobject.cpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="animator.h" />
     <ClInclude Include="audiolib.h" />
     <ClInclude Include="audioman.h" />
+    <ClInclude Include="button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameobject.h" />

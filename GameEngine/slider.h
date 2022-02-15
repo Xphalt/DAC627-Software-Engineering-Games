@@ -5,31 +5,36 @@
 
 #pragma once
 
-#include "image.h"
+#include "button.h"
 
 class slider : public ui_component {
 public:
 	slider(	SDL_Renderer* _renderer, 
-			const std::string &_background_image_path,
-			const std::string &_fill_image_path,
-			const std::string &_handle_image_path,
+			const std::string& _background_image_path,
+			const std::string& _fill_image_path,
+			// Paths correspond to BUTTON_STATE enum (button.h)
+			std::vector<const std::string&> _handle_image_paths,
 			float _min_value, 
 			float _max_value, 
-			float _x, 
-			float _y, 
-			float _width, 
-			float _height, 
+			int _x, 
+			int _y, 
+			int _width, 
+			int _height, 
 			double _rotation);
 	~slider();
 
 	void set_value(float _value);
-	void set_images(std::string _background_image_path, std::string _fill_image_path, std::string _handle_image_path);
+	void modify_value(float _value);
+	void set_images(std::string _background_image_path, std::string _fill_image_path);
+	void set_handle(std::vector<const std::string&> _handle_image_paths, std::function<void()> _callback);
+
+	void on_handle_move();
 
 	void draw() override;
 private:
 	image* m_p_background = nullptr;
 	image* m_p_fill = nullptr;
-	image* m_p_handle = nullptr;
+	button* m_p_handle = nullptr;
 
 	float m_min_value;
 	float m_max_value;

@@ -1,6 +1,6 @@
 #include "ui_component.h"
 
-ui_component::ui_component(SDL_Renderer* _renderer, float _x, float _y, float _width, float _height, double _rotation)
+ui_component::ui_component(SDL_Renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation)
 {
 	m_p_renderer = _renderer;
 

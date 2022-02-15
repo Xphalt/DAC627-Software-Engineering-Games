@@ -82,6 +82,9 @@
     <ClCompile Include="text.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -126,6 +129,9 @@
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
     <ClInclude Include="text.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
   </ItemGroup>
