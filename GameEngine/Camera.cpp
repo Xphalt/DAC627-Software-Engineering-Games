@@ -79,12 +79,12 @@ bool Camera::SetMapFullSize(int _width, int _height)
 
 int Camera::GetStartRow()
 {
-	return cameraRect.y / tileHeight; 
+	return cameraRect.y / (tileHeight * FOVscaleFactor); 
 }
 
 int Camera::GetEndRow(int _numberOfTilesVertical)
 {
-	int endRow = (cameraRect.y + cameraRect.h) / tileHeight;
+	int endRow = (cameraRect.y + cameraRect.h) / (tileHeight * FOVscaleFactor);
 	if (endRow > _numberOfTilesVertical) //check boundaries
 		endRow = _numberOfTilesVertical;
 
@@ -93,14 +93,14 @@ int Camera::GetEndRow(int _numberOfTilesVertical)
 
 int Camera::GetStartColumn()
 {
-	return cameraRect.x / tileWidth;
+	return cameraRect.x / (tileWidth * FOVscaleFactor);
 }
 
 int Camera::GetEndColumn(int _numberOfTilesHorizontal)
 {
-	int endColumn = cameraRect.x + cameraRect.w / tileWidth;
+	int endColumn = (cameraRect.x + cameraRect.w) / (tileWidth * FOVscaleFactor);
 	if (endColumn > _numberOfTilesHorizontal) //check boundaries
 		endColumn = _numberOfTilesHorizontal;
 
 	return endColumn;
-} 
+}

@@ -16,6 +16,9 @@ private:
 	//Screen and camera details details
 	SDL_Rect cameraRect;
 
+	//Zoom 
+	float FOVscaleFactor = 1.0f;
+
 public:
 	Camera();
 	Camera(SDL_Rect _pRect, int _tileWidth, int _tileHeight, int _screenWidth, int _screenHeight, int _mapFullWidth, int _mapFullHeight);
