@@ -32,6 +32,7 @@ class audiolib
         bool loadfiles();
 
         // make code to check for .WAV files and pick them up / put them in to an enum
+        // find way to associate enum with names...
         // ^ this up above is so users don't need to remember the names of all the sound files
 };
 
