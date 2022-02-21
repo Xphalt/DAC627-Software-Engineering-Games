@@ -1,5 +1,15 @@
 #pragma once
 
+#include "Renderer.h"
+#include "image.h"
+#include "ui_component.h"
+#include "Camera.h"
+#include "animation.h"
+#include "animator.h"
+#include "audioman.h"
+#include "InputMaster.h"
+
+
 class input_component;
 class output_component;
 class logic_component;
@@ -23,7 +33,6 @@ class logic_component;
 
 class gameobject {
 public:
-	gameobject();
 	~gameobject();
 
 	void update();
@@ -35,7 +44,23 @@ public:
 	void set_rotation(float _x, float _y);
 	void set_scale(float _x, float _y);
 
+	gameobject* create_player();
+	gameobject* create_enemy();
+	gameobject* create_UI();
+
 private:
+	// player constructor
+	gameobject(Renderer* _renderer, image* _image, Camera* _Camera, animation* _animation, animator* _animator, audioman* _audioman, InputMaster* _InputMaster);
+
+	// enemy constructor
+	gameobject(Renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman);
+
+	// UI constructor
+	gameobject(Renderer* _renderer, ui_component* _ui_component, animation* _animation, animator* _animator, audioman* audioman);
+
+	// for more constructors, collision/movement components need to be implemented
+
+
 	input_component* m_p_input_component{ nullptr };
 	output_component* m_p_output_component{ nullptr };
 	logic_component* m_p_logic_component{ nullptr };
