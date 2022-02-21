@@ -11,7 +11,9 @@
 
 class image: public ui_component {
 public:
-	image(SDL_Renderer* _renderer, const std::string &_image_path, float _x, float _y, float _width, float _height, double _rotation);
+	image() = default;
+
+	image(SDL_Renderer* _renderer, const std::string &_image_path, int _x, int _y, int _width, int _height, double _rotation);
 	~image();
 	
 	void set_image(std::string _image_path);

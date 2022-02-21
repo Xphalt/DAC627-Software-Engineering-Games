@@ -21,26 +21,42 @@
   <ItemGroup>
     <ClCompile Include="animation.cpp" />
     <ClCompile Include="animator.cpp" />
+    <ClCompile Include="audiolib.cpp" />
+    <ClCompile Include="audioman.cpp" />
+    <ClCompile Include="button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameobject.cpp" />
     <ClCompile Include="Gamepad.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
+    <ClCompile Include="hotbar.cpp" />
+    <ClCompile Include="image.cpp" />
     <ClCompile Include="InputMaster.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="slider.cpp" />
+    <ClCompile Include="text.cpp" />
+    <ClCompile Include="tilemap.cpp" />
     <ClCompile Include="ui_component.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animation.h" />
     <ClInclude Include="animator.h" />
+    <ClInclude Include="audiolib.h" />
+    <ClInclude Include="audioman.h" />
+    <ClInclude Include="button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameobject.h" />
     <ClInclude Include="Gamepad.h" />
     <ClInclude Include="Graphics\Window.h" />
+    <ClInclude Include="hotbar.h" />
+    <ClInclude Include="image.h" />
     <ClInclude Include="InputMaster.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="slider.h" />
+    <ClInclude Include="text.h" />
+    <ClInclude Include="tilemap.h" />
     <ClInclude Include="ui_component.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

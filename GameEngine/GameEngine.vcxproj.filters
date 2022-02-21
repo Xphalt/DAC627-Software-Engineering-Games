@@ -64,6 +64,30 @@
     <ClCompile Include="Graphics\Window.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="tilemap.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="audiolib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audioman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="slider.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="text.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="hotbar.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -95,6 +119,26 @@
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="tilemap.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="audiolib.h" />
+    <ClInclude Include="audioman.h" />
+    <ClInclude Include="image.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="slider.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="text.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="hotbar.h">
+      <Filter>Engine\Components\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
