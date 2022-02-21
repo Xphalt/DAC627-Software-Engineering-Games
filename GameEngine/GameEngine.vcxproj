@@ -29,6 +29,7 @@
     <ClCompile Include="gameobject.cpp" />
     <ClCompile Include="Gamepad.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
+    <ClCompile Include="hotbar.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="InputMaster.cpp" />
     <ClCompile Include="main.cpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="gameobject.h" />
     <ClInclude Include="Gamepad.h" />
     <ClInclude Include="Graphics\Window.h" />
+    <ClInclude Include="hotbar.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="InputMaster.h" />
     <ClInclude Include="Renderer.h" />

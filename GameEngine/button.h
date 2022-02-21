@@ -1,5 +1,5 @@
 /*
-* A button is an image that can have a normal, hover or pressed state
+* A button has an image that changes between NORMAL, HOVERED and PRESSED states and holds callbacks for being hovered and clicked
 * Created by: Dominique
 */
 
@@ -24,7 +24,11 @@ public:
 		int _width,
 		int _height,
 		double _rotation);
+	button(SDL_Renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation);
 	~button();
+
+	void set_images(std::vector<const std::string&> _image_paths);
+	void set_pointer_up_callback(std::function<void()> _pointer_up_callback);
 
 	void modify_interact_rect(int _x, int _y, int _w, int _h);
 
