@@ -12,7 +12,7 @@
 
 enum BUTTON_STATE { NORMAL, HOVERED, PRESSED };
 
-class button : public image {
+class button : public ui_component {
 public:
 	button(
 		SDL_Renderer* _renderer, 
@@ -34,11 +34,13 @@ public:
 	void on_pointer_down();
 	void on_pointer_move();
 	void on_pointer_up();
-private:
-	SDL_Rect m_interact_rect;
 
+	void draw() override;
+private:
 	// Corresponds to BUTTON_STATE enum
 	std::vector<const std::string&> m_image_paths;
+
+	image* m_p_image;
 
 	// Use std::function and lambdas for callbacks (see slider constructor for an example)
 	std::function<void()> m_pointer_up_callback;
