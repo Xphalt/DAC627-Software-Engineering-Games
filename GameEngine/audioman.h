@@ -14,7 +14,9 @@ class audioman
 public:
 	static int runAudio(std::string audioname, int volume, Uint8 channels);
 
-	static int runSFX(std::string audioname, int volume, Uint8 channels);
+	enum SFXtype { JUMP, DAMAGEENEMY, PLAYERHURT, SELECT, BACK, DASH, PLAYERMELEE, PLAYERRANGEDATTACK, PICKUP, HOTKEY1, HOTKEY2, HOTKEY3, EXPLOSION, HEAL, POWERUP, SPELL, BOSSCHARGE, BOSSRIPPLE, BOSSPROJECTILE, COLLECTION, NUM_OF_SFXTYPES };
+
+	static int runSFX(SFXtype audioname, int volume, Uint8 channels);
 	static int runmusic(std::string audioname, int volume, Uint8 channels, bool loop);
 
 	static int channelDone(int channel);

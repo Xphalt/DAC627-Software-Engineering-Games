@@ -5,6 +5,8 @@
 #include "SDL.h"
 #include "SDL_audio.h"
 
+#ifdef _WIN32
+
 #include <iostream>
 #include <windows.h>
 #include <string>
@@ -15,6 +17,9 @@ class audiolib
         //audiolib();
         //static int runAudio(std::string audioname, int volume);
         void initialiselibrary();
+
+        char** directory_files(const char* path, size_t* size_return);
+        /*vector<string> get_all_files_full_path_within_folder(string folder);*/
 
         enum audiotype { MUSIC, SFX, NUM_OF_TYPES };
         enum SFXcomponent { PLAYER, ENEMY, UI, NUM_OF_COMPS };
@@ -34,4 +39,8 @@ class audiolib
         // make code to check for .WAV files and pick them up / put them in to an enum
         // find way to associate enum with names...
         // ^ this up above is so users don't need to remember the names of all the sound files
+
+
 };
+
+#endif // _WIN32

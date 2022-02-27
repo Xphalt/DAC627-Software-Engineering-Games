@@ -105,9 +105,74 @@ int audioman::runmusic(std::string audioname, int volume, Uint8 channels, bool l
     return(0);
 }
 
-int audioman::runSFX(std::string audioname, int volume, Uint8 channels)
+int audioman::runSFX(SFXtype audioname, int volume, Uint8 channels)
 {
     // drag the sound in to the folder audiolib.cpp is in //
+
+    std::string sound;
+
+    switch (audioname) {
+    case JUMP:
+        sound = "jump";
+        break;
+    case DAMAGEENEMY:
+        sound = "enemyHurt";
+        break;
+    case PLAYERHURT:
+        sound = "playerHurt";
+        break;
+    case SELECT:
+        sound = "Select";
+        break;
+    case BACK:
+        sound = "Back";
+        break;
+    case DASH:
+        sound = "Dash";
+        break;
+    case PLAYERMELEE:
+        sound = "Melee";
+        break;
+    case PLAYERRANGEDATTACK:
+        sound = "playerHurt";
+        break;
+    case PICKUP:
+        sound = "Pickup";
+        break;
+    case HOTKEY1:
+        sound = "Hotkey 1";
+        break;
+    case HOTKEY2:
+        sound = "Hotkey 2";
+        break;
+    case HOTKEY3:
+        sound = "Hotkey 3";
+        break;
+    case EXPLOSION:
+        sound = "Explosion";
+        break;
+    case HEAL:
+        sound = "Heal";
+        break;
+    case POWERUP:
+        sound = "PowerUp";
+        break;
+    case SPELL:
+        sound = "Spell";
+        break;
+    case BOSSCHARGE:
+        sound = "Boss Charge Attack";
+        break;
+    case BOSSRIPPLE:
+        sound = "Ripple Attack";
+        break;
+    case BOSSPROJECTILE:
+        sound = "Projectile";
+        break;
+    case COLLECTION:
+        sound = "Pickup";
+        break;
+    }
 
     SDL_Init(SDL_INIT_AUDIO);
 
@@ -122,7 +187,7 @@ int audioman::runSFX(std::string audioname, int volume, Uint8 channels)
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 
     // inputting audio to the file
-    std::string fileInput = audioname + ".wav";
+    std::string fileInput = sound + ".wav";
     Mix_Chunk* music = Mix_LoadWAV(fileInput.c_str());
 
     //music = Mix_LoadWAV("MusicIdea.WAV");
