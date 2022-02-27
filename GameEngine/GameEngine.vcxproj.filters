@@ -88,6 +88,9 @@
     <ClCompile Include="hotbar.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -140,5 +143,6 @@
     <ClInclude Include="hotbar.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
 </Project>

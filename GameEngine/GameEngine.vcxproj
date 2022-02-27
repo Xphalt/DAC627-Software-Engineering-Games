@@ -37,6 +37,7 @@
     <ClCompile Include="slider.cpp" />
     <ClCompile Include="text.cpp" />
     <ClCompile Include="tilemap.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="ui_component.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +58,7 @@
     <ClInclude Include="slider.h" />
     <ClInclude Include="text.h" />
     <ClInclude Include="tilemap.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="ui_component.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
