@@ -18,7 +18,7 @@ class audiolib
 
         enum audiotype { MUSIC, SFX, NUM_OF_TYPES };
         enum SFXcomponent { PLAYER, ENEMY, UI, NUM_OF_COMPS };
-        enum SFXtype { JUMP, DAMAGE, COLLECTION, NUM_OF_SFXTYPES };
+        enum SFXtype { JUMP, DAMAGEENEMY, PLAYERHURT, SELECT, BACK, DASH, PLAYERMELEE, PLAYERRANGEDATTACK, PICKUP, HOTKEY1, HOTKEY2, HOTKEY3, EXPLOSION, HEAL, POWERUP, SPELL, BOSSCHARGE, BOSSRIPPLE, BOSSPROJECTILE, COLLECTION, NUM_OF_SFXTYPES };
         enum musictype { MENU, LEVEL, COMBAT, NUM_OF_MUSICTYPES };
 
     private:
@@ -35,4 +35,3 @@ class audiolib
         // find way to associate enum with names...
         // ^ this up above is so users don't need to remember the names of all the sound files
 };
-
