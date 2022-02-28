@@ -34,13 +34,15 @@ std::vector<gameobject*> tilemap::return_objects()
 		{
 			if (get_object_at(column, row) != '.')
 			{
-				int x = m_block_size * column; //Get game coordinates
-				int y = m_block_size * row;
+				int x = (m_block_size * column * 0.5f) - (m_block_size * row * 0.5f);
+				int y = (m_block_size * row * 0.5f) + (m_block_size * column * 0.5f);
 
 				//Create all objects in game based on text file loaded externally
 				switch (std::toupper(get_object_at(column, row)))
 				{
 				case WALL:
+					x += m_block_size * 0.5f;
+					y -= m_block_size * 0.5f;
 					//objects.push_back(new gameobject());
 					break;
 
