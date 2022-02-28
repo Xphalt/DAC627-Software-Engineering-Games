@@ -1,16 +1,17 @@
 #include "audioman.h"
 
-int audioman::runAudio(std::string audioname, int volume, Uint8 channels)
+int audioman::runSFX(std::string audioname, int volume, Uint8 channels)
 {
-    // drag the sound in to the folder audiolib.cpp is in //
+    // drag the sound in to the folder in which audioman.cpp is in //
 
+    //initialise audio
     SDL_Init(SDL_INIT_AUDIO);
 
+    //set amount of channels to be used
     Mix_AllocateChannels(32);
 
     // load WAV file
     SDL_AudioSpec wavSpec;
-    Uint32 wavLength;
 
     // open audio device
     SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
@@ -18,56 +19,30 @@ int audioman::runAudio(std::string audioname, int volume, Uint8 channels)
 
     // inputting audio to the file
     std::string fileInput = audioname + ".wav";
-    Mix_Chunk* music = Mix_LoadWAV(fileInput.c_str());
+    Mix_Chunk* audio = Mix_LoadWAV(fileInput.c_str());
 
-    //music = Mix_LoadWAV("MusicIdea.WAV");
-
-    // musical error check
-    //if (Mix_PlayChannel(channels, music, 0) == -1) //(was -1)
-    //{
-    //    printf("\nMix_PlayChannel: %s\n", Mix_GetError());
-    //}
-
-    //Mix_PlayChannel(Mix_Playing(-1)+1, music, 0);
-    Mix_PlayChannel(channels, music, 0);
+    // play sound
+    Mix_PlayChannel(channels, audio, 0);
     printf("\nMix_PlayChannel: %s\n", Mix_GetError());
 
-    //printf("\nMix_PlayChannel: ", Mix_GetError());
 
     //set the sound's volume
-    music->volume = volume; // if an error pops up a break point here, that usually means you arent correctly naming the song you want to use!
-    // TESTING //std::cout << "\nMusic Volume is at: " + std::to_string(music->volume);
+    audio->volume = volume; // if an error pops up a break point here, that usually means you arent correctly naming the song you want to use!
 
-    //play the music
-    Mix_PlayingMusic();
-
-    Mix_SetMusicPosition(5.0);
-
-    // keep window open long enough to hear the sound
-    //SDL_Delay(1000);
-
-    // clean up // this stuff is for if it is a sound effect
+    // clean up
     SDL_CloseAudioDevice(deviceId);
-    //SDL_Quit();
 
     return(0);
 }
 
-/// <summary>
-///             THIS IS WHERE THE NEW STUFF COMES IN TO IT!!!
-/// </summary>
-
-int audioman::runmusic(std::string audioname, int volume, Uint8 channels, bool loop)
+int audioman::runmusic(std::string audioname, int volume, int loopamount, int fadeintime)
 {
-    // drag the sound in to the folder audiolib.cpp is in //
+    // drag the sound in to the folder in which audioman.cpp is in //
 
     SDL_Init(SDL_INIT_AUDIO);
 
-    Mix_AllocateChannels(32);
-
     // load WAV file
     SDL_AudioSpec wavSpec;
-    Uint32 wavLength;
 
     // open audio device
     SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
@@ -75,112 +50,111 @@ int audioman::runmusic(std::string audioname, int volume, Uint8 channels, bool l
 
     // inputting audio to the file
     std::string fileInput = audioname + ".wav";
-    Mix_Chunk* music = Mix_LoadWAV(fileInput.c_str());
+    Mix_Music* music = Mix_LoadMUS(fileInput.c_str());
 
-    //music = Mix_LoadWAV("MusicIdea.WAV");
-
-    // musical error check
-    //if (Mix_PlayChannel(channels, music, 0) == -1) //(was -1)
-    //{
-    //    printf("\nMix_PlayChannel: %s\n", Mix_GetError());
-    //}
-
-    Mix_PlayChannel(Mix_Playing(-1) + 1, music, 0);
+    // play music
+    Mix_FadeInMusic(music, loopamount, fadeintime);
     printf("\nMix_PlayChannel: %s\n", Mix_GetError());
 
-    //set the sound's volume
-    music->volume = volume; // if an error pops up a break point here, that usually means you arent correctly naming the song you want to use!
-    // TESTING //std::cout << "\nMusic Volume is at: " + std::to_string(music->volume);
-
-    //play the music
-    Mix_PlayingMusic();
-
-    // keep window open long enough to hear the sound
-    //SDL_Delay(100000);
+    //set the music's volume
+    Mix_VolumeMusic(volume); // if an error pops up a break point around here, that usually means you arent correctly naming the song you want to use!
 
     // clean up // this stuff is for if it is a sound effect
     SDL_CloseAudioDevice(deviceId);
-    //SDL_Quit();
 
     return(0);
 }
 
-int audioman::runSFX(SFXtype audioname, int volume, Uint8 channels)
+int audioman::endmusic(int fadeouttime)
 {
-    // drag the sound in to the folder audiolib.cpp is in //
+    Mix_FadeOutMusic(fadeouttime);
+    return 0;
+}
 
+int audioman::volmusic(int volume)
+{
+    Mix_VolumeMusic(volume);
+    return 0;
+}
+
+// enum/list based options fot those who just want to use only the base in engine sounds rather then making and dragging in to the folder in their own!
+
+int audioman::runSFXlist(int soundnum, int volume, Uint8 channels)
+{
     std::string sound;
 
-    switch (audioname) {
-    case JUMP:
-        sound = "jump";
+    //setting the int to the sound
+    switch (soundnum) {
+    case SFXtype::JUMP:
+        sound = "Jump";
         break;
-    case DAMAGEENEMY:
+    case SFXtype::DAMAGEENEMY:
         sound = "enemyHurt";
         break;
-    case PLAYERHURT:
+    case SFXtype::PLAYERHURT:
         sound = "playerHurt";
         break;
-    case SELECT:
+    case SFXtype::SELECT:
         sound = "Select";
         break;
-    case BACK:
+    case SFXtype::BACK:
         sound = "Back";
         break;
-    case DASH:
+    case SFXtype::DASH:
         sound = "Dash";
         break;
-    case PLAYERMELEE:
+    case SFXtype::PLAYERMELEE:
         sound = "Melee";
         break;
-    case PLAYERRANGEDATTACK:
+    case SFXtype::PLAYERRANGEDATTACK:
         sound = "playerHurt";
         break;
-    case PICKUP:
+    case SFXtype::PICKUP:
         sound = "Pickup";
         break;
-    case HOTKEY1:
+    case SFXtype::HOTKEY1:
         sound = "Hotkey 1";
         break;
-    case HOTKEY2:
+    case SFXtype::HOTKEY2:
         sound = "Hotkey 2";
         break;
-    case HOTKEY3:
+    case SFXtype::HOTKEY3:
         sound = "Hotkey 3";
         break;
-    case EXPLOSION:
+    case SFXtype::EXPLOSION:
         sound = "Explosion";
         break;
-    case HEAL:
+    case SFXtype::HEAL:
         sound = "Heal";
         break;
-    case POWERUP:
+    case SFXtype::POWERUP:
         sound = "PowerUp";
         break;
-    case SPELL:
+    case SFXtype::SPELL:
         sound = "Spell";
         break;
-    case BOSSCHARGE:
+    case SFXtype::BOSSCHARGE:
         sound = "Boss Charge Attack";
         break;
-    case BOSSRIPPLE:
+    case SFXtype::BOSSRIPPLE:
         sound = "Ripple Attack";
         break;
-    case BOSSPROJECTILE:
+    case SFXtype::BOSSPROJECTILE:
         sound = "Projectile";
         break;
-    case COLLECTION:
+    case SFXtype::COLLECTION:
         sound = "Pickup";
         break;
     }
 
+    //initialise audio
     SDL_Init(SDL_INIT_AUDIO);
 
+    //set amount of channels to be used
     Mix_AllocateChannels(32);
 
     // load WAV file
     SDL_AudioSpec wavSpec;
-    Uint32 wavLength;
 
     // open audio device
     SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
@@ -190,42 +164,65 @@ int audioman::runSFX(SFXtype audioname, int volume, Uint8 channels)
     std::string fileInput = sound + ".wav";
     Mix_Chunk* music = Mix_LoadWAV(fileInput.c_str());
 
-    //music = Mix_LoadWAV("MusicIdea.WAV");
-
-    // musical error check
-    //if (Mix_PlayChannel(channels, music, 0) == -1) //(was -1)
-    //{
-    //    printf("\nMix_PlayChannel: %s\n", Mix_GetError());
-    //}
-
+    // play sound
     Mix_PlayChannel(Mix_Playing(-1) + 1, music, 0);
     printf("\nMix_PlayChannel: %s\n", Mix_GetError());
 
     //set the sound's volume
     music->volume = volume; // if an error pops up a break point here, that usually means you arent correctly naming the song you want to use!
-    // TESTING //std::cout << "\nMusic Volume is at: " + std::to_string(music->volume);
-
-    //play the music
-    Mix_PlayingMusic();
 
     // keep window open long enough to hear the sound
     SDL_Delay(100000);
 
-    // clean up // this stuff is for if it is a sound effect
+    // clean up 
     SDL_CloseAudioDevice(deviceId);
-    //SDL_Quit();
+
+    return 0;
+}
+
+int audioman::runmusiclist(int audionum, int volume, int loopamount, int fadeintime)
+{
+    std::string audio;
+
+    //setting the int to the sound
+    switch (audionum) {
+    case musictype::IDLE:
+        audio = "Idle";
+        break;
+    case musictype::COMBAT:
+        audio = "Combat";
+        break;
+    case musictype::MUSICIDEA:
+        audio = "MusicIdea";
+        break;
+    case musictype::LEVELTHEME:
+        audio = "LevelTheme";
+        break;
+    }
+
+    // initialising audio
+    SDL_Init(SDL_INIT_AUDIO);
+
+    // load WAV file
+    SDL_AudioSpec wavSpec;
+
+    // open audio device
+    SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+
+    // inputting audio to the file
+    std::string fileInput = audio + ".wav";
+    Mix_Music* music = Mix_LoadMUS(fileInput.c_str());
+
+    // play music
+    Mix_FadeInMusic(music, loopamount, fadeintime);
+    printf("\nMix_PlayChannel: %s\n", Mix_GetError());
+
+    //set the music's volume
+    Mix_VolumeMusic(volume); // if an error pops up a break point around here, that usually means you arent correctly naming the song you want to use!
+
+    // clean up
+    SDL_CloseAudioDevice(deviceId);
 
     return(0);
 }
-
-int audioman::channelDone(int channel)
-{
-    printf("channel %d finished playing.\n", channel);
-    
-        // set the callback for when a channel stops playing
-
-        //Mix_ChannelFinished(channelDone);
-
-        return(0);
-}
-
