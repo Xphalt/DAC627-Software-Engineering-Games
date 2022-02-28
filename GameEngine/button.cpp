@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-button::button(SDL_Renderer* _renderer, std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<const std::string&> _image_paths, int _x, int _y, int _width, int _height, double _rotation)
+button::button(SDL_Renderer* _renderer, std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths, int _x, int _y, int _width, int _height, double _rotation)
 {
 	m_p_renderer = _renderer;
 
@@ -25,7 +25,7 @@ button::button(SDL_Renderer* _renderer, int _x, int _y, int _width, int _height,
 	m_pointer_move_callback = nullptr;
 	m_pointer_up_callback = nullptr;
 
-	std::vector<const std::string&> default_image_paths;
+	std::vector<std::string> default_image_paths;
 	default_image_paths.push_back("ui_assets/sad_panda.png");
 	default_image_paths.push_back("ui_assets/sad_panda.png");
 	default_image_paths.push_back("ui_assets/sad_panda.png");
@@ -43,7 +43,7 @@ button::~button()
 	delete m_p_image;
 }
 
-void button::set_images(std::vector<const std::string&> _image_paths)
+void button::set_images(std::vector<std::string> _image_paths)
 {
 	m_image_paths = _image_paths;
 }

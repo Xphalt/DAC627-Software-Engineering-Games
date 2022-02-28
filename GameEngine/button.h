@@ -18,7 +18,7 @@ public:
 		SDL_Renderer* _renderer, 
 		std::function<void()> _pointer_up_callback, 
 		std::function<void()> _pointer_move_callback, 
-		std::vector<const std::string&> _image_paths, 
+		std::vector<std::string> _image_paths, 
 		int _x,
 		int _y,
 		int _width,
@@ -27,7 +27,7 @@ public:
 	button(SDL_Renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation);
 	~button();
 
-	void set_images(std::vector<const std::string&> _image_paths);
+	void set_images(std::vector<std::string> _image_paths);
 	void set_pointer_up_callback(std::function<void()> _pointer_up_callback);
 
 	void modify_interact_rect(int _x, int _y, int _w, int _h);
@@ -42,7 +42,7 @@ public:
 	void draw() override;
 private:
 	// Corresponds to BUTTON_STATE enum
-	std::vector<const std::string&> m_image_paths;
+	std::vector<std::string> m_image_paths;
 
 	image* m_p_image;
 

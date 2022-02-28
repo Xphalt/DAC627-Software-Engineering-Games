@@ -10,10 +10,10 @@
 class slider : public ui_component {
 public:
 	slider(	SDL_Renderer* _renderer, 
-			const std::string& _background_image_path,
-			const std::string& _fill_image_path,
+			std::string _background_image_path,
+			std::string _fill_image_path,
 			// Paths correspond to BUTTON_STATE enum (button.h)
-			std::vector<const std::string&> _handle_image_paths,
+			std::vector<std::string> _handle_image_paths,
 			float _min_value, 
 			float _max_value, 
 			int _x, 
@@ -26,7 +26,7 @@ public:
 	void set_value(float _value);
 	void modify_value(float _value);
 	void set_images(std::string _background_image_path, std::string _fill_image_path);
-	void set_handle(std::vector<const std::string&> _handle_image_paths, std::function<void()> _callback);
+	void set_handle(std::vector<std::string> _handle_image_paths, std::function<void()> _callback);
 
 	void on_handle_move();
 

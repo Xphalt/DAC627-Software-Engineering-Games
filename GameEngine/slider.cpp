@@ -3,9 +3,9 @@
 #include <iostream>
 
 slider::slider(	SDL_Renderer* _renderer,
-				const std::string& _background_image_path,
-				const std::string& _fill_image_path,
-				std::vector<const std::string&> _handle_image_paths,
+				std::string _background_image_path,
+				std::string _fill_image_path,
+				std::vector<std::string> _handle_image_paths,
 				float _min_value,
 				float _max_value,
 				int _x,
@@ -76,7 +76,7 @@ void slider::set_images(std::string _background_image_path, std::string _fill_im
 	m_p_fill = new image(m_p_renderer, _fill_image_path, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
 	
 }
-void slider::set_handle(std::vector<const std::string&> _handle_image_paths, std::function<void()> _callback)
+void slider::set_handle(std::vector<std::string> _handle_image_paths, std::function<void()> _callback)
 {
 	if (m_p_handle) delete m_p_handle;
 

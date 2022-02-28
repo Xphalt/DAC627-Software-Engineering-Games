@@ -3,7 +3,7 @@
 #include <iostream>
 #include <SDL_ttf.h>
 
-text::text(SDL_Renderer* _renderer, const std::string &_font_path, SDL_Color _color, int _font_size, int _x, int _y, int _width, int _height, double _rotation)
+text::text(SDL_Renderer* _renderer, std::string _font_path, SDL_Color _color, int _font_size, int _x, int _y, int _width, int _height, double _rotation)
 {
 	m_p_renderer = _renderer;
 

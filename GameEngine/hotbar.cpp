@@ -3,7 +3,7 @@
 #include <iostream>
 
 hotbar::hotbar(SDL_Renderer* _renderer,
-	const std::string& _background_image_path,
+	std::string _background_image_path,
 	int _number_of_slots,
 	int _slot_size,
 	int _x,
@@ -43,7 +43,7 @@ hotbar::~hotbar()
 }
 
 // Can set in nullptr for callback if only images are to be changed
-void hotbar::setup_slot(int _index, std::function<void()> _pointer_up_callback, std::vector<const std::string&> _image_paths)
+void hotbar::setup_slot(int _index, std::function<void()> _pointer_up_callback, std::vector<std::string> _image_paths)
 {
 	if (_index >= m_slots.size())
 	{
