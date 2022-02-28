@@ -14,3 +14,4 @@ void game::update()
 {
 	m_p_gameobject->update();
 }
+

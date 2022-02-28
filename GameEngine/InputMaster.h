@@ -1,14 +1,9 @@
 #pragma once
 #include <SDL.h>
+#include <SDL_joystick.h>
 #include <SDL_gamecontroller.h>
 #include <iostream>
 #include <vector>
-
-struct GamePadControls
-{
-	bool buttons[SDL_CONTROLLER_BUTTON_MAX];
-	int axis[SDL_CONTROLLER_AXIS_MAX];
-};
 
 enum ActionKeys
 {
@@ -19,8 +14,6 @@ enum Controllers
 {
 	PLAYER1 = 0, PLAYER2, totalControllers
 };
-
-int m_mouseDeadZone = 25000;
 
 class InputMaster
 {
@@ -42,19 +35,14 @@ public:
 protected:
 	SDL_Event m_event;
 
-	std::vector<SDL_GameController*> m_pConnectedControllers;
-	std::vector<GamePadControls> m_controllerInputs;
-	std::vector<GamePadControls> m_lastControllerInputs;
+	//std::vector<SDL_GameController*> m_pConnectedControllers;
+	std::vector<Gamepad*> m_pConnectedControllers;
 	int m_numGamepads = 0;
-
-	void UpdateInputVectors();
 
 	void AddController(int deviceID);
 	void RemoveController(int deviceID);
 
-	int ProcessAxisInput(float input);
-
-	bool m_isControllerInitialised = false;
+	//bool m_isControllerInitialised = false;
 
 	bool m_keysPressed[SIZE_OF_ACTION_KEYS];
 };
