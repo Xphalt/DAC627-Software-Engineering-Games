@@ -126,8 +126,6 @@
     <ClInclude Include="tilemap.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="audiolib.h" />
-    <ClInclude Include="audioman.h" />
     <ClInclude Include="image.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
@@ -143,6 +141,14 @@
     <ClInclude Include="hotbar.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h" />
+    <ClInclude Include="audiolib.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audioman.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

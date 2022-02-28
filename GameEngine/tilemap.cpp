@@ -57,7 +57,7 @@ int tilemap::get_grid_height() { return m_layout.size(); }
 
 int tilemap::get_grid_width() { return m_layout[0].length(); }
 
-char tilemap::get_object_at(int _x, int _y) { return m_layout[y][x]; }
+char tilemap::get_object_at(int _x, int _y) { return m_layout[_y][_x]; }
 
 int tilemap::get_block_size() { return m_block_size; }
 
@@ -65,6 +65,6 @@ int tilemap::get_stage_width() { return m_stage_width; }
 
 int tilemap::get_stage_height() { return m_stage_height; }
 
-int tilemap::get_row(int _y) { return std::floor(y / m_block_size); }
+int tilemap::get_row(int _y) { return std::floor(_y / m_block_size); }
 
-int tilemap::get_column(int _x) { return std::floor(x / m_block_size); }
+int tilemap::get_column(int _x) { return std::floor(_x / m_block_size); }
