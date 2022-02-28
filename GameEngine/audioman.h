@@ -17,7 +17,7 @@ public:
 	enum SFXtype { JUMP, DAMAGEENEMY, PLAYERHURT, SELECT, BACK, DASH, PLAYERMELEE, PLAYERRANGEDATTACK, PICKUP, HOTKEY1, HOTKEY2, HOTKEY3, EXPLOSION, HEAL, POWERUP, SPELL, BOSSCHARGE, BOSSRIPPLE, BOSSPROJECTILE, COLLECTION, NUM_OF_SFXTYPES };
 
 	// SFX running functions
-	static int runSFX(std::string audioname, int volume, Uint8 channels);
+	static int runSFX(std::string soundname, int volume, Uint8 channels);
 	static int runSFXlist(int soundnum, int volume, Uint8 channels);
 	
 	// music running functions

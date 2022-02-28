@@ -1,6 +1,6 @@
 #include "audioman.h"
 
-int audioman::runSFX(std::string audioname, int volume, Uint8 channels)
+int audioman::runSFX(std::string soundname, int volume, Uint8 channels)
 {
     // drag the sound in to the folder in which audioman.cpp is in //
 
@@ -18,7 +18,7 @@ int audioman::runSFX(std::string audioname, int volume, Uint8 channels)
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 
     // inputting audio to the file
-    std::string fileInput = audioname + ".wav";
+    std::string fileInput = soundname + ".wav";
     Mix_Chunk* audio = Mix_LoadWAV(fileInput.c_str());
 
     // play sound
