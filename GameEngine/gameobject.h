@@ -50,7 +50,7 @@ public:
 
 private:
 	// player constructor
-	gameobject(Renderer* _renderer, image* _image, Camera* _Camera, animation* _animation, animator* _animator, audioman* _audioman, InputMaster* _InputMaster);
+	gameobject(Renderer* _renderer, image* _image, camera* _Camera, animation* _animation, animator* _animator, audioman* _audioman, InputMaster* _InputMaster);
 
 	// enemy constructor
 	gameobject(Renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman);

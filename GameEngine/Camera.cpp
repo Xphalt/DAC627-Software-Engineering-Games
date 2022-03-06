@@ -1,104 +1,104 @@
 #include "Camera.h"
 
 
-Camera::Camera()
+camera::camera()
 	:
-	playerRect(SDL_Rect()), 
-	tileWidth(32), 
-	tileHeight(32), 
-	mapFullWidth(32),
-	mapFullHeight(32),
-	cameraRect({ 0,0,1280,720 })
+	m_player_rect{ SDL_Rect() },
+	m_tile_width{ 32 },
+	m_tile_height{ 32 },
+	m_map_full_width{ 32 },
+	m_map_full_height{ 32 },
+	m_camera_rect({ 0,0,1280,720 })
 { }
 
-Camera::Camera(SDL_Rect _pRect, int _tileWidth, int _tileHeight, int _screenWidth, int _screenHeight, int _mapFullWidth, int _mapFullHeight)
+camera::camera(SDL_Rect _pRect, int _tileWidth, int _tileHeight, int _screenWidth, int _screenHeight, int _mapFullWidth, int _mapFullHeight)
 	:
-	playerRect(_pRect), 
-	tileWidth(tileWidth), 
-	tileHeight(_tileHeight), 
-	cameraRect({ 0,0,_screenWidth,_screenHeight }),
-	mapFullWidth(mapFullWidth),
-	mapFullHeight(mapFullHeight)
+	m_player_rect{ _pRect },
+	m_tile_width{m_tile_width },
+	m_tile_height{_tileHeight },
+	m_camera_rect({ 0,0,_screenWidth,_screenHeight }),
+	m_map_full_width{ m_map_full_width },
+	m_map_full_height{ m_map_full_height }
 {
 	//Calculate plyer position
-	cameraRect.x = (playerRect.x + (playerRect.h / 2)) - cameraRect.w / 2;
-	cameraRect.y = (playerRect.y + (playerRect.h / 2)) - cameraRect.h / 2;
+	m_camera_rect.x = (m_player_rect.x + (m_player_rect.h / 2)) - m_camera_rect.w / 2;
+	m_camera_rect.y = (m_player_rect.y + (m_player_rect.h / 2)) - m_camera_rect.h / 2;
 }
 
-void Camera::UpdateTargetPos(int _pX, int _pY)
+void camera::update_target_pos(int _pX, int _pY)
 {
 	//Set player in the middle 
-	cameraRect.x = (_pX + (playerRect.w / 2)) - cameraRect.w / 2;
-	cameraRect.y = (_pY + (playerRect.h / 2)) - cameraRect.h / 2;
+	m_camera_rect.x = (_pX + (m_player_rect.w / 2)) - m_camera_rect.w / 2;
+	m_camera_rect.y = (_pY + (m_player_rect.h / 2)) - m_camera_rect.h / 2;
 
 	//Avoid player in the middle when at the edge of the map
-	if (cameraRect.x < 0)
-		cameraRect.x = 0;
-	if (cameraRect.y < 0)
-		cameraRect.y = 0;
+	if (m_camera_rect.x < 0)
+		m_camera_rect.x = 0;
+	if (m_camera_rect.y < 0)
+		m_camera_rect.y = 0;
 
 	//same as up, but checks the end of the map
-	if (cameraRect.x > mapFullWidth - cameraRect.w)
-		cameraRect.x = mapFullWidth - cameraRect.w;
-	if (cameraRect.y > mapFullHeight - cameraRect.h)
-		cameraRect.y = mapFullHeight - cameraRect.h;
+	if (m_camera_rect.x > m_map_full_width - m_camera_rect.w)
+		m_camera_rect.x = m_map_full_width - m_camera_rect.w;
+	if (m_camera_rect.y > m_map_full_height - m_camera_rect.h)
+		m_camera_rect.y = m_map_full_height - m_camera_rect.h;
 }
 
-bool Camera::SetScreenSize(int _width, int _height)
+bool camera::set_screen_size(int _width, int _height)
 {
 	if (_width <= 0 || _height <= 0)
 		return false;
 
-	cameraRect.w = _width;
-	cameraRect.h = _height;
+	m_camera_rect.w = _width;
+	m_camera_rect.h = _height;
 
 	return true;
 }
 
-bool Camera::SetTileSize(int _width, int _height)
+bool camera::set_tile_size(int _width, int _height)
 {
 	if (_width <= 0 || _height <= 0)
 		return false;
 
-	tileWidth = _width;
-	tileHeight = _height;
+	m_tile_width = _width;
+	m_tile_height = _height;
 
 	return true;
 }
 
-bool Camera::SetMapFullSize(int _width, int _height)
+bool camera::set_map_full_size(int _width, int _height)
 {
 	if (_width <= 0 || _height <= 0)
 		return false;
 
-	mapFullWidth = _width;
-	mapFullHeight = _height;
+	m_map_full_width = _width;
+	m_map_full_height = _height;
 
 	return true;
 }
 
-int Camera::GetStartRow()
+int camera::get_start_row()
 {
-	return cameraRect.y / (tileHeight * FOVscaleFactor); 
+	return m_camera_rect.y / (m_tile_height * m_FOV_scale_factor); 
 }
 
-int Camera::GetEndRow(int _numberOfTilesVertical)
+int camera::get_end_row(int _numberOfTilesVertical)
 {
-	int endRow = (cameraRect.y + cameraRect.h) / (tileHeight * FOVscaleFactor);
+	int endRow = (m_camera_rect.y + m_camera_rect.h) / (m_tile_height * m_FOV_scale_factor);
 	if (endRow > _numberOfTilesVertical) //check boundaries
 		endRow = _numberOfTilesVertical;
 
 	return endRow;
 }
 
-int Camera::GetStartColumn()
+int camera::get_start_column()
 {
-	return cameraRect.x / (tileWidth * FOVscaleFactor);
+	return m_camera_rect.x / (m_tile_width * m_FOV_scale_factor);
 }
 
-int Camera::GetEndColumn(int _numberOfTilesHorizontal)
+int camera::get_end_column(int _numberOfTilesHorizontal)
 {
-	int endColumn = (cameraRect.x + cameraRect.w) / (tileWidth * FOVscaleFactor);
+	int endColumn = (m_camera_rect.x + m_camera_rect.w) / (m_tile_width * m_FOV_scale_factor);
 	if (endColumn > _numberOfTilesHorizontal) //check boundaries
 		endColumn = _numberOfTilesHorizontal;
 
