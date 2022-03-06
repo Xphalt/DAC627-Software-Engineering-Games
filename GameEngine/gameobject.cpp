@@ -7,6 +7,7 @@
 
 gameobject::gameobject()
 {
+	audioman::searchfiles();
 	audioman::runSFX("Jump", 69, 1); // unironically 69 is a really good medium volume...
 	//audioman::runSFXlist(0, 69, 1);
 	//audioman::runmusic("Idle", 69, 1, -1, 0);

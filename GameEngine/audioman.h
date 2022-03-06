@@ -7,7 +7,17 @@
 
 #include <iostream>
 #include <windows.h>
+
 #include <string>
+#include <tchar.h> 
+#include <stdio.h>
+#include <strsafe.h>
+#pragma comment(lib, "User32.lib")
+
+#define BUFSIZE MAX_PATH
+
+//using namespace std;
+
 
 class audioman
 {
@@ -27,5 +37,8 @@ public:
 	// extra music optimisation functions
 	static int endmusic(int fadeouttime); // measured in milliseconds
 	static int volmusic(int volume); // max = 128
+
+	// file searching
+	static void searchfiles();
 };
 
