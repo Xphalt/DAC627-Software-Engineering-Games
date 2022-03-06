@@ -3,10 +3,9 @@
 #include <iostream>
 #include <SDL_ttf.h>
 
-text::text(SDL_Renderer* _renderer, std::string _font_path, SDL_Color _color, int _font_size, int _x, int _y, int _width, int _height, double _rotation)
+text::text(Renderer _renderer, std::string _font_path, SDL_Color _color, int _font_size, int _x, int _y, int _width, int _height, double _rotation)
 {
-	m_p_renderer = _renderer;
-
+	m_p_renderer = _renderer.GetRenderer();
 	m_font_path = _font_path;
 	set_font(_font_path);
 	m_font_size = _font_size;
@@ -31,6 +30,7 @@ void text::set_text(std::string _text)
 }
 void text::set_font(std::string _font_path)
 {
+
 	TTF_Font* font = TTF_OpenFont(_font_path.c_str(), m_font_size);
 	if (!font)
 	{

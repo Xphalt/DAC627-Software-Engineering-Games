@@ -6,12 +6,13 @@
 #pragma once
 
 #include <SDL.h>
+#include "Renderer.h"
 
 class ui_component {
 public:
 	// Provide a default class to be overriden by children
 	ui_component() = default;
-	ui_component(SDL_Renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation);
+	ui_component(int _x, int _y, int _width, int _height, double _rotation);
 	~ui_component();
 	
 	void set_enabled(bool _enabled) { m_enabled = _enabled; }
@@ -24,8 +25,8 @@ public:
 	// To be overriden when inherited
 	virtual void draw();
 protected:
-	SDL_Renderer* m_p_renderer;
 
+	SDL_Renderer* m_p_renderer;
 	SDL_Rect m_rect;
 
 	bool m_enabled;

@@ -9,7 +9,7 @@
 
 class slider : public ui_component {
 public:
-	slider(	SDL_Renderer* _renderer, 
+	slider(	Renderer _renderer, 
 			std::string _background_image_path,
 			std::string _fill_image_path,
 			// Paths correspond to BUTTON_STATE enum (button.h)

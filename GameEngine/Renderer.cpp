@@ -30,3 +30,35 @@ void Renderer::Update()
     SDL_RenderPresent(m_Renderer);
 
 }
+
+SDL_Renderer* Renderer::GetRenderer()
+{
+	return m_Renderer;
+}
+
+void Renderer::Render(text _text)
+{
+	_text.draw();
+}
+
+void Renderer::Render(slider _slider)
+{
+	_slider.draw();
+}
+
+void Renderer::Render(image _image)
+{
+	_image.draw();
+}
+
+void Renderer::Render(hotbar _hotbar)
+{
+	_hotbar.draw();
+}
+
+void Renderer::Render(button _button)
+{
+	_button.draw();
+}
+
+}

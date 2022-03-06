@@ -1,9 +1,7 @@
 #include "ui_component.h"
 
-ui_component::ui_component(SDL_Renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation)
+ui_component::ui_component(int _x, int _y, int _width, int _height, double _rotation)
 {
-	m_p_renderer = _renderer;
-
 	m_enabled = true;
 	m_rect.w = _width; m_rect.h = _height;
 	m_rect.x = _x; m_rect.y = _y;

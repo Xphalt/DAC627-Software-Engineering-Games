@@ -10,7 +10,7 @@
 class hotbar : public ui_component {
 public:
 	// After being instantiated slots need to be given image paths and callbacks using setup_slot to have functionality
-	hotbar(SDL_Renderer* _renderer,
+	hotbar(Renderer _renderer,
 		std::string _background_image_path,
 		int _number_of_slots,
 		int _slot_size,

@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-slider::slider(	SDL_Renderer* _renderer,
+slider::slider(	Renderer _renderer,
 				std::string _background_image_path,
 				std::string _fill_image_path,
 				std::vector<std::string> _handle_image_paths,
@@ -14,7 +14,7 @@ slider::slider(	SDL_Renderer* _renderer,
 				int _height,
 				double _rotation)
 {
-	m_p_renderer = _renderer;
+	m_p_renderer = _renderer.GetRenderer();
 
 	set_images(_background_image_path, _fill_image_path);
 

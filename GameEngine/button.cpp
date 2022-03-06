@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-button::button(SDL_Renderer* _renderer, std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths, int _x, int _y, int _width, int _height, double _rotation)
+button::button(Renderer _renderer, std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths, int _x, int _y, int _width, int _height, double _rotation)
 {
-	m_p_renderer = _renderer;
+	m_p_renderer = _renderer.GetRenderer();
 
 	m_pointer_move_callback = _pointer_move_callback;
 	m_pointer_up_callback = _pointer_up_callback;
@@ -18,9 +18,9 @@ button::button(SDL_Renderer* _renderer, std::function<void()> _pointer_up_callba
 	m_rotation = _rotation;
 }
 // Instantiate a button with default images and no callbacks
-button::button(SDL_Renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation)
+button::button(Renderer _renderer, int _x, int _y, int _width, int _height, double _rotation)
 {
-	m_p_renderer = _renderer;
+	m_p_renderer = _renderer.GetRenderer();
 
 	m_pointer_move_callback = nullptr;
 	m_pointer_up_callback = nullptr;

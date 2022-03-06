@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-hotbar::hotbar(SDL_Renderer* _renderer,
+hotbar::hotbar(Renderer _renderer,
 	std::string _background_image_path,
 	int _number_of_slots,
 	int _slot_size,
@@ -12,7 +12,7 @@ hotbar::hotbar(SDL_Renderer* _renderer,
 	int _height,
 	double _rotation)
 {
-	m_p_renderer = _renderer;
+	m_p_renderer = _renderer.GetRenderer();
 
 	m_p_background = new image(_renderer, _background_image_path, _x, _y, _width, _height, _rotation);
 
