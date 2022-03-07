@@ -7,12 +7,12 @@
 #include <iostream>
 #include <vector>
 
-class Gamepad
+class gamepad
 {
 public:
 
-	Gamepad(SDL_Joystick* joy, SDL_GameController* newPad);
-	~Gamepad();
+	gamepad(SDL_Joystick* joy, SDL_GameController* newPad);
+	~gamepad();
 
 	SDL_Joystick* GetID() { return m_ID; }
 	void PressButton(uint8_t button);

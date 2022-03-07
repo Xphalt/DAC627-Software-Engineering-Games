@@ -4,6 +4,7 @@
 #include <SDL_gamecontroller.h>
 #include <iostream>
 #include <vector>
+#include "gamepad.h"
 
 enum ActionKeys
 {
@@ -15,11 +16,11 @@ enum Controllers
 	PLAYER1 = 0, PLAYER2, totalControllers
 };
 
-class InputMaster
+class input_master
 {
 public:
-	InputMaster();
-	~InputMaster();
+	input_master();
+	~input_master();
 
 	void InitialiseController();
 	void Update();
@@ -36,7 +37,7 @@ protected:
 	SDL_Event m_event;
 
 	//std::vector<SDL_GameController*> m_pConnectedControllers;
-	std::vector<Gamepad*> m_pConnectedControllers;
+	std::vector<gamepad*> m_pConnectedControllers;
 	int m_numGamepads = 0;
 
 	void AddController(int deviceID);

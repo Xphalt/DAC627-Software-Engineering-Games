@@ -1,11 +1,11 @@
-#include "Renderer.h"
+#include "renderer.h"
 
-Renderer::Renderer(SDL_Window* m_Window)
+renderer::renderer(SDL_Window* m_Window)
 {
-    m_Renderer = SDL_CreateRenderer(
+    m_renderer = SDL_CreateRenderer(
 		m_Window, -1, 0);
 
-	if (nullptr == m_Renderer)
+	if (nullptr == m_renderer)
 	{
 		std::cout << "Window initialisation failed: " << SDL_GetError() << std::endl;
 		std::cout << "Press a key to continue" << std::endl;
@@ -13,50 +13,50 @@ Renderer::Renderer(SDL_Window* m_Window)
 	}
 }
 
-Renderer::~Renderer()
+renderer::~renderer()
 {
-    if (nullptr != m_Renderer)
+    if (nullptr != m_renderer)
 	{
-		SDL_DestroyRenderer(m_Renderer);
-		m_Renderer = nullptr;
+		SDL_DestroyRenderer(m_renderer);
+		m_renderer = nullptr;
 	}
 }
 
-void Renderer::Update()
+void renderer::Update()
 {
-    if (nullptr == m_Renderer) return;
+    if (nullptr == m_renderer) return;
 	
-	SDL_RenderClear(m_Renderer);
-    SDL_RenderPresent(m_Renderer);
+	SDL_RenderClear(m_renderer);
+    SDL_RenderPresent(m_renderer);
 
 }
 
-SDL_Renderer* Renderer::GetRenderer()
+SDL_Renderer* renderer::GetRenderer()
 {
-	return m_Renderer;
+	return m_renderer;
 }
 
-void Renderer::Render(text _text)
-{
-	_text.draw();
-}
-
-void Renderer::Render(slider _slider)
-{
-	_slider.draw();
-}
-
-void Renderer::Render(image _image)
-{
-	_image.draw();
-}
-
-void Renderer::Render(hotbar _hotbar)
-{
-	_hotbar.draw();
-}
-
-void Renderer::Render(button _button)
-{
-	_button.draw();
-}
+//void renderer::Render(text _text)
+//{
+//	_text.draw();
+//}
+//
+//void renderer::Render(slider _slider)
+//{
+//	_slider.draw();
+//}
+//
+//void renderer::Render(image _image)
+//{
+//	_image.draw();
+//}
+//
+//void renderer::Render(hotbar _hotbar)
+//{
+//	_hotbar.draw();
+//}
+//
+//void renderer::Render(button _button)
+//{
+//	_button.draw();
+//}

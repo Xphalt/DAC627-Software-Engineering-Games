@@ -1,18 +1,18 @@
-#include "InputMaster.h"
-#include "Gamepad.h"
+#include "input_master.h"
+#include "gamepad.h"
 
-InputMaster::InputMaster()
+input_master::input_master()
 {
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 	InitialiseController();
 }
 
-InputMaster::~InputMaster()
+input_master::~input_master()
 {
 	DestroyInput();
 }
 
-void InputMaster::InitialiseController()
+void input_master::InitialiseController()
 {
 	if (SDL_WasInit(SDL_INIT_GAMECONTROLLER) == 0)
 		SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER);
@@ -22,14 +22,14 @@ void InputMaster::InitialiseController()
 	SDL_GameControllerEventState(SDL_ENABLE);
 }
 
-void InputMaster::Update()
+void input_master::Update()
 {
 	for (int i = 0; i < m_numGamepads; i++)
 	{
 		m_pConnectedControllers[i]->Update();
 	}
 
-	if (/*Gamepad*/ true)
+	if (/*gamepad*/ true)
 	{
 		while (SDL_PollEvent(&m_event))
 		{
@@ -96,7 +96,7 @@ void InputMaster::Update()
 	}
 }
 
-void InputMaster::DestroyInput()
+void input_master::DestroyInput()
 {
 	for (int i = 0; i < m_pConnectedControllers.size(); i++)
 	{
@@ -105,12 +105,12 @@ void InputMaster::DestroyInput()
 	}
 }
 
-//bool InputMaster::IsControllerInitialised()
+//bool input_master::IsControllerInitialised()
 //{
 //	return m_isControllerInitialised;
 //}
 
-void InputMaster::AddController(int deviceID) //This needs some identifier
+void input_master::AddController(int deviceID) //This needs some identifier
 {
 	SDL_GameController* pad = SDL_GameControllerOpen(deviceID);
 
@@ -124,16 +124,16 @@ void InputMaster::AddController(int deviceID) //This needs some identifier
 	{
 		SDL_Joystick* tempjoy = SDL_GameControllerGetJoystick(pad);
 
-		/*Gamepad testboy = new Gamepad(tempjoy);*/
+		/*gamepad testboy = new gamepad(tempjoy);*/
 
-		m_pConnectedControllers.push_back(new Gamepad(tempjoy, pad));
+		m_pConnectedControllers.push_back(new gamepad(tempjoy, pad));
 		//m_isControllerInitialised = true;
 
 		++m_numGamepads;
 	}
 }
 
-void InputMaster::RemoveController(int deviceID)
+void input_master::RemoveController(int deviceID)
 {
 	SDL_Joystick* joystick = SDL_JoystickFromInstanceID(deviceID);
 
