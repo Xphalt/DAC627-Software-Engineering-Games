@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include <SDL_image.h>
-#include "Renderer.h"
+#include "renderer.h"
 #include <string>
 #include <map>
 
@@ -33,7 +33,7 @@ protected:
 
 public:
 	animation();
-	animation(Renderer _renderer, std::string _filename, bool _use_transparency = true);
+	animation(renderer* _renderer, std::string _filename, bool _use_transparency = true);
 	~animation();
 
 	int get_width();

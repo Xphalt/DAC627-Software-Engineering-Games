@@ -35,9 +35,12 @@
     <Filter Include="Engine\Components\Timer">
       <UniqueIdentifier>{47f63262-6ac3-4262-a6ef-87aa0dc8c654}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Components\AI">
+      <UniqueIdentifier>{8a655fda-f98a-4600-ab74-218a0c0e7a63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp">
+    <ClCompile Include="camera.cpp">
       <Filter>Engine\Components\Camera</Filter>
     </ClCompile>
     <ClCompile Include="animation.cpp">
@@ -55,16 +58,16 @@
     <ClCompile Include="gameobject.cpp">
       <Filter>Engine\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="Gamepad.cpp">
+    <ClCompile Include="gamepad.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="InputMaster.cpp">
+    <ClCompile Include="Input_master.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
     <ClCompile Include="game.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
+    <ClCompile Include="renderer.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Window.cpp">
@@ -97,9 +100,18 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Engine\Components\Timer</Filter>
     </ClCompile>
+    <ClCompile Include="Attacking.cpp">
+      <Filter>Engine\Components\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Patrolling.cpp">
+      <Filter>Engine\Components\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Engine\Components\AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h">
+    <ClInclude Include="camera.h">
       <Filter>Engine\Components\Camera</Filter>
     </ClInclude>
     <ClInclude Include="animation.h">
@@ -114,10 +126,10 @@
     <ClInclude Include="gameobject.h">
       <Filter>Engine\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="Gamepad.h">
+    <ClInclude Include="gamepad.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
-    <ClInclude Include="InputMaster.h">
+    <ClInclude Include="input_master.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Window.h">
@@ -126,7 +138,7 @@
     <ClInclude Include="game.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
+    <ClInclude Include="renderer.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="tilemap.h">
@@ -155,6 +167,15 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Engine\Components\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>Engine\Components\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Attacking.h">
+      <Filter>Engine\Components\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Patrolling.h">
+      <Filter>Engine\Components\AI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

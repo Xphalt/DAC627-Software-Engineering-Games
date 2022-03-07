@@ -3,11 +3,11 @@
 #include "Renderer.h"
 #include "image.h"
 #include "ui_component.h"
-#include "Camera.h"
+#include "camera.h"
 #include "animation.h"
 #include "animator.h"
 #include "audioman.h"
-#include "InputMaster.h"
+#include "input_master.h"
 
 	struct position {
 		float x{ 0 };
@@ -41,13 +41,13 @@ public:
 
 private:
 	// player constructor
-	gameobject(Renderer* _renderer, image* _image, camera* _Camera, animation* _animation, animator* _animator, audioman* _audioman, InputMaster* _InputMaster);
+	gameobject(renderer* _renderer, image* _image, camera* _Camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _InputMaster);
 
 	// enemy constructor
-	gameobject(Renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman);
+	gameobject(renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman);
 
 	// UI constructor
-	gameobject(Renderer* _renderer, ui_component* _ui_component, animation* _animation, animator* _animator, audioman* audioman);
+	gameobject(renderer* _renderer, ui_component* _ui_component, animation* _animation, animator* _animator, audioman* audioman);
 
 	// for more constructors, collision/movement components need to be implemented
 

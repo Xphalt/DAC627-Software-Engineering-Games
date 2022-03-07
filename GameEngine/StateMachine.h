@@ -1,5 +1,5 @@
 #pragma once
-#include "interfaces/gameobject.h"
+#include "gameobject.h"
 #include <cmath>
 using namespace std;
 

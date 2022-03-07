@@ -12,8 +12,8 @@ animation::animation()
 {
 }
 
-animation::animation(Renderer _renderer, std::string _file_name, bool _use_transparency)
-	: m_p_renderer{ _renderer.GetRenderer() }
+animation::animation(renderer* _renderer, std::string _file_name, bool _use_transparency)
+	: m_p_renderer{ _renderer->GetRenderer() }
 {
 	SDL_Surface* img_surface = IMG_Load((IMAGE_PATH + _file_name).c_str());
 
@@ -32,7 +32,7 @@ animation::animation(Renderer _renderer, std::string _file_name, bool _use_trans
 		SDL_SetColorKey(img_surface, SDL_TRUE, colour_key);
 	}
 
-	m_p_bmp_texture = SDL_CreateTextureFromSurface(_renderer.GetRenderer(), img_surface);
+	m_p_bmp_texture = SDL_CreateTextureFromSurface(_renderer->GetRenderer(), img_surface);
 
 	SDL_FreeSurface(img_surface);
 	img_surface = nullptr;

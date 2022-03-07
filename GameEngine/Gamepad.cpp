@@ -1,27 +1,27 @@
-#include "Gamepad.h"
+#include "gamepad.h"
 
-Gamepad::Gamepad(SDL_Joystick* joy, SDL_GameController* newPad)
+gamepad::gamepad(SDL_Joystick* joy, SDL_GameController* newPad)
 {
 	pad = newPad;
 	m_ID = joy;
 }
 
-Gamepad::~Gamepad()
+gamepad::~gamepad()
 {
 
 }
 
-void Gamepad::PressButton(uint8_t button)
+void gamepad::PressButton(uint8_t button)
 {
 	m_buttonsPressed[buttonBinds.find(button)->second] = true;
 }
 
-void Gamepad::ReleaseButton(uint8_t button)
+void gamepad::ReleaseButton(uint8_t button)
 {
 	m_buttonsPressed[buttonBinds.find(button)->second] = false;
 }
 
-void Gamepad::AxisChange(uint8_t axis)
+void gamepad::AxisChange(uint8_t axis)
 {
 	if (axis == SDL_CONTROLLER_AXIS_TRIGGERLEFT)
 	{
@@ -43,7 +43,7 @@ void Gamepad::AxisChange(uint8_t axis)
 }
 
 
-void Gamepad::RebindKey(uint8_t currentButton, uint8_t newButton)
+void gamepad::RebindKey(uint8_t currentButton, uint8_t newButton)
 {
 	auto it = buttonBinds.find(currentButton); //Reminder find out the class later
 
@@ -53,12 +53,12 @@ void Gamepad::RebindKey(uint8_t currentButton, uint8_t newButton)
 	buttonBinds.insert({ newButton, action });
 }
 
-void Gamepad::Close()
+void gamepad::Close()
 {
 	SDL_GameControllerClose(pad);
 }
 
-void Gamepad::Update()
+void gamepad::Update()
 {
 	for (int a = 0; a < SDL_CONTROLLER_AXIS_MAX; a++)
 		m_lastControllerInputs.axis[a] = m_controllerInputs.axis[a];
@@ -67,7 +67,7 @@ void Gamepad::Update()
 		m_lastControllerInputs.buttons[b] = m_controllerInputs.buttons[b];
 }
 
-void Gamepad::Event(SDL_Event m_event)
+void gamepad::Event(SDL_Event m_event)
 {
 	switch (m_event.type)
 	{
@@ -85,7 +85,7 @@ void Gamepad::Event(SDL_Event m_event)
 	}
 }
 
-int Gamepad::ProcessAxisInput(float input)
+int gamepad::ProcessAxisInput(float input)
 {
 	// Right or Down
 	if (input > m_stickDeadZone)
@@ -98,17 +98,17 @@ int Gamepad::ProcessAxisInput(float input)
 }
 
 
-bool Gamepad::IsButtonPressed(SDL_GameControllerButton button)
+bool gamepad::IsButtonPressed(SDL_GameControllerButton button)
 {
 	return m_controllerInputs.buttons[button] && !m_lastControllerInputs.buttons[button];
 }
 
-bool Gamepad::IsButtonHeld(SDL_GameControllerButton button)
+bool gamepad::IsButtonHeld(SDL_GameControllerButton button)
 {
 	return m_controllerInputs.buttons[button] && m_lastControllerInputs.buttons[button];
 }
 
-float Gamepad::GetControllerAxis(SDL_GameControllerAxis axis)
+float gamepad::GetControllerAxis(SDL_GameControllerAxis axis)
 {
 	return m_controllerInputs.axis[axis];
 }
