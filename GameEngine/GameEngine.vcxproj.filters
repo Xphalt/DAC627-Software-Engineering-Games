@@ -29,6 +29,12 @@
     <Filter Include="Engine\Core">
       <UniqueIdentifier>{2b47b4b3-8d7e-4904-b5f1-5b86de151c33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Components\Audio">
+      <UniqueIdentifier>{e4b2294c-4865-4c4e-aed6-0263cf7e08bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Timer">
+      <UniqueIdentifier>{47f63262-6ac3-4262-a6ef-87aa0dc8c654}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -67,12 +73,6 @@
     <ClCompile Include="tilemap.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="audiolib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="audioman.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="image.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
@@ -88,8 +88,14 @@
     <ClCompile Include="hotbar.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
+    <ClCompile Include="audiolib.cpp">
+      <Filter>Engine\Components\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="audioman.cpp">
+      <Filter>Engine\Components\Audio</Filter>
+    </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Components\Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,14 +147,14 @@
     <ClInclude Include="hotbar.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="audiolib.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="audioman.h">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Components\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audiolib.h">
+      <Filter>Engine\Components\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Components\Timer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

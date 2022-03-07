@@ -4,6 +4,7 @@
 game::game()
 {
 	m_p_gameobject = new gameobject();
+	m_p_gameobject->create_player();
 }
 
 game::~game()

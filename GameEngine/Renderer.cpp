@@ -60,5 +60,3 @@ void Renderer::Render(button _button)
 {
 	_button.draw();
 }
-
-}
