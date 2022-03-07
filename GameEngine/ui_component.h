@@ -5,7 +5,6 @@
 
 #pragma once
 
-#include <SDL.h>
 #include "renderer.h"
 
 class ui_component {

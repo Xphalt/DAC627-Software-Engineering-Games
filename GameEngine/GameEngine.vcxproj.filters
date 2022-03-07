@@ -67,9 +67,6 @@
     <ClCompile Include="game.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="renderer.cpp">
-      <Filter>Engine\Core</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Window.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
@@ -109,6 +106,9 @@
     <ClCompile Include="StateMachine.cpp">
       <Filter>Engine\Components\AI</Filter>
     </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -136,9 +136,6 @@
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="game.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="renderer.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="tilemap.h">
@@ -176,6 +173,9 @@
     </ClInclude>
     <ClInclude Include="Patrolling.h">
       <Filter>Engine\Components\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

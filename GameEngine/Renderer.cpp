@@ -2,7 +2,7 @@
 
 renderer::renderer(SDL_Window* m_Window)
 {
-    m_renderer = SDL_CreateRenderer(
+	m_renderer = SDL_CreateRenderer(
 		m_Window, -1, 0);
 
 	if (nullptr == m_renderer)
@@ -15,7 +15,7 @@ renderer::renderer(SDL_Window* m_Window)
 
 renderer::~renderer()
 {
-    if (nullptr != m_renderer)
+	if (nullptr != m_renderer)
 	{
 		SDL_DestroyRenderer(m_renderer);
 		m_renderer = nullptr;
@@ -24,10 +24,10 @@ renderer::~renderer()
 
 void renderer::Update()
 {
-    if (nullptr == m_renderer) return;
-	
+	if (nullptr == m_renderer) return;
+
 	SDL_RenderClear(m_renderer);
-    SDL_RenderPresent(m_renderer);
+	SDL_RenderPresent(m_renderer);
 
 }
 
