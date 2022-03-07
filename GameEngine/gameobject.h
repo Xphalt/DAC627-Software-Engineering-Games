@@ -1,13 +1,13 @@
 #pragma once
 
-#include "renderer.h"
-#include "image.h"
-#include "ui_component.h"
-#include "camera.h"
-#include "animation.h"
-#include "animator.h"
-#include "audioman.h"
-#include "input_master.h"
+class renderer;
+class image;
+class ui_component;
+class camera;
+class animation;
+class animator;
+class audioman;
+class input_master;
 
 	struct position {
 		float x{ 0 };

@@ -3,18 +3,6 @@
 #include <cmath>
 using namespace std;
 
-class StateMachine
-{
-public:	
-	void SetStartState(State _startState);
-	State GetActiveState();
-	void ChangeState(State _newState);
-
-private:
-	gameobject* m_agent;
-	State currentState;
-};
-
 struct State
 {
 public:
@@ -28,4 +16,16 @@ enum States
 {
 	Patrolling,
 	Attacking
+};
+
+class StateMachine
+{
+public:	
+	void SetStartState(State _startState);
+	State GetActiveState();
+	void ChangeState(State _newState);
+
+private:
+	gameobject* m_agent;
+	State currentState;
 };
