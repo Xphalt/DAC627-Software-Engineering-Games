@@ -9,7 +9,7 @@
 
 class slider : public ui_component {
 public:
-	slider(	Renderer _renderer, 
+	slider(	renderer _renderer, 
 			std::string _background_image_path,
 			std::string _fill_image_path,
 			// Paths correspond to BUTTON_STATE enum (button.h)
@@ -25,8 +25,8 @@ public:
 
 	void set_value(float _value);
 	void modify_value(float _value);
-	void set_images(Renderer _renderer, std::string _background_image_path, std::string _fill_image_path);
-	void set_handle(Renderer _renderer, std::vector<std::string> _handle_image_paths, std::function<void()> _callback);
+	void set_images(renderer _renderer, std::string _background_image_path, std::string _fill_image_path);
+	void set_handle(renderer _renderer, std::vector<std::string> _handle_image_paths, std::function<void()> _callback);
 
 	void on_handle_move();
 

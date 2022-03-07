@@ -2,14 +2,14 @@
 #include <iostream>
 #include <conio.h>
 
-class Renderer
+class renderer
 {
     private:
-    SDL_Renderer* m_Renderer{ nullptr };
+    SDL_Renderer* m_renderer{ nullptr };
 
     public:
-    Renderer(SDL_Window* m_Window);
-    ~Renderer();
+    renderer(SDL_Window* m_Window);
+    ~renderer();
     void Update();
     SDL_Renderer* GetRenderer();
 };

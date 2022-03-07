@@ -6,7 +6,7 @@
 #pragma once
 
 #include <SDL.h>
-#include "Renderer.h"
+#include "renderer.h"
 
 class ui_component {
 public:

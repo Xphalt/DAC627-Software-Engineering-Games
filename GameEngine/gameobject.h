@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Renderer.h"
+#include "renderer.h"
 #include "image.h"
 #include "ui_component.h"
 #include "camera.h"

@@ -15,7 +15,7 @@ enum BUTTON_STATE { NORMAL, HOVERED, PRESSED };
 class button : public ui_component {
 public:
 	button(
-		Renderer _renderer, 
+		renderer _renderer, 
 		std::function<void()> _pointer_up_callback, 
 		std::function<void()> _pointer_move_callback, 
 		std::vector<std::string> _image_paths, 
@@ -24,7 +24,7 @@ public:
 		int _width,
 		int _height,
 		double _rotation);
-	button(Renderer _renderer, int _x, int _y, int _width, int _height, double _rotation);
+	button(renderer _renderer, int _x, int _y, int _width, int _height, double _rotation);
 	~button();
 
 	void set_images(std::vector<std::string> _image_paths);

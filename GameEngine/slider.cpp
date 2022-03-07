@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-slider::slider(	Renderer _renderer,
+slider::slider(	renderer _renderer,
 				std::string _background_image_path,
 				std::string _fill_image_path,
 				std::vector<std::string> _handle_image_paths,
@@ -66,7 +66,7 @@ void slider::modify_value(float _amount)
 {
 	set_value(m_value + _amount);
 }
-void slider::set_images(Renderer _renderer, std::string _background_image_path, std::string _fill_image_path)
+void slider::set_images(renderer _renderer, std::string _background_image_path, std::string _fill_image_path)
 {
 	// Clear old images
 	if (m_p_background) delete m_p_background;
@@ -76,7 +76,7 @@ void slider::set_images(Renderer _renderer, std::string _background_image_path, 
 	m_p_fill = new image(_renderer, _fill_image_path, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
 	
 }
-void slider::set_handle(Renderer _renderer, std::vector<std::string> _handle_image_paths, std::function<void()> _callback)
+void slider::set_handle(renderer _renderer, std::vector<std::string> _handle_image_paths, std::function<void()> _callback)
 {
 	if (m_p_handle) delete m_p_handle;
 

@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-button::button(Renderer _renderer, std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths, int _x, int _y, int _width, int _height, double _rotation)
+button::button(renderer _renderer, std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths, int _x, int _y, int _width, int _height, double _rotation)
 {
 	m_p_renderer = _renderer.GetRenderer();
 
@@ -18,7 +18,7 @@ button::button(Renderer _renderer, std::function<void()> _pointer_up_callback, s
 	m_rotation = _rotation;
 }
 // Instantiate a button with default images and no callbacks
-button::button(Renderer _renderer, int _x, int _y, int _width, int _height, double _rotation)
+button::button(renderer _renderer, int _x, int _y, int _width, int _height, double _rotation)
 {
 	m_p_renderer = _renderer.GetRenderer();
 

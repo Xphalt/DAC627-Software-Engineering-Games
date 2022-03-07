@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-hotbar::hotbar(Renderer _renderer,
+hotbar::hotbar(renderer _renderer,
 	std::string _background_image_path,
 	int _number_of_slots,
 	int _slot_size,

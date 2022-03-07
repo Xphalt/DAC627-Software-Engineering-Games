@@ -13,7 +13,7 @@ animator::~animator()
 	m_p_animations.clear();
 }
 
-void animator::add_animation(Renderer _renderer, std::string _filename, std::string _animation_name, int _rows, int _columns, int _duration, bool _loop)
+void animator::add_animation(renderer* _renderer, std::string _filename, std::string _animation_name, int _rows, int _columns, int _duration, bool _loop)
 {
 	m_p_animations[_animation_name] = new animation(_renderer, _filename);
 

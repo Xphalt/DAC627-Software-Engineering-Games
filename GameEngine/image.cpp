@@ -3,7 +3,7 @@
 #include <SDL_image.h>
 #include <iostream>
 
-image::image(Renderer _renderer, std::string _image_path, int _x, int _y, int _width, int _height, double _rotation)
+image::image(renderer _renderer, std::string _image_path, int _x, int _y, int _width, int _height, double _rotation)
 {
 	m_p_renderer = _renderer.GetRenderer();
 
