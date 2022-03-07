@@ -25,8 +25,8 @@ public:
 
 	void set_value(float _value);
 	void modify_value(float _value);
-	void set_images(std::string _background_image_path, std::string _fill_image_path);
-	void set_handle(std::vector<std::string> _handle_image_paths, std::function<void()> _callback);
+	void set_images(Renderer _renderer, std::string _background_image_path, std::string _fill_image_path);
+	void set_handle(Renderer _renderer, std::vector<std::string> _handle_image_paths, std::function<void()> _callback);
 
 	void on_handle_move();
 

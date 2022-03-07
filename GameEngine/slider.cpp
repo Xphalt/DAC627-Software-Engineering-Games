@@ -16,10 +16,10 @@ slider::slider(	Renderer _renderer,
 {
 	m_p_renderer = _renderer.GetRenderer();
 
-	set_images(_background_image_path, _fill_image_path);
+	set_images(_renderer, _background_image_path, _fill_image_path);
 
 	// Store a copy of a lambda
-	set_handle(_handle_image_paths, [&] { on_handle_move(); });
+	set_handle(_renderer, _handle_image_paths, [&] { on_handle_move(); });
 	m_min_value = _min_value;
 	m_max_value = _max_value;
 
@@ -66,21 +66,21 @@ void slider::modify_value(float _amount)
 {
 	set_value(m_value + _amount);
 }
-void slider::set_images(std::string _background_image_path, std::string _fill_image_path)
+void slider::set_images(Renderer _renderer, std::string _background_image_path, std::string _fill_image_path)
 {
 	// Clear old images
 	if (m_p_background) delete m_p_background;
 	if (m_p_fill) delete m_p_fill;
 
-	m_p_background = new image(m_p_renderer, _background_image_path, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
-	m_p_fill = new image(m_p_renderer, _fill_image_path, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
+	m_p_background = new image(_renderer, _background_image_path, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
+	m_p_fill = new image(_renderer, _fill_image_path, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
 	
 }
-void slider::set_handle(std::vector<std::string> _handle_image_paths, std::function<void()> _callback)
+void slider::set_handle(Renderer _renderer, std::vector<std::string> _handle_image_paths, std::function<void()> _callback)
 {
 	if (m_p_handle) delete m_p_handle;
 
-	m_p_handle = new button(m_p_renderer, nullptr, _callback, _handle_image_paths, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
+	m_p_handle = new button(_renderer, nullptr, _callback, _handle_image_paths, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
 }
 
 // Set slider value according to mouse pos compared to background bar
