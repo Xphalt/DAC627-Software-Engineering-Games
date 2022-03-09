@@ -115,6 +115,9 @@
     <ClCompile Include="Mouse.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
+    <ClCompile Include="level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -189,5 +192,6 @@
     <ClInclude Include="Mouse.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
+    <ClInclude Include="level.h" />
   </ItemGroup>
 </Project>
