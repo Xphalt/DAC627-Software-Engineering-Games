@@ -11,7 +11,7 @@ public:
 	Window(const char* title, SDL_Point position, SDL_Point size, Uint32 flags);
 	~Window();
 
-	const SDL_Window* GetWindow() const;
+	SDL_Window* GetWindow();
 	bool Resize(int width, int heigh);
 private:
 	SDL_Window* m_window;

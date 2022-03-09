@@ -1,9 +1,10 @@
 #include "renderer.h"
+#include "Graphics\Window.h"
 
-renderer::renderer(SDL_Window* m_Window)
+renderer::renderer(Window* m_Window)
 {
 	m_renderer = SDL_CreateRenderer(
-		m_Window, -1, 0);
+		m_Window->GetWindow(), -1, 0);
 
 	if (nullptr == m_renderer)
 	{

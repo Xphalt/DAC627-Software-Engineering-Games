@@ -4,8 +4,9 @@
 
 game::game()
 {
-	m_p_gameobject->create_player();
 	m_p_window = new Window();
+	m_p_gameobject = new gameobject(m_p_window);
+	m_p_gameobject->create_player();
 }
 
 game::~game()
@@ -15,7 +16,5 @@ game::~game()
 void game::update()
 {
 	m_p_gameobject->update();
-
-	//m_p_window
 }
 

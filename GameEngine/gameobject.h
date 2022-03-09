@@ -8,6 +8,7 @@ class animation;
 class animator;
 class audioman;
 class input_master;
+class Window;
 
 	struct position
 	{
@@ -29,7 +30,7 @@ class input_master;
 
 class gameobject {
 public:
-	gameobject();
+	gameobject(Window* window);
 	~gameobject();
 
 	void update();

@@ -1,9 +1,9 @@
 #pragma once
 
 class gameobject;
-class input_component;
-class output_component;
-class logic_component;
+//class input_component;
+//class output_component;
+//class logic_component;
 
 class Window;
 

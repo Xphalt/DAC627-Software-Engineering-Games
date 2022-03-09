@@ -7,6 +7,7 @@
 #include "animator.h"
 #include "audioman.h"
 #include "input_master.h"
+#include "Graphics\Window.h"
 
 gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master)
 	: m_p_renderer{_renderer}, m_p_image{_image}, m_p_camera{_camera}, m_p_animation{_animation}, m_p_animator{_animator}, m_p_audioman{_audioman}, m_p_input_master{_input_master}
@@ -23,8 +24,9 @@ gameobject::gameobject(renderer* _renderer, ui_component* _ui_component, animati
 {
 }
 
-gameobject::gameobject()
+gameobject::gameobject(Window* window)
 {
+	m_p_renderer = new renderer(window);
 }
 
 gameobject::~gameobject()
