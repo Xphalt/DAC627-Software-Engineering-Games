@@ -1,8 +1,9 @@
 #include "tilemap.h"
 #include <iostream>
+#include "renderer.h"
 
-tilemap::tilemap(int _block_size, std::string _tilemap_path, SDL_Renderer* _renderer)
-	: m_block_size{ _block_size }
+tilemap::tilemap(int _block_size, std::string _tilemap_path, renderer* _renderer)
+	: m_block_size{ _block_size }, m_p_renderer{ _renderer }
 {
 	load_from_file(_tilemap_path);
 
@@ -12,7 +13,7 @@ tilemap::tilemap(int _block_size, std::string _tilemap_path, SDL_Renderer* _rend
 
 void tilemap::load_from_file(std::string _path)
 {
-	std::ifstream tilemapFile((MAP_PATH + _path + ".txt"));
+	std::ifstream tilemapFile(_path + ".txt");
 	std::string row;
 
 	if (tilemapFile.is_open())
@@ -43,7 +44,8 @@ std::vector<gameobject*> tilemap::return_objects()
 				case WALL:
 					x += m_block_size * 0.5f;
 					y -= m_block_size * 0.5f;
-					//objects.push_back(new gameobject());
+					objects.push_back(new gameobject(m_p_renderer));
+					objects[objects.size() - 1]->set_position(x, y);
 					break;
 
 				default:

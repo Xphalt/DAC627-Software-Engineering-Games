@@ -16,7 +16,7 @@ animation::animation()
 animation::animation(renderer* _renderer, std::string _file_name, bool _use_transparency)
 	: m_p_renderer{ _renderer->GetRenderer() }
 {
-	SDL_Surface* img_surface = IMG_Load((IMAGE_PATH + _file_name).c_str());
+	SDL_Surface* img_surface = IMG_Load((_file_name).c_str());
 
 	if (!img_surface)
 	{

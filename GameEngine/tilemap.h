@@ -6,6 +6,8 @@
 #include <math.h>
 #include "gameobject.h"
 
+class renderer;
+
 const std::string MAP_PATH = "Levels\\";
 
 enum ObjectTypes
@@ -27,8 +29,9 @@ private:
 	int m_stage_width;
 	int m_stage_height;
 
+	renderer* m_p_renderer;
 public:
-	tilemap(int _block_size, std::string _tilaemap_path, SDL_Renderer* _renderer);
+	tilemap(int _block_size, std::string _tilaemap_path, renderer* _renderer);
 
 	void load_from_file(std::string _path);
 	std::vector<gameobject*> return_objects();

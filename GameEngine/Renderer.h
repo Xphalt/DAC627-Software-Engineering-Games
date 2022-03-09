@@ -15,5 +15,9 @@ public:
     renderer(Window* m_Window);
     ~renderer();
     void Update();
+
+    void ClearRender();
+    void PresentRender();
+
     SDL_Renderer* GetRenderer();
 };

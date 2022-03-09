@@ -9,6 +9,7 @@ class animator;
 class audioman;
 class input_master;
 class Window;
+class tilemap;
 
 	struct position
 	{
@@ -30,13 +31,15 @@ class Window;
 
 class gameobject {
 public:
-	gameobject(Window* window);
+	gameobject(renderer* _renderer/*, animator* anim*/);
 	~gameobject();
 
 	void update();
 	position get_position() { return m_position; }
 	rotation get_rotation() { return m_rotation; }
 	scale get_scale() { return m_scale; }
+
+	void set_position(int x, int y);
 
 	gameobject* create_player();
 	gameobject* create_enemy();
@@ -66,4 +69,6 @@ private:
 	animator* m_p_animator{ nullptr };
 	audioman* m_p_audioman{ nullptr };
 	input_master* m_p_input_master{ nullptr };
+
+	Window* m_p_window{ nullptr };
 };
