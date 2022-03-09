@@ -29,6 +29,7 @@ class input_master;
 
 class gameobject {
 public:
+	gameobject();
 	~gameobject();
 
 	void update();
