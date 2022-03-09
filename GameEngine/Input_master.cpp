@@ -29,12 +29,30 @@ void input_master::Update()
 		m_pConnectedControllers[i]->Update();
 	}
 
-	if (/*gamepad*/ true)
+	while (SDL_PollEvent(&m_event))
 	{
-		while (SDL_PollEvent(&m_event))
+		switch (m_event.type)
 		{
-			switch (m_event.type)
-			{
+			case SDL_KEYDOWN:
+				m_pKeyboard->Update(m_event);
+				break;
+
+			case SDL_KEYUP:
+				m_pKeyboard->Update(m_event);
+				break;
+
+			case SDL_MOUSEBUTTONDOWN:
+				m_pMouse->Update(m_event);
+				break;
+
+			case SDL_MOUSEBUTTONUP:
+				m_pMouse->Update(m_event);
+				break;
+
+			case SDL_MOUSEMOTION:
+				m_pMouse->Update(m_event);
+				break;
+
 			case SDL_CONTROLLERDEVICEADDED:
 				// TODO: Maybe limit how many controllers the game register
 				if (SDL_IsGameController(m_event.cdevice.which))
@@ -55,9 +73,9 @@ void input_master::Update()
 						m_pConnectedControllers[i]->Event(m_event);
 				}
 				break;
-			}
 		}
 	}
+	
 
 	while (SDL_PollEvent(&m_event))
 	{

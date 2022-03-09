@@ -33,7 +33,9 @@
     <ClCompile Include="hotbar.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="Input_master.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Patrolling.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="slider.cpp" />
@@ -58,6 +60,8 @@
     <ClInclude Include="hotbar.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="input_master.h" />
+    <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Patrolling.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="slider.h" />

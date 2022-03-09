@@ -109,6 +109,12 @@
     <ClCompile Include="renderer.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -176,6 +182,12 @@
     </ClInclude>
     <ClInclude Include="renderer.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Engine\Components\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

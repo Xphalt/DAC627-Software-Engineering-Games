@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 #include "gamepad.h"
+#include "Keyboard.h"
+#include "Mouse.h"
 
 enum ActionKeys
 {
@@ -45,5 +47,8 @@ protected:
 
 	//bool m_isControllerInitialised = false;
 
+	Keyboard* m_pKeyboard;
 	bool m_keysPressed[SIZE_OF_ACTION_KEYS];
+
+	Mouse* m_pMouse;
 };
