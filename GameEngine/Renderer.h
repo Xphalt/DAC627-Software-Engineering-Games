@@ -14,4 +14,3 @@ public:
     void Update();
     SDL_Renderer* GetRenderer();
 };
-
