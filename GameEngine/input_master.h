@@ -4,13 +4,7 @@
 #include <SDL_gamecontroller.h>
 #include <iostream>
 #include <vector>
-<<<<<<< Updated upstream:GameEngine/input_master.h
 #include "gamepad.h"
-=======
-#include "Keyboard.h"
-#include "Gamepad.h"
-#include "Mouse.h"
->>>>>>> Stashed changes:GameEngine/InputMaster.h
 
 enum ActionKeys
 {
@@ -51,9 +45,5 @@ protected:
 
 	//bool m_isControllerInitialised = false;
 
-
-	Keyboard* m_pKeyboard;
 	bool m_keysPressed[SIZE_OF_ACTION_KEYS];
-
-	Mouse* m_pMouse;
 };
