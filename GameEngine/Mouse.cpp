@@ -7,6 +7,10 @@ Mouse::Mouse()
         buttonPressed[i] = false;
         buttonHeld[i] = false;
     }
+
+    SDL_GetMouseState(&m_pMousePos->x, &m_pMousePos->y);
+
+    mouseDeadZone = 200; //Arbitrary value. Needs testing to find a good number - RA
 }
 
 Mouse::~Mouse()

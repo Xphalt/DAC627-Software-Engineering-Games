@@ -26,4 +26,5 @@ private:
 	SDL_Point* m_pMousePos;
 	static bool buttonPressed[SIZEOF_BUTTON_LIST];
 	static bool buttonHeld[SIZEOF_BUTTON_LIST];
+	int mouseDeadZone;
 };
