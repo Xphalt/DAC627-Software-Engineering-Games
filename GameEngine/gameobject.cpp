@@ -23,20 +23,24 @@ gameobject::gameobject(renderer* _renderer, ui_component* _ui_component, animati
 {
 }
 
+gameobject::gameobject()
+{
+}
+
 gameobject::~gameobject()
 {
 }
 
 void gameobject::update()
 {
-	m_p_renderer->Update();
-	m_p_image->draw();
-	m_p_ui_component->draw();
-	m_p_camera->update_target_pos(m_position.x, m_position.y);
-	m_p_animation->draw();
-	m_p_animator->play();
-	m_p_audioman->;
-	m_p_input_master->Update();
+	if (m_p_renderer != nullptr) { m_p_renderer->Update(); }
+	if (m_p_image != nullptr) { m_p_image->draw(); }
+	if (m_p_ui_component != nullptr) { m_p_ui_component->draw(); }
+	if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
+	if (m_p_animation != nullptr) { m_p_animation->draw(); }
+	if (m_p_animator != nullptr) { m_p_animator->play(); }
+	if (m_p_audioman != nullptr) { m_p_audioman->; }
+	if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
 
 gameobject* gameobject::create_player()
