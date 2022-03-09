@@ -1,4 +1,6 @@
+#ifdef _WIN32
 #include "audiolib.h"
+#include <windows.h>
 
 
 //using namespace std;
@@ -18,72 +20,88 @@ void audiolib::initialiselibrary()
 
 bool audiolib::loadfiles()
 {
-    //Load the music
-    //music = Mix_LoadMUS( "beat.wav" );
-
-    //if there was a problem loading the music
-    //if (music == NULL)
-    //{
-    //     return false
-    //}
-
-    //Load the sound effects
-    //SFXlibrary[SFX][PLAYER].insert(std::makepair(DAMAGE, Mix_LoadWAV("assets/audio/sfx/player/damage/playerHurt.WAV")));
-    //SFXlibrary.insert(std::make_pair(SFX, std::make_pair(PLAYER, std::make_pair(JUMP, Mix_LoadWAV(SFXPath + "/player/damage/playerJump.WAV")))));
-
-    //scratch = Mix_LoadWAV("scratch.wav");
-    //high = Mix_LoadWAV("high.WAV");
-    //med = Mix_LoadWAV("medium.wav");
-    //low = Mix_LoadWAV("low.wav");
-
-    //if there was a problem loading the sound effects
-    //if ((scratch == NULL) || (high = NULL) || (med == NULL) || ( low == NULL))
-    //{
-    //    return false;
-    //}
+    
 
     return true;
 }
 
-//int audiolib::runAudio(std::string audioname, int volume)
+//// folder must end with "/", e.g. "D:/images/"
+//vector<string> get_all_files_full_path_within_folder(string folder)
 //{
-//    SDL_Init(SDL_INIT_AUDIO);
-//
-//    // load WAV file
-//    SDL_AudioSpec wavSpec;
-//    Uint32 wavLength;
-//
-//    // drag the sound in to the folder audiolib.cpp is in 
-//
-//    // open audio device
-//    SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
-//
-//    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
-//
-//    std::string fileInput = audioname + ".wav";
-//    Mix_Chunk* music = Mix_LoadWAV(fileInput.c_str());
-//
-//    //music = Mix_LoadWAV("MusicIdea.WAV");
-//
-//    if (Mix_PlayChannel(-1, music, 0) == -1) 
+//    vector<string> names;
+//    char search_path[200];
+//    sprintf(search_path, "%s*.*", folder.c_str());
+//    WIN32_FIND_DATA fd;
+//    HANDLE hFind = ::FindFirstFile(search_path, &fd);
+//    if (hFind != INVALID_HANDLE_VALUE)
 //    {
-//        printf("\nMix_PlayChannel: %s\n", Mix_GetError());
+//        do
+//        {
+//            // read all (real) files in current folder, delete '!' read other 2 default folder . and ..
+//            if (!(fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+//            {
+//                names.push_back(folder + fd.cFileName);
+//            }
+//        } while (::FindNextFile(hFind, &fd));
+//        ::FindClose(hFind);
+//    }
+//    return names;
+//}
+
+//char** directory_files(const char* path, size_t* size_return)
+//{
+//    size_t count = 0;
+//    char** filenames = 0;
+//
+//    HANDLE hFind;
+//    WIN32_FIND_DATA data;
+//
+//    // Count Files
+//    hFind = FindFirstFile(path, &data);
+//    if (hFind != INVALID_HANDLE_VALUE)
+//    {
+//        do
+//        {
+//            ++count;
+//        } while (FindNextFile(hFind, &data));
+//
+//        FindClose(hFind);
 //    }
 //
-//    //set the sound's volume
-//    music->volume = volume; // if an error pops up a break point here, that usually means you arent correctly naming the song you want to use!
-//    // TESTING //std::cout << "\nMusic Volume is at: " + std::to_string(music->volume);
+//    if (count > 0)
+//    {
+//        filenames = malloc(sizeof(*filenames) * count);
+//        size_t i = 0;
 //
+//        // Copy File Names to Array
+//        hFind = FindFirstFile(path, &data);
+//        if (hFind != INVALID_HANDLE_VALUE)
+//        {
+//            do
+//            {
+//                filenames[i] = malloc(strlen(data.cFileName) + 1);
+//                strcpy(filenames[i], data.cFileName);
+//                ++i;
+//            } while (FindNextFile(hFind, &data));
 //
-//    Mix_PlayingMusic();
+//            FindClose(hFind);
+//        }
+//    }
 //
-//    // keep window open long enough to hear the sound
-//    //SDL_Delay(100000);
+//    if (size_return) *size_return = count;
 //
-//    // clean up
-//    SDL_CloseAudioDevice(deviceId);
-//    SDL_Quit();
-//
-//    return(0);
+//    return filenames;
 //}
-//};
+//
+//void free_directory_files(char** filenames, size_t size)
+//{
+//    if (filenames)
+//    {
+//        for (size_t i = 0; i < size; ++i)
+//            free(filenames[i]);
+//
+//        free(filenames);
+//    }
+//}
+
+#endif // _WIN32

@@ -7,26 +7,38 @@
 
 #include <iostream>
 #include <windows.h>
+
 #include <string>
+#include <tchar.h> 
+#include <stdio.h>
+#include <strsafe.h>
+#pragma comment(lib, "User32.lib")
+
+#define BUFSIZE MAX_PATH
+
+//using namespace std;
+
 
 class audioman
 {
 public:
-	static int runAudio(std::string audioname, int volume, Uint8 channels);
+	// enums
+	enum musictype { IDLE, COMBAT, MUSICIDEA, LEVELTHEME };
+	enum SFXtype { JUMP, DAMAGEENEMY, PLAYERHURT, SELECT, BACK, DASH, PLAYERMELEE, PLAYERRANGEDATTACK, PICKUP, HOTKEY1, HOTKEY2, HOTKEY3, EXPLOSION, HEAL, POWERUP, SPELL, BOSSCHARGE, BOSSRIPPLE, BOSSPROJECTILE, COLLECTION, NUM_OF_SFXTYPES };
 
-	static int runmusic(std::string audioname, int volume);
-	static int runSFX(std::string audioname, int volume);
+	// SFX running functions
+	static int runSFX(std::string soundname, int volume, Uint8 channels);
+	static int runSFXlist(int soundnum, int volume, Uint8 channels);
+	
+	// music running functions
+	static int runmusic(std::string audioname, int volume, int loopamount, int fadeintime);
+	static int runmusiclist(int audio, int volume, int loopamount, int fadeintime);
 
-	/// PLANNED OUTCOME ///
-	// static int runSFX(std::string SFXname, int volume, Audio Channel???); // note channels 0 & 1 are off-limits
-	// static int runMusic(std::string songname, int volume, bool loop, Audio Channel???);
-	// make code to check = what channels are being utilised if possible???
+	// extra music optimisation functions
+	static int endmusic(int fadeouttime); // measured in milliseconds
+	static int volmusic(int volume); // max = 128
 
-	// fade outs via the two channels for "Mix_FadeInMusic" & "Mix_FadeOutMusic"
-
-
-	//change the string to audio library
-
-	//stop music function
+	// file searching
+	static void searchfiles();
 };
 
