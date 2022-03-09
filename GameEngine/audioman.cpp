@@ -163,6 +163,9 @@ int audioman::runmusic(std::string audioname, int volume, int loopamount, int fa
     //set the music's volume
     Mix_VolumeMusic(volume); // if an error pops up a break point around here, that usually means you arent correctly naming the song you want to use!
 
+    // keep window open long enough to hear the sound
+    //SDL_Delay(100000);
+
     // clean up // this stuff is for if it is a sound effect
     SDL_CloseAudioDevice(deviceId);
 
@@ -278,7 +281,7 @@ int audioman::runSFXlist(int soundnum, int volume, Uint8 channels)
     music->volume = volume; // if an error pops up a break point here, that usually means you arent correctly naming the song you want to use!
 
     // keep window open long enough to hear the sound
-    SDL_Delay(100000);
+    //SDL_Delay(100000);
 
     // clean up 
     SDL_CloseAudioDevice(deviceId);
@@ -326,6 +329,9 @@ int audioman::runmusiclist(int audionum, int volume, int loopamount, int fadeint
 
     //set the music's volume
     Mix_VolumeMusic(volume); // if an error pops up a break point around here, that usually means you arent correctly naming the song you want to use!
+
+    // keep window open long enough to hear the sound
+    //SDL_Delay(100000);
 
     // clean up
     SDL_CloseAudioDevice(deviceId);

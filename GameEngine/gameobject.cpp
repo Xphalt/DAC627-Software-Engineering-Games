@@ -7,11 +7,11 @@
 
 gameobject::gameobject()
 {
-	audioman::searchfiles();
-	audioman::runSFX("Jump", 69, 1); // unironically 69 is a really good medium volume...
-	//audioman::runSFXlist(0, 69, 1);
-	//audioman::runmusic("Idle", 69, 1, -1, 0);
-	//audioman::runmusiclist(0, 69, -1, 0);
+	//audioman::searchfiles(); // in-development
+	//audioman::runSFX("Jump", 69, 1); // unironically 69 is a really good medium volume...
+	//audioman::runSFXlist(2 69, 2);
+	//audioman::runmusic("Idle", 128, 4, 1);
+	//audioman::runmusiclist(1, 69, -1, 0);
 	//audioman::volmusic(0);
 	//audioman::endmusic(0);
 
