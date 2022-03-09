@@ -1,6 +1,9 @@
 #include "Keyboard.h"
 #include <iostream>
 
+bool Keyboard::keysPressed[SIZEOF_KEY_LIST];
+bool Keyboard::keysHeld[SIZEOF_KEY_LIST];
+
 Keyboard::Keyboard()
 {
     for (int i = 0; i < SIZEOF_KEY_LIST; i++)

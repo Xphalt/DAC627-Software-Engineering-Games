@@ -1,5 +1,9 @@
 #include "Mouse.h"
 
+bool Mouse::buttonPressed[SIZEOF_BUTTON_LIST];
+bool Mouse::buttonHeld[SIZEOF_BUTTON_LIST];
+
+
 Mouse::Mouse()
 {
     for (int i = 0; i < SIZEOF_BUTTON_LIST; i++)
