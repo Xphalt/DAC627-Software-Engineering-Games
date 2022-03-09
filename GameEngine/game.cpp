@@ -15,6 +15,9 @@ game::~game()
 
 void game::update()
 {
-	m_p_gameobject->update();
+	while (true)
+	{
+		m_p_gameobject->update();
+	}
 }
 

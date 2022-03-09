@@ -3,10 +3,13 @@
 #include <iostream>
 #include <conio.h>
 
+class Window;
+
 class renderer
 {
 private:
     SDL_Renderer* m_renderer{ nullptr };
+    Window* m_Window;
 
 public:
     renderer(Window* m_Window);
