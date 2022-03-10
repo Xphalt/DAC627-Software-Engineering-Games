@@ -40,6 +40,8 @@ public:
 	scale get_scale() { return m_scale; }
 
 	void set_position(int x, int y);
+	void set_rotation(int x, int y);
+	void set_scale(int x, int y);
 
 	gameobject* create_player();
 	gameobject* create_enemy();

@@ -55,6 +55,18 @@ void gameobject::set_position(int x, int y)
 	m_position.y = y;
 }
 
+void gameobject::set_rotation(int x, int y)
+{
+	m_rotation.x = x;
+	m_rotation.y = y;
+}
+
+void gameobject::set_scale(int x, int y)
+{
+	m_scale.x = x;
+	m_scale.y = y;
+}
+
 gameobject* gameobject::create_player()
 {
 	return nullptr;
