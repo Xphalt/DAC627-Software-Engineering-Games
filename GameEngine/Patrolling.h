@@ -11,9 +11,7 @@ public:
 	void Exit(gameobject* _Agent);
 	float CalculateDistance(position _one, position _two);
 
-
 private:
-	vector<position> m_waypoints;
 	vector<float> m_distances;
 	gameobject m_waypoint_1;
 	gameobject m_waypoint_2;

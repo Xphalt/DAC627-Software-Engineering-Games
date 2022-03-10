@@ -3,13 +3,10 @@
 void Patrolling::Enter(gameobject* _Agent)
 {
 	//one route for now, but set up a method to change it later
-	m_waypoints.push_back(m_waypoint_1.get_position());
+
 	m_distances.push_back(CalculateDistance(_Agent->get_position(), m_waypoint_1.get_position()));
-	m_waypoints.push_back(m_waypoint_2.get_position());
 	m_distances.push_back(CalculateDistance(_Agent->get_position(), m_waypoint_2.get_position()));
-	m_waypoints.push_back(m_waypoint_3.get_position());
 	m_distances.push_back(CalculateDistance(_Agent->get_position(), m_waypoint_3.get_position()));
-	m_waypoints.push_back(m_waypoint_4.get_position());
 	m_distances.push_back(CalculateDistance(_Agent->get_position(), m_waypoint_4.get_position()));
 
 	sort(m_distances.begin(), m_distances.end());
@@ -31,13 +28,36 @@ void Patrolling::Enter(gameobject* _Agent)
 	}
 
 }
-
+//Matt, attach vector movement to the game object
 void Patrolling::Execute(gameobject* _Agent)
 {
-	//change the position of the agent based on the destination, so it travels in a certain path
+
 	//use an increment function (will be put in later)
 	//iterate through the vector for each waypoint
 	//if agent position is equal to the waypoint, move to next one in the vector
+	if (m_destination.x > _Agent->get_position().x)
+	{
+		
+	}
+	else if (m_destination.x < _Agent->get_position().x)
+	{
+
+	}
+
+	if (m_destination.y > _Agent->get_position().y)
+	{
+
+	}
+	else if (m_destination.y < _Agent->get_position().y)
+	{
+
+	}
+
+
+	if (_Agent->get_position().x == m_destination.x && _Agent->get_position().y == m_destination.y)
+	{
+		
+	}
 }
 
 void Patrolling::Exit(gameobject* _Agent)
