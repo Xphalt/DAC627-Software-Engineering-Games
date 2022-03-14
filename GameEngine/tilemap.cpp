@@ -12,7 +12,7 @@ tilemap::tilemap(int _block_size, std::string _tilemap_path, SDL_Renderer* _rend
 
 void tilemap::load_from_file(std::string _path)
 {
-	std::ifstream tilemapFile((MAP_PATH + _path + ".txt"));
+	std::ifstream tilemapFile((_path + ".txt"));
 	std::string row;
 
 	if (tilemapFile.is_open())
