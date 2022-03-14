@@ -8,6 +8,7 @@
 #include "audioman.h"
 #include "input_master.h"
 #include "Graphics\Window.h"
+#include "tilemap.h"
 
 gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master)
 	: m_p_renderer{ _renderer }, m_p_image{ _image }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }
@@ -24,14 +25,16 @@ gameobject::gameobject(renderer* _renderer, ui_component* _ui_component, animati
 {
 }
 
-gameobject::gameobject(renderer* _renderer)
+gameobject::gameobject(renderer* _renderer, std::string fileName, std::string type, int newTag)
 	: m_p_renderer{ _renderer }/*, m_p_animator{ anim }*/
 {
 	m_p_animator = new animator();
 
-	m_p_animator->add_animation(m_p_renderer, "Sprites/Isometric/Floor.bmp", "Walls");
-	m_p_animator->set_animation("Walls");
+	m_p_animator->add_animation(m_p_renderer, fileName, newTag);
+	m_p_animator->set_animation(newTag);
+	tag = newTag;
 }
+
 
 gameobject::~gameobject()
 {
@@ -44,7 +47,7 @@ void gameobject::update()
 	//if (m_p_ui_component != nullptr) { m_p_ui_component->draw(); }
 	//if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
-	if (m_p_animator != nullptr) { m_p_animator->play(get_position().x, get_position().y, 16, 16, 0.0, FLIP::NONE); }
+	if (m_p_animator != nullptr) { m_p_animator->play(get_position().x, get_position().y, 128, 128, 0.0, FLIP::NONE); }
 	//if (m_p_audioman != nullptr) { m_p_audioman->; }
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
