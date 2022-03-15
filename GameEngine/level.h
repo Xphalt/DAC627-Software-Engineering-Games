@@ -11,6 +11,7 @@ private:
     renderer* m_p_renderer;
     std::vector<gameobject*> m_tilemap_objects;
     std::vector<gameobject*> m_level_objects;
+    std::vector<gameobject*> m_ui_objects;
     int m_object_size;
 
 public:
