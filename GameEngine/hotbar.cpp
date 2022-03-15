@@ -2,7 +2,25 @@
 
 #include <iostream>
 
-hotbar::hotbar(renderer _renderer,
+hotbar::hotbar(renderer* _renderer)
+{
+	m_p_renderer = _renderer->GetRenderer();
+
+	m_p_background = new image(_renderer, "ui_assets/engine/HotbarBackground.png", 0, 0, 50, 50, 0);
+
+	// Instantiate slots and position them one after the other
+	float slot_size = 50.0 / 3.0;
+	for (int i = 0; i < 3; i++)
+	{
+		m_slots.push_back(new button(_renderer, (i * slot_size), 0, slot_size, slot_size, 0));
+	}
+
+	m_enabled = true;
+	m_rect.w = 50; m_rect.h = 50;
+	m_rect.x = 0; m_rect.y = 0;
+	m_rotation = 0;
+}
+hotbar::hotbar(renderer* _renderer,
 	std::string _background_image_path,
 	int _number_of_slots,
 	int _slot_size,
@@ -12,7 +30,7 @@ hotbar::hotbar(renderer _renderer,
 	int _height,
 	double _rotation)
 {
-	m_p_renderer = _renderer.GetRenderer();
+	m_p_renderer = _renderer->GetRenderer();
 
 	m_p_background = new image(_renderer, _background_image_path, _x, _y, _width, _height, _rotation);
 

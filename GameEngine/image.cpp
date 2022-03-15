@@ -3,9 +3,20 @@
 #include <SDL_image.h>
 #include <iostream>
 
-image::image(renderer _renderer, std::string _image_path, int _x, int _y, int _width, int _height, double _rotation)
+image::image(renderer* _renderer)
 {
-	m_p_renderer = _renderer.GetRenderer();
+	m_p_renderer = _renderer->GetRenderer();
+
+	set_image("ui_assets/engine/DefaultImageNormal.png");
+
+	m_enabled = true;
+	m_rect.w = 50; m_rect.h = 50;
+	m_rect.x = 0; m_rect.y = 0;
+	m_rotation = 0;
+}
+image::image(renderer* _renderer, std::string _image_path, int _x, int _y, int _width, int _height, double _rotation)
+{
+	m_p_renderer = _renderer->GetRenderer();
 
 	set_image(_image_path);
 
