@@ -7,7 +7,7 @@ image::image(renderer* _renderer)
 {
 	m_p_renderer = _renderer->GetRenderer();
 
-	set_image("ui_assets/engine/DefaultImageNormal.png");
+	set_image("ui_assets/engine/DefaultImageHighlighted.png");
 
 	m_enabled = true;
 	m_rect.w = 50; m_rect.h = 50;

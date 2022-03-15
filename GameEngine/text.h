@@ -11,8 +11,8 @@
 
 class text : public ui_component {
 public:
-	text(renderer _renderer);
-	text(renderer _renderer, std::string _font_path, SDL_Color _color, int _font_size, int _x, int _y, int _width, int _height, double _rotation);
+	text(renderer* _renderer);
+	text(renderer* _renderer, std::string _font_path, SDL_Color _color, int _font_size, int _x, int _y, int _width, int _height, double _rotation);
 	~text();
 
 	void set_text(std::string _text);

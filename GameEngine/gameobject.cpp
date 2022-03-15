@@ -1,7 +1,6 @@
 #include "gameobject.h"
 #include "renderer.h"
-#include "image.h"
-#include "ui_component.h"
+#include "ui_library.h"
 #include "camera.h"
 #include "animation.h"
 #include "animator.h"
@@ -78,7 +77,7 @@ gameobject* gameobject::create_enemy()
 
 gameobject* gameobject::create_UI()
 {
-	m_p_ui_component = new image(m_p_renderer);
+	m_p_ui_component = new button(m_p_renderer);
 
 	return nullptr;
 }
