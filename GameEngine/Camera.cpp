@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "gameobject.h"
 
 
 camera::camera()
@@ -75,6 +76,21 @@ bool camera::set_map_full_size(int _width, int _height)
 	m_map_full_height = _height;
 
 	return true;
+}
+
+int camera::get_tile_drawX(int _x)
+{
+	return _x - m_camera_rect.x;
+}
+
+int camera::get_tile_drawY(int _y)
+{
+	return _y - m_camera_rect.y;
+}
+
+bool camera::can_draw_tile(gameobject* _obj)
+{
+	return  std::abs(_obj->get_position().x - m_camera_rect.x) < (m_camera_rect.w / 2) && std::abs(_obj->get_position().y - m_camera_rect.y) < (m_camera_rect.h / 2);
 }
 
 int camera::get_start_row()
