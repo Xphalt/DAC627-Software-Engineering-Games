@@ -1,5 +1,8 @@
 #pragma once 
 #include <SDL.h>
+#include <cmath>
+
+class gameobject;
 
 
 class camera
@@ -31,6 +34,10 @@ public:
 	bool set_tile_size(int _width, int _height);
 	bool set_map_full_size(int _width, int _height);
 	
+
+	int get_tile_drawX(int _x);
+	int get_tile_drawY(int _y);
+	bool can_draw_tile(gameobject* _obj);
 
 	//Getters for rendering map
 	int get_start_row();

@@ -64,7 +64,6 @@ private:
 	scale m_scale{ };
 
 	renderer* m_p_renderer{ nullptr };
-	image* m_p_image{ nullptr };
 	ui_component* m_p_ui_component{ nullptr };
 	camera* m_p_camera{ nullptr };
 	animation* m_p_animation{ nullptr };

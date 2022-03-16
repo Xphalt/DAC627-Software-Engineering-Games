@@ -1,7 +1,6 @@
 #include "gameobject.h"
 #include "renderer.h"
-#include "image.h"
-#include "ui_component.h"
+#include "ui_library.h"
 #include "camera.h"
 #include "animation.h"
 #include "animator.h"
@@ -10,12 +9,12 @@
 #include "Graphics\Window.h"
 
 gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master)
-	: m_p_renderer{ _renderer }, m_p_image{ _image }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }
+	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }
 {
 }
 
 gameobject::gameobject(renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman)
-	: m_p_renderer{ _renderer }, m_p_image{ _image }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }
+	: m_p_renderer{ _renderer }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }
 {
 }
 
@@ -40,7 +39,6 @@ gameobject::~gameobject()
 void gameobject::update()
 {
 	//if (m_p_renderer != nullptr) { m_p_renderer->Update(); }
-	//if (m_p_image != nullptr) { m_p_image->draw(); }
 	//if (m_p_ui_component != nullptr) { m_p_ui_component->draw(); }
 	//if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
@@ -79,5 +77,7 @@ gameobject* gameobject::create_enemy()
 
 gameobject* gameobject::create_UI()
 {
+	m_p_ui_component = new button(m_p_renderer);
+
 	return nullptr;
 }

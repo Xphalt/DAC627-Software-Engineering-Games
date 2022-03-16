@@ -3,9 +3,23 @@
 #include <iostream>
 #include <SDL_ttf.h>
 
-text::text(renderer _renderer, std::string _font_path, SDL_Color _color, int _font_size, int _x, int _y, int _width, int _height, double _rotation)
+text::text(renderer* _renderer)
 {
-	m_p_renderer = _renderer.GetRenderer();
+	m_p_renderer = _renderer->GetRenderer();
+	m_font_path = "ui_assets/fonts/VCR_OSD_MONO.ttf";
+	set_font(m_font_path);
+	m_font_size = 12;
+	m_color = {255, 255, 255};
+	m_text = "Text";
+
+	m_enabled = true;
+	m_rect.w = 50; m_rect.h = 50;
+	m_rect.x = 0; m_rect.y = 0;
+	m_rotation = 0;
+}
+text::text(renderer* _renderer, std::string _font_path, SDL_Color _color, int _font_size, int _x, int _y, int _width, int _height, double _rotation)
+{
+	m_p_renderer = _renderer->GetRenderer();
 	m_font_path = _font_path;
 	set_font(_font_path);
 	m_font_size = _font_size;

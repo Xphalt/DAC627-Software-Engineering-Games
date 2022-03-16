@@ -2,7 +2,29 @@
 
 #include <iostream>
 
-slider::slider(	renderer _renderer,
+slider::slider(renderer* _renderer)
+{
+	m_p_renderer = _renderer->GetRenderer();
+
+	set_images(_renderer, "ui_assets/engine/SliderBackground.png", "ui_assets/engine/SliderFill.png");
+
+	// Store a copy of a lambda
+	std::vector<std::string> handle_image_paths;
+	handle_image_paths.push_back("ui_assets/engine/SliderHandle.png");
+	handle_image_paths.push_back("ui_assets/engine/SliderHandle.png");
+	handle_image_paths.push_back("ui_assets/engine/SliderHandle.png");
+	set_handle(_renderer, handle_image_paths, [&] { on_handle_move(); });
+	m_min_value = 0;
+	m_max_value = 100;
+
+	m_enabled = true;
+	m_rect.w = 50; m_rect.h = 50;
+	m_rect.x = 0; m_rect.y = 0;
+	m_rotation = 0;
+
+	set_value(m_max_value);
+}
+slider::slider(	renderer* _renderer,
 				std::string _background_image_path,
 				std::string _fill_image_path,
 				std::vector<std::string> _handle_image_paths,
@@ -14,7 +36,7 @@ slider::slider(	renderer _renderer,
 				int _height,
 				double _rotation)
 {
-	m_p_renderer = _renderer.GetRenderer();
+	m_p_renderer = _renderer->GetRenderer();
 
 	set_images(_renderer, _background_image_path, _fill_image_path);
 
@@ -66,7 +88,7 @@ void slider::modify_value(float _amount)
 {
 	set_value(m_value + _amount);
 }
-void slider::set_images(renderer _renderer, std::string _background_image_path, std::string _fill_image_path)
+void slider::set_images(renderer* _renderer, std::string _background_image_path, std::string _fill_image_path)
 {
 	// Clear old images
 	if (m_p_background) delete m_p_background;
@@ -76,7 +98,7 @@ void slider::set_images(renderer _renderer, std::string _background_image_path, 
 	m_p_fill = new image(_renderer, _fill_image_path, m_rect.x, m_rect.y, m_rect.w, m_rect.h, m_rotation);
 	
 }
-void slider::set_handle(renderer _renderer, std::vector<std::string> _handle_image_paths, std::function<void()> _callback)
+void slider::set_handle(renderer* _renderer, std::vector<std::string> _handle_image_paths, std::function<void()> _callback)
 {
 	if (m_p_handle) delete m_p_handle;
 
