@@ -45,21 +45,21 @@ std::vector<gameobject*> tilemap::return_objects()
 					x += m_block_size * 0.5f;
 					y -= m_block_size * 0.5f;
 
-					objects.push_back(new gameobject(m_p_renderer, "Sprites\\Isometric\\Floor.bmp"));
+					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/Floor.bmp"));
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
 				case FLOOR:
 					x += m_block_size * 0.5f;
 					y -= m_block_size * 0.5f;
 
-					objects.push_back(new gameobject(m_p_renderer, "Sprites\\Isometric\\DoorFrontLeft.png"));
+					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/DoorFrontLeft.png"));
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
 				case DOOR:
 					x += m_block_size * 0.5f;
 					y -= m_block_size * 0.5f;
 
-					objects.push_back(new gameobject(m_p_renderer, "Sprites\\Isometric\\WallLeft.png"));
+					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallLeft.png"));
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
 

@@ -26,7 +26,7 @@ gameobject::gameobject(renderer* _renderer, ui_component* _ui_component, animati
 gameobject::gameobject(renderer* _renderer, std::string fileName)
 	: m_p_renderer{ _renderer }
 {
-
+	m_p_animator = new animator();
 	m_p_animator->add_animation(_renderer, fileName, "Default");
 	m_p_animator->set_animation("Default");
 }
