@@ -1,6 +1,5 @@
 #pragma once
 
-
 class renderer;
 class image;
 class ui_component;
@@ -30,10 +29,9 @@ class tilemap;
 		float y{ 0 };
 	};
 
-
 class gameobject {
 public:
-	gameobject(renderer* _renderer, std::string fileName, std::string type, int newTag = 0 /*, animator* anim*/);
+	gameobject(renderer* _renderer/*, animator* anim*/);
 	~gameobject();
 
 	void update();
@@ -48,8 +46,6 @@ public:
 	gameobject* create_player();
 	gameobject* create_enemy();
 	gameobject* create_UI();
-
-	int tag = 0;
 
 private:
 	// player constructor
