@@ -10,6 +10,7 @@ class audioman;
 class input_master;
 class Window;
 class tilemap;
+class vector_movement;
 
 	struct position
 	{
@@ -70,6 +71,6 @@ private:
 	animator* m_p_animator{ nullptr };
 	audioman* m_p_audioman{ nullptr };
 	input_master* m_p_input_master{ nullptr };
-
 	Window* m_p_window{ nullptr };
+	vector_movement* m_p_movement{ nullptr };
 };
