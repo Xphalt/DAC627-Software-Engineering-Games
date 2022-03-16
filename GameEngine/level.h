@@ -16,7 +16,7 @@ private:
     int m_object_size;
 
 public:
-    level(std::string _fileName, renderer* renderer, camera* camera);
+    level(std::string _fileName, renderer* renderer/*, camera* camera*/);
     ~level();
     void update();
 
