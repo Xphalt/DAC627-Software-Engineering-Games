@@ -19,7 +19,7 @@ public:
 	~game();
 
 	void update();
-
+	float i = 0;
 private:
 	gameobject* m_p_gameobject{ nullptr };
 	Window* m_p_window{ nullptr };
