@@ -3,6 +3,7 @@
 class gameobject;
 class level;
 class renderer;
+class camera;
 //class input_component;
 //class output_component;
 //class logic_component;
@@ -24,4 +25,5 @@ private:
 	Window* m_p_window{ nullptr };
 	level* m_p_level{ nullptr };
 	renderer* m_p_renderer{ nullptr };
+	camera* m_p_camera{ nullptr };
 };

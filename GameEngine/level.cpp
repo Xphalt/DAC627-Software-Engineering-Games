@@ -4,7 +4,7 @@
 level::level(std::string _fileName, renderer* renderer)
 	: m_p_renderer{ renderer }
 {
-	m_tilemap = new tilemap(16, _fileName, renderer);
+	m_tilemap = new tilemap(128, _fileName, renderer);
 	m_tilemap_objects = m_tilemap->return_objects();
 }
 

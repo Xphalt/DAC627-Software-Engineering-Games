@@ -31,7 +31,7 @@ class tilemap;
 
 class gameobject {
 public:
-	gameobject(renderer* _renderer/*, animator* anim*/);
+	gameobject(renderer* _renderer);
 	~gameobject();
 
 	void update();

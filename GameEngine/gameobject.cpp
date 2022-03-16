@@ -25,7 +25,7 @@ gameobject::gameobject(renderer* _renderer, ui_component* _ui_component, animati
 }
 
 gameobject::gameobject(renderer* _renderer)
-	: m_p_renderer{ _renderer }/*, m_p_animator{ anim }*/
+	: m_p_renderer{ _renderer }
 {
 	m_p_animator = new animator();
 
@@ -44,7 +44,7 @@ void gameobject::update()
 	//if (m_p_ui_component != nullptr) { m_p_ui_component->draw(); }
 	//if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
-	if (m_p_animator != nullptr) { m_p_animator->play(get_position().x, get_position().y, 16, 16, 0.0, FLIP::NONE); }
+	if (m_p_animator != nullptr) { m_p_animator->play(get_position().x, get_position().y, 128, 128, 0.0, FLIP::NONE); }
 	//if (m_p_audioman != nullptr) { m_p_audioman->; }
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
