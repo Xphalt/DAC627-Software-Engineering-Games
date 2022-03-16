@@ -30,6 +30,8 @@ gameobject::gameobject(renderer* _renderer)
 
 	m_p_animator->add_animation(m_p_renderer, "Sprites/Isometric/Floor.bmp", "Walls");
 	m_p_animator->set_animation("Walls");
+
+
 }
 
 gameobject::~gameobject()
@@ -42,7 +44,7 @@ void gameobject::update()
 	//if (m_p_ui_component != nullptr) { m_p_ui_component->draw(); }
 	//if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
-	if (m_p_animator != nullptr) { m_p_animator->play(get_position().x, get_position().y, 128, 128, 0.0, FLIP::NONE); }
+	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
 	//if (m_p_audioman != nullptr) { m_p_audioman->; }
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
