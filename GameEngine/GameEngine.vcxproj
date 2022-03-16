@@ -45,6 +45,7 @@
     <ClCompile Include="tilemap.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="ui_component.cpp" />
+    <ClCompile Include="vector_movement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animation.h" />
@@ -73,6 +74,7 @@
     <ClInclude Include="Timer.h" />
     <ClInclude Include="ui_component.h" />
     <ClInclude Include="ui_library.h" />
+    <ClInclude Include="vector_movement.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

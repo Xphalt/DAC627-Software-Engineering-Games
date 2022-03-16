@@ -76,5 +76,4 @@ void vector_movement::update(const float deltaTime)
 SDL_Point vector_movement::GetMovementVector()
 {
 	return m_movementVector;
-
 }

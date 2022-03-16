@@ -38,6 +38,9 @@
     <Filter Include="Engine\Components\AI">
       <UniqueIdentifier>{8a655fda-f98a-4600-ab74-218a0c0e7a63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Components\Movement">
+      <UniqueIdentifier>{8dc3333f-81b5-4031-bb25-db0dd7e88801}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp">
@@ -115,8 +118,11 @@
     <ClCompile Include="Mouse.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
+    <ClCompile Include="vector_movement.cpp">
+      <Filter>Engine\Components\Movement</Filter>
+    </ClCompile>
     <ClCompile Include="level.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,9 +198,14 @@
     <ClInclude Include="Mouse.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
-    <ClInclude Include="level.h" />
     <ClInclude Include="ui_library.h">
       <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="vector_movement.h">
+      <Filter>Engine\Components\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="level.h">
+      <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
