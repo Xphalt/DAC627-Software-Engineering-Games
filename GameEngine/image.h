@@ -13,7 +13,8 @@ class image: public ui_component {
 public:
 	image() = default;
 
-	image(renderer _renderer, std::string _image_path, int _x, int _y, int _width, int _height, double _rotation);
+	image(renderer* _renderer);
+	image(renderer* _renderer, std::string _image_path, int _x, int _y, int _width, int _height, double _rotation);
 	~image();
 	
 	void set_image(std::string _image_path);

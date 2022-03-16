@@ -6,6 +6,10 @@ level::level(std::string _fileName, renderer* renderer)
 {
 	m_tilemap = new tilemap(16, _fileName, renderer);
 	m_tilemap_objects = m_tilemap->return_objects();
+
+	gameobject* m_image_test = new gameobject(m_p_renderer);
+	m_ui_objects.push_back(m_image_test);
+	m_image_test->create_UI();
 }
 
 level::~level()
@@ -27,6 +31,11 @@ void level::update()
 		m_level_objects[i]->update();
 	}
 
+	for (int i = 0; i < m_ui_objects.size(); i++)
+	{
+		m_ui_objects[i]->update();
+	}
+
 	m_p_renderer->PresentRender();
 }
 
@@ -34,6 +43,7 @@ void level::set_filepath(std::string _filepath)
 {
 	m_tilemap_objects.clear();
 	m_level_objects.clear();
+	m_ui_objects.clear();
 
 	//m_tilemap->set the filepath
 }

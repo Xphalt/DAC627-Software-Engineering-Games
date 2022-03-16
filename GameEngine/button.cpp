@@ -2,9 +2,28 @@
 
 #include <iostream>
 
-button::button(renderer _renderer, std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths, int _x, int _y, int _width, int _height, double _rotation)
+button::button(renderer* _renderer)
 {
-	m_p_renderer = _renderer.GetRenderer();
+	m_p_renderer = _renderer->GetRenderer();
+
+	m_pointer_move_callback = nullptr;
+	m_pointer_up_callback = nullptr;
+
+	std::vector<std::string> image_paths;
+	image_paths.push_back("ui_assets/engine/ButtonNormal.png");
+	image_paths.push_back("ui_assets/engine/ButtonHighlighted.png");
+	image_paths.push_back("ui_assets/engine/ButtonPressed.png");
+	m_image_paths = image_paths;
+	m_p_image = new image(_renderer, image_paths[NORMAL], 0, 0, 50, 50, 0);
+
+	m_enabled = true;
+	m_rect.w = 50; m_rect.h = 50;
+	m_rect.x = 0; m_rect.y = 0;
+	m_rotation = 0;
+}
+button::button(renderer* _renderer, std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths, int _x, int _y, int _width, int _height, double _rotation)
+{
+	m_p_renderer = _renderer->GetRenderer();
 
 	m_pointer_move_callback = _pointer_move_callback;
 	m_pointer_up_callback = _pointer_up_callback;
@@ -18,9 +37,9 @@ button::button(renderer _renderer, std::function<void()> _pointer_up_callback, s
 	m_rotation = _rotation;
 }
 // Instantiate a button with default images and no callbacks
-button::button(renderer _renderer, int _x, int _y, int _width, int _height, double _rotation)
+button::button(renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation)
 {
-	m_p_renderer = _renderer.GetRenderer();
+	m_p_renderer = _renderer->GetRenderer();
 
 	m_pointer_move_callback = nullptr;
 	m_pointer_up_callback = nullptr;
