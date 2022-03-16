@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class renderer;
 class image;
@@ -31,7 +32,8 @@ struct scale
 
 class gameobject {
 public:
-	gameobject(renderer* _renderer);
+
+	gameobject(renderer* _renderer, std::string fileName);
 	~gameobject();
 
 	void update();
@@ -48,7 +50,6 @@ public:
 	gameobject* create_UI();
 
 	position m_testPos{};
-
 
 private:
 	// player constructor
