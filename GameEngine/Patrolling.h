@@ -13,7 +13,6 @@ public:
 
 
 private:
-	vector<position> m_waypoints;
 	vector<float> m_distances;
 	gameobject m_waypoint_1;
 	gameobject m_waypoint_2;

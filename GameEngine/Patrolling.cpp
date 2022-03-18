@@ -3,13 +3,9 @@
 void Patrolling::Enter(gameobject* _Agent)
 {
 	//one route for now, but set up a method to change it later
-	m_waypoints.push_back(m_waypoint_1.get_position());
 	m_distances.push_back(CalculateDistance(_Agent->get_position(), m_waypoint_1.get_position()));
-	m_waypoints.push_back(m_waypoint_2.get_position());
 	m_distances.push_back(CalculateDistance(_Agent->get_position(), m_waypoint_2.get_position()));
-	m_waypoints.push_back(m_waypoint_3.get_position());
 	m_distances.push_back(CalculateDistance(_Agent->get_position(), m_waypoint_3.get_position()));
-	m_waypoints.push_back(m_waypoint_4.get_position());
 	m_distances.push_back(CalculateDistance(_Agent->get_position(), m_waypoint_4.get_position()));
 
 	sort(m_distances.begin(), m_distances.end());
