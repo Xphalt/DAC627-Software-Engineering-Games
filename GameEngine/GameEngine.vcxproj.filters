@@ -118,6 +118,9 @@
     <ClCompile Include="level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -193,5 +196,6 @@
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="level.h" />
+    <ClInclude Include="Physics.h" />
   </ItemGroup>
 </Project>

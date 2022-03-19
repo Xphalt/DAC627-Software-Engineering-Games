@@ -1,6 +1,6 @@
-#include "vector_movement.h"
+#include "Physics.h"
 
-vector_movement::vector_movement(float maxSpeed, float acceleration, float mass)
+Physics::Physics(float maxSpeed, float acceleration, float mass)
 {
 	m_maxVelocity = maxSpeed;
 	m_acceleration = acceleration;
@@ -8,19 +8,21 @@ vector_movement::vector_movement(float maxSpeed, float acceleration, float mass)
 }
 
 
-vector_movement::~vector_movement()
+Physics::~Physics()
 {
 }
 
-void vector_movement::Move(float direction_x, float direction_y)
+
+//pass in a direction - positive/negative x, positive/negative z (e.g. 1 or -1 or what ever value works best)
+void Physics::Move(float direction_x, float direction_z)
 {
 	//accelerate in each direction
 	m_movementVector.x += m_acceleration * direction_x;
-	m_movementVector.y += m_acceleration * direction_y;
+	m_movementVector.z += m_acceleration * direction_z;
 }
 
 
-void vector_movement::update(const float deltaTime)
+void Physics::update(const float deltaTime)
 {
 	//check if max velocity has been reched and applys friction
 	if (m_movementVector.x > 0.0f)
@@ -46,35 +48,31 @@ void vector_movement::update(const float deltaTime)
 			m_movementVector.x = 0.0f;
 	}
 
-	if (m_movementVector.y > 0.0f)
+	if (m_movementVector.z > 0.0f)
 	{
 		// max velocity check in positive y
-		if (m_movementVector.y > m_maxVelocity)
-			m_movementVector.y = m_maxVelocity;
+		if (m_movementVector.z > m_maxVelocity)
+			m_movementVector.z = m_maxVelocity;
 
 		//deceleration in positive y
-		m_movementVector.y -= m_mass;
-		if (m_movementVector.y < 0.0f)
-			m_movementVector.y = 0.0f;
+		m_movementVector.z -= m_mass;
+		if (m_movementVector.z < 0.0f)
+			m_movementVector.z = 0.0f;
 	}
-	else if (m_movementVector.y < 0.0f)
+	else if (m_movementVector.z < 0.0f)
 	{
 		// max velocity check in negative y
-		if (m_movementVector.y < -m_maxVelocity)
-			m_movementVector.y = -m_maxVelocity;
+		if (m_movementVector.z < -m_maxVelocity)
+			m_movementVector.z = -m_maxVelocity;
 
 		//deceleration in negative y
-		m_movementVector.y += m_mass;
-		if (m_movementVector.y > 0.0f)
-			m_movementVector.y = 0.0f;
+		m_movementVector.z += m_mass;
+		if (m_movementVector.z > 0.0f)
+			m_movementVector.z = 0.0f;
 	}
 
-	//xpos = movementVector * deltaTime;
-	//ypos = movementVector * deltaTime;
+	m_position.x = m_movementVector.x * deltaTime;
+	m_position.z = m_movementVector.z * deltaTime;
 }
 
-SDL_Point vector_movement::GetMovementVector()
-{
-	return m_movementVector;
 
-}

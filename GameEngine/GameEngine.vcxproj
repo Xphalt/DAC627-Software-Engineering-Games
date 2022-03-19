@@ -38,6 +38,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Patrolling.cpp" />
+    <ClCompile Include="Physics.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="slider.cpp" />
     <ClCompile Include="StateMachine.cpp" />
@@ -65,6 +66,7 @@
     <ClInclude Include="level.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Patrolling.h" />
+    <ClInclude Include="Physics.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="slider.h" />
     <ClInclude Include="StateMachine.h" />
