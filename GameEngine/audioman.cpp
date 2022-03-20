@@ -3,21 +3,15 @@
 LPCWSTR FILEPATH = L".\\*.wav";
 
 
-///// base calls for all functions!
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
+///// base calls for all functions! /////
+    //audioman::runsearchedaudiofile(7, 69, 1);
+    //audioman::runsearchedmusicfile(11, 69, 4, 1);
+    //audioman::runSFX("Jump", 69, 1); // unironically 69 is a really good medium volume...
+    //audioman::runSFXlist(2 69, 2);
+    //audioman::runmusic("Idle", 128, 4, 1);
+    //audioman::runmusiclist(1, 69, -1, 0);
+    //audioman::volmusic(0);
+    //audioman::endmusic(0);
 
 // file searched audio
 
