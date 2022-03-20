@@ -2,8 +2,7 @@
 #include <SDL_image.h>
 #include <string>
 #include <map>
-
-class renderer;
+#include "renderer.h"
 
 enum class FLIP { NONE, HORIZONTAL, VERTICAL, FLIP_SIZE };
 
