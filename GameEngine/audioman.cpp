@@ -2,6 +2,7 @@
 
 LPCWSTR FILEPATH = L".\\*.wav";
 
+// if any questions about this ask Morgan Sands
 
 ///// base calls for all functions! /////
     //audioman::runsearchedaudiofile(7, 69, 1);
@@ -13,8 +14,8 @@ LPCWSTR FILEPATH = L".\\*.wav";
     //audioman::volmusic(0);
     //audioman::endmusic(0);
 
-// file searched audio
 
+// file searched audio
 void audioman::runsearchedaudiofile(int fileNumber, int volume, Uint8 channels)
 {
     TCHAR Buffer[BUFSIZE];
@@ -106,7 +107,6 @@ int audioman::runfoundaudio(WCHAR* bufferSoundFile, int volume, Uint8 channels)
 }
 
 // file searched music
-
 void audioman::runsearchedmusicfile(int fileNumber, int volume, int loopamount, int fadeintime)
 {
     TCHAR Buffer[BUFSIZE];
@@ -260,7 +260,6 @@ int audioman::runmusic(std::string audioname, int volume, int loopamount, int fa
 
 
 // music suppliment functions (just stuff made simplified to use elsewhere)
-
 int audioman::endmusic(int fadeouttime)
 {
     Mix_FadeOutMusic(fadeouttime);
@@ -274,7 +273,6 @@ int audioman::volmusic(int volume)
 }
 
 // enum/list based options fot those who just want to use only the base in engine sounds rather then making and dragging in to the folder in their own!
-
 int audioman::runSFXlist(int soundnum, int volume, Uint8 channels)
 {
     std::string sound;
