@@ -1,64 +1,42 @@
 #include "audioman.h"
 
-
-//const std::string FILEPATH = ".\DAC627-Software-Engineering-Games\GameEngine";
 LPCWSTR FILEPATH = L".\\*.wav";
 
 
+///// base calls for all functions!
+//
 
 
 
 
 
 
-void audioman::searchfiles()
+
+
+
+
+
+
+
+
+// file searched audio
+
+void audioman::runsearchedaudiofile(int fileNumber, int volume, Uint8 channels)
 {
     TCHAR Buffer[BUFSIZE];
     DWORD dwRet;
     dwRet = GetCurrentDirectory(BUFSIZE, Buffer);
 
-    //std::cout << "Working directory: " + Buffer;
-
-    std::cout << "Working directory: ";
-
-    std::cout << Buffer;
-
-    //printf(
-
-
-
     WIN32_FIND_DATA ffd;
     LARGE_INTEGER filesize;
     TCHAR szDir[MAX_PATH];
-    //size_t length_of_arg;
     HANDLE hFind = INVALID_HANDLE_VALUE;
     DWORD dwError = 0;
-
-    // If the directory is not specified as a command-line argument,
-    // print usage. // KEEP THIS HERE IF ISSUE COMES UP AND WE DONT KNOW WHAT IT IS!!!!!
-
-    // Check that the input path plus 3 is not longer than MAX_PATH.
-    // Three characters are for the "\*" plus NULL appended below.
-
-    //StringCchLength(FILEPATH, MAX_PATH, &length_of_arg);
-
- /*   if (FILEPATH.wcslen() > (MAX_PATH - 3))
-    {
-        _tprintf(TEXT("\nDirectory path is too long.\n"));
-        return (-1);
-    }*/
-
-    //_tprintf(TEXT("\nTarget directory is %s\n\n"), argv[1]);
-
-    // Prepare string for use with FindFile functions.  First, copy the
-    // string to a buffer, then append '\*' to the directory name.
-
-    //StringCchCopy(szDir, MAX_PATH, FILEPATH);
-    //StringCchCat(szDir, MAX_PATH, TEXT("\\*"));
 
     // Find the first file in the directory.
 
     hFind = FindFirstFile(FILEPATH, &ffd);
+    int fileCount = 1;
 
     if (INVALID_HANDLE_VALUE == hFind)
     {
@@ -72,38 +50,157 @@ void audioman::searchfiles()
     {
         if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
         {
-            /*_tprintf(TEXT("  %s   <DIR>\n"), ffd.cFileName);*/
+
         }
         else
         {
             filesize.LowPart = ffd.nFileSizeLow;
             filesize.HighPart = ffd.nFileSizeHigh;
-            /*_tprintf(TEXT("  %s   %ld bytes\n"), ffd.cFileName, filesize.QuadPart);*/
-            _tprintf(ffd.cFileName, "\n");
         }
+
+        if (fileCount == fileNumber)
+        {
+            runfoundaudio(ffd.cFileName, volume, channels);
+        }
+
+        fileCount++;
     } while (FindNextFile(hFind, &ffd) != 0);
 
+    // incase we need to check for errors
     dwError = GetLastError();
-    if (dwError != ERROR_NO_MORE_FILES)
-    {
-        /*DisplayErrorBox(TEXT("FindFirstFile"));*/
-    }
 
+    // close up the system
     FindClose(hFind);
     return;
 }
 
-//std::wstring string_to_wstring(const std::string& text) {
-//    return std::wstring(text.begin(), text.end());
-//}
+int audioman::runfoundaudio(WCHAR* bufferSoundFile, int volume, Uint8 channels)
+{
+    // drag the sound in to the folder in which audioman.cpp is in //
+
+    //converting one data type to another
+    std::wstring wSoundFile(bufferSoundFile);
+    std::string soundFile(wSoundFile.begin(), wSoundFile.end());
+
+    //initialise audio
+    SDL_Init(SDL_INIT_AUDIO);
+
+    //set amount of channels to be used
+    Mix_AllocateChannels(32);
+
+    // load WAV file
+    SDL_AudioSpec wavSpec;
+
+    // open audio device
+    SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+
+    // inputting .wav in to audio
+    Mix_Chunk* audio = Mix_LoadWAV(soundFile.c_str());
+
+    // play sound
+    Mix_PlayChannel(channels, audio, 0);
 
 
+    //set the sound's volume
+    audio->volume = volume; // if an error pops up a break point here, that usually means you've done someting wrong with your input of the function!
 
+    // clean up
+    SDL_CloseAudioDevice(deviceId);
 
+    return(0);
+}
 
+// file searched music
 
+void audioman::runsearchedmusicfile(int fileNumber, int volume, int loopamount, int fadeintime)
+{
+    TCHAR Buffer[BUFSIZE];
+    DWORD dwRet;
+    dwRet = GetCurrentDirectory(BUFSIZE, Buffer);
 
-///ACTUAL RUNNNING OF AUDIO CODE ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    WIN32_FIND_DATA ffdm;
+    LARGE_INTEGER filesize;
+    TCHAR szDir[MAX_PATH];
+    HANDLE hFind = INVALID_HANDLE_VALUE;
+    DWORD dwError = 0;
+
+    // Find the first file in the directory.
+
+    hFind = FindFirstFile(FILEPATH, &ffdm);
+    int fileCount = 1;
+
+    if (INVALID_HANDLE_VALUE == hFind)
+    {
+        std::cout << "FindFirstFile" << std::endl;
+        return;
+    }
+
+    // List all the files in the directory with some info about them.
+
+    do
+    {
+        if (ffdm.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+        {
+
+        }
+        else
+        {
+            filesize.LowPart = ffdm.nFileSizeLow;
+            filesize.HighPart = ffdm.nFileSizeHigh;
+        }
+
+        if (fileCount == fileNumber)
+        {
+            runfoundmusic(ffdm.cFileName, volume, loopamount, fadeintime);
+        }
+
+        fileCount++;
+    } while (FindNextFile(hFind, &ffdm) != 0);
+
+    // incase we want to find any errors
+    dwError = GetLastError();
+
+    // close up the system
+    FindClose(hFind);
+    return;
+}
+
+int audioman::runfoundmusic(WCHAR* bufferMusicFile, int volume, int loopamount, int fadeintime)
+{
+    // drag the sound in to the folder in which audioman.cpp is in //
+
+    //converting one data type to another
+    std::wstring wMusicFile(bufferMusicFile);
+    std::string musicFile(wMusicFile.begin(), wMusicFile.end());
+
+    // initialise audio
+    SDL_Init(SDL_INIT_AUDIO);
+
+    // load WAV file
+    SDL_AudioSpec wavSpec;
+
+    // open audio device
+    SDL_AudioDeviceID deviceId = SDL_OpenAudioDevice(NULL, 0, &wavSpec, NULL, 0);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+
+    // inputting audio to the file
+    std::string fileInput = musicFile; //  + ".wav"
+    Mix_Music* music = Mix_LoadMUS(fileInput.c_str());
+
+    // play music
+    Mix_FadeInMusic(music, loopamount, fadeintime);
+
+    //set the music's volume
+    Mix_VolumeMusic(volume); // if an error pops up a break point around here, that usually means you arent correctly naming the song you want to use!
+
+    // clean up // this stuff is for if it is a sound effect
+    SDL_CloseAudioDevice(deviceId);
+
+    return(0);
+}
+
+// traditional text and name based method
 int audioman::runSFX(std::string soundname, int volume, Uint8 channels)
 {
     // drag the sound in to the folder in which audioman.cpp is in //
@@ -127,7 +224,6 @@ int audioman::runSFX(std::string soundname, int volume, Uint8 channels)
 
     // play sound
     Mix_PlayChannel(channels, audio, 0);
-    printf("\nMix_PlayChannel: %s\n", Mix_GetError());
 
 
     //set the sound's volume
@@ -158,19 +254,18 @@ int audioman::runmusic(std::string audioname, int volume, int loopamount, int fa
 
     // play music
     Mix_FadeInMusic(music, loopamount, fadeintime);
-    printf("\nMix_PlayChannel: %s\n", Mix_GetError());
 
     //set the music's volume
     Mix_VolumeMusic(volume); // if an error pops up a break point around here, that usually means you arent correctly naming the song you want to use!
-
-    // keep window open long enough to hear the sound
-    //SDL_Delay(100000);
 
     // clean up // this stuff is for if it is a sound effect
     SDL_CloseAudioDevice(deviceId);
 
     return(0);
 }
+
+
+// music suppliment functions (just stuff made simplified to use elsewhere)
 
 int audioman::endmusic(int fadeouttime)
 {
@@ -183,8 +278,6 @@ int audioman::volmusic(int volume)
     Mix_VolumeMusic(volume);
     return 0;
 }
-
-
 
 // enum/list based options fot those who just want to use only the base in engine sounds rather then making and dragging in to the folder in their own!
 
@@ -275,13 +368,9 @@ int audioman::runSFXlist(int soundnum, int volume, Uint8 channels)
 
     // play sound
     Mix_PlayChannel(Mix_Playing(-1) + 1, music, 0);
-    printf("\nMix_PlayChannel: %s\n", Mix_GetError());
 
     //set the sound's volume
     music->volume = volume; // if an error pops up a break point here, that usually means you arent correctly naming the song you want to use!
-
-    // keep window open long enough to hear the sound
-    //SDL_Delay(100000);
 
     // clean up 
     SDL_CloseAudioDevice(deviceId);
@@ -325,13 +414,9 @@ int audioman::runmusiclist(int audionum, int volume, int loopamount, int fadeint
 
     // play music
     Mix_FadeInMusic(music, loopamount, fadeintime);
-    printf("\nMix_PlayChannel: %s\n", Mix_GetError());
 
     //set the music's volume
     Mix_VolumeMusic(volume); // if an error pops up a break point around here, that usually means you arent correctly naming the song you want to use!
-
-    // keep window open long enough to hear the sound
-    //SDL_Delay(100000);
 
     // clean up
     SDL_CloseAudioDevice(deviceId);
