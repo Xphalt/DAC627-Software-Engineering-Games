@@ -9,6 +9,12 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	m_tilemap = new tilemap(128, _fileName, renderer);
 	m_tilemap_objects = m_tilemap->return_objects();
 
+	m_tilemap->load_from_file("Sprites/Tilemaps/TestMap2");
+
+	std::vector<gameobject*> tilemap2 = m_tilemap->return_objects();
+
+	m_tilemap_objects.insert(m_tilemap_objects.end(), tilemap2.begin(), tilemap2.end());
+
 	//gameobject* m_image_test = new gameobject(m_p_renderer);
 
 	//m_ui_objects.push_back(m_image_test);
