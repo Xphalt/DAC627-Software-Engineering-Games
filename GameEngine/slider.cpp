@@ -6,6 +6,11 @@ slider::slider(renderer* _renderer)
 {
 	m_p_renderer = _renderer->GetRenderer();
 
+	m_enabled = true;
+	m_rect.w = 150; m_rect.h = 50;
+	m_rect.x = 0; m_rect.y = 0;
+	m_rotation = 0;
+
 	set_images(_renderer, "ui_assets/engine/SliderBackground.png", "ui_assets/engine/SliderFill.png");
 
 	// Store a copy of a lambda
@@ -16,11 +21,6 @@ slider::slider(renderer* _renderer)
 	set_handle(_renderer, handle_image_paths, [&] { on_handle_move(); });
 	m_min_value = 0;
 	m_max_value = 100;
-
-	m_enabled = true;
-	m_rect.w = 50; m_rect.h = 50;
-	m_rect.x = 0; m_rect.y = 0;
-	m_rotation = 0;
 
 	set_value(m_max_value);
 }
@@ -81,7 +81,7 @@ void slider::set_value(float _value)
 
 	// Update fill size and handle position
 	int updated = (int)((m_p_background->GetRect().w / m_max_value) * m_value);
-	m_p_fill->set_size(updated, m_p_fill->GetRect().w);
+	m_p_fill->set_size(updated, m_p_fill->GetRect().h);
 	m_p_handle->set_position(updated, m_p_handle->GetRect().y);
 }
 void slider::modify_value(float _amount)

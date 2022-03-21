@@ -12,7 +12,7 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	// Dominique UI Testing
 	gameobject* m_image_test = new gameobject(m_p_renderer, "");
 	m_ui_objects.push_back(m_image_test);
-	m_image_test->create_text();
+	m_image_test->create_slider();
 }
 
 level::~level()
