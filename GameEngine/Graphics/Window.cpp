@@ -2,6 +2,7 @@
 #include "../audiolib.h"
 
 #include <iostream>
+#include <SDL_ttf.h>
 
 Window::Window()
 {
@@ -11,6 +12,7 @@ Window::Window()
 	m_flags = SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN;
 
 	SDL_Init(SDL_INIT_VIDEO);
+	TTF_Init();
 
 	m_window = SDL_CreateWindow(m_title, m_position.x, m_position.y, m_size.x, m_size.y, m_flags);
 }
@@ -19,6 +21,7 @@ Window::Window(const char* title, int x, int y, int width, int height, Uint32 fl
 	: m_title{ title }, m_position{ x, y }, m_size{ width, height }, m_flags{ flags }
 {
 	SDL_Init(SDL_INIT_VIDEO);
+	TTF_Init();
 
 	m_window = SDL_CreateWindow(m_title, m_position.x, m_position.y, m_size.x, m_size.y, m_flags);
 }
@@ -27,6 +30,7 @@ Window::Window(const char* title, SDL_Point position, SDL_Point size, Uint32 fla
 	: m_title{ title }, m_position{ size }, m_size{ position }, m_flags{ flags }
 {
 	SDL_Init(SDL_INIT_VIDEO);
+	TTF_Init();
 
 	m_window = SDL_CreateWindow(m_title, m_position.x, m_position.y, m_size.x, m_size.y, m_flags);
 }

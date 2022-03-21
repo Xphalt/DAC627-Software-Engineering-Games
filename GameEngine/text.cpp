@@ -7,10 +7,10 @@ text::text(renderer* _renderer)
 {
 	m_p_renderer = _renderer->GetRenderer();
 	m_font_path = "ui_assets/fonts/VCR_OSD_MONO.ttf";
-	set_font(m_font_path);
 	m_font_size = 12;
-	m_color = {255, 255, 255};
+	m_color = { 255, 255, 255 };
 	m_text = "Text";
+	set_font(m_font_path);
 
 	m_enabled = true;
 	m_rect.w = 50; m_rect.h = 50;
@@ -44,7 +44,6 @@ void text::set_text(std::string _text)
 }
 void text::set_font(std::string _font_path)
 {
-
 	TTF_Font* font = TTF_OpenFont(_font_path.c_str(), m_font_size);
 	if (!font)
 	{
