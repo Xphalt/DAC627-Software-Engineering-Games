@@ -18,8 +18,8 @@ gameobject::gameobject(renderer* _renderer, image* _image, animation* _animation
 {
 }
 
-gameobject::gameobject(renderer* _renderer, ui_component* _ui_component, animation* _animation, animator* _animator, audioman* _audioman)
-	: m_p_renderer{ _renderer }, m_p_ui_component{ _ui_component }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }
+gameobject::gameobject(renderer* _renderer, animation* _animation, animator* _animator, audioman* _audioman)
+	: m_p_renderer{ _renderer }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }
 {
 }
 
@@ -34,12 +34,20 @@ gameobject::gameobject(renderer* _renderer)
 
 gameobject::~gameobject()
 {
+	for (int i = 0; i < m_ui_components.size(); i++)
+	{
+		delete m_ui_components[i];
+	}
+	m_ui_components.clear();
 }
 
 void gameobject::update()
 {
 	//if (m_p_renderer != nullptr) { m_p_renderer->Update(); }
-	//if (m_p_ui_component != nullptr) { m_p_ui_component->draw(); }
+	for (int i = 0; i < m_ui_components.size(); i++)
+	{
+		m_ui_components[i]->draw();
+	}
 	//if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
 	if (m_p_animator != nullptr) { m_p_animator->play(get_position().x, get_position().y, 16, 16, 0.0, FLIP::NONE); }
@@ -75,9 +83,23 @@ gameobject* gameobject::create_enemy()
 	return nullptr;
 }
 
-gameobject* gameobject::create_UI()
+void gameobject::create_button()
 {
-	m_p_ui_component = new button(m_p_renderer);
-
-	return nullptr;
+	m_ui_components.push_back(new button(m_p_renderer));
+}
+void gameobject::create_hotbar()
+{
+	m_ui_components.push_back(new hotbar(m_p_renderer));
+}
+void gameobject::create_image()
+{
+	m_ui_components.push_back(new image(m_p_renderer));
+}
+void gameobject::create_slider()
+{
+	m_ui_components.push_back(new slider(m_p_renderer));
+}
+void gameobject::create_text()
+{
+	m_ui_components.push_back(new text(m_p_renderer));
 }

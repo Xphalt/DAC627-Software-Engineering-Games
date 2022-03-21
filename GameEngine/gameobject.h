@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 class renderer;
 class image;
 class ui_component;
@@ -45,7 +47,12 @@ public:
 
 	gameobject* create_player();
 	gameobject* create_enemy();
-	gameobject* create_UI();
+
+	void create_button();
+	void create_hotbar();
+	void create_image();
+	void create_slider();
+	void create_text();
 
 private:
 	// player constructor
@@ -55,7 +62,7 @@ private:
 	gameobject(renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman);
 
 	// UI constructor
-	gameobject(renderer* _renderer, ui_component* _ui_component, animation* _animation, animator* _animator, audioman* _audioman);
+	gameobject(renderer* _renderer, animation* _animation, animator* _animator, audioman* _audioman);
 
 	// for more constructors, collision/movement components need to be implemented
 
@@ -64,7 +71,7 @@ private:
 	scale m_scale{ };
 
 	renderer* m_p_renderer{ nullptr };
-	ui_component* m_p_ui_component{ nullptr };
+	std::vector<ui_component*> m_ui_components;
 	camera* m_p_camera{ nullptr };
 	animation* m_p_animation{ nullptr };
 	animator* m_p_animator{ nullptr };

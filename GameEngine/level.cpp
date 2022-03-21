@@ -9,7 +9,8 @@ level::level(std::string _fileName, renderer* renderer)
 
 	gameobject* m_image_test = new gameobject(m_p_renderer);
 	m_ui_objects.push_back(m_image_test);
-	m_image_test->create_UI();
+	// Dominique UI Testing
+	//m_image_test->create_button();
 }
 
 level::~level()
