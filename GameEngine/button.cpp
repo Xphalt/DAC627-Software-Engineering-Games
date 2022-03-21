@@ -45,9 +45,9 @@ button::button(renderer* _renderer, int _x, int _y, int _width, int _height, dou
 	m_pointer_up_callback = nullptr;
 
 	std::vector<std::string> default_image_paths;
-	default_image_paths.push_back("ui_assets/engine/sad_panda.png");
-	default_image_paths.push_back("ui_assets/engine/sad_panda.png");
-	default_image_paths.push_back("ui_assets/engine/sad_panda.png");
+	default_image_paths.push_back("ui_assets/engine/DefaultImageHighlighted.png");
+	default_image_paths.push_back("ui_assets/engine/DefaultImageHighlighted.png");
+	default_image_paths.push_back("ui_assets/engine/DefaultImageHighlighted.png");
 	m_image_paths = default_image_paths;
 
 	m_p_image = new image(_renderer, default_image_paths[NORMAL], _x, _y, _width, _height, _rotation);

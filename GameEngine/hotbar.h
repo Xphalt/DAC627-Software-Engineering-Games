@@ -26,7 +26,7 @@ public:
 
 	void draw() override;
 private:
-	image* m_p_background;
+	std::vector<image*> m_p_backgrounds;
 	int m_number_of_slots;
 	std::vector<button*> m_slots;
 };
