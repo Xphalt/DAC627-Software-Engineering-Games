@@ -36,27 +36,6 @@ button::button(renderer* _renderer, std::function<void()> _pointer_up_callback, 
 	m_rect.x = _x; m_rect.y = _y;
 	m_rotation = _rotation;
 }
-// Instantiate a button with default images and no callbacks
-button::button(renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation)
-{
-	m_p_renderer = _renderer->GetRenderer();
-
-	m_pointer_move_callback = nullptr;
-	m_pointer_up_callback = nullptr;
-
-	std::vector<std::string> default_image_paths;
-	default_image_paths.push_back("ui_assets/engine/DefaultImageHighlighted.png");
-	default_image_paths.push_back("ui_assets/engine/DefaultImageHighlighted.png");
-	default_image_paths.push_back("ui_assets/engine/DefaultImageHighlighted.png");
-	m_image_paths = default_image_paths;
-
-	m_p_image = new image(_renderer, default_image_paths[NORMAL], _x, _y, _width, _height, _rotation);
-
-	m_enabled = true;
-	m_rect.w = _width; m_rect.h = _height;
-	m_rect.x = _x; m_rect.y = _y;
-	m_rotation = _rotation;
-}
 button::~button()
 {
 	delete m_p_image;

@@ -1,6 +1,5 @@
 #include "gameobject.h"
 #include "renderer.h"
-#include "ui_library.h"
 #include "camera.h"
 #include "animation.h"
 #include "animator.h"
@@ -82,23 +81,34 @@ gameobject* gameobject::create_enemy()
 	return nullptr;
 }
 
-void gameobject::create_button()
+button* gameobject::create_button(std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths)
 {
-	m_ui_components.push_back(new button(m_p_renderer));
+	button* new_button = new button(m_p_renderer, _pointer_up_callback, _pointer_move_callback, _image_paths, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	m_ui_components.push_back(new_button);
+	return new_button;
 }
-void gameobject::create_hotbar()
+hotbar* gameobject::create_hotbar(std::string _background_image_path, int _number_of_slots)
 {
-	m_ui_components.push_back(new hotbar(m_p_renderer));
+	hotbar* new_hotbar = new hotbar(m_p_renderer, _background_image_path, _number_of_slots, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	m_ui_components.push_back(new_hotbar);
+	return new_hotbar;
 }
-void gameobject::create_image()
+image* gameobject::create_image(std::string _image_path)
 {
-	m_ui_components.push_back(new image(m_p_renderer));
+	image* new_image = new image(m_p_renderer, _image_path, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	m_ui_components.push_back(new_image);
+	return new_image;
 }
-void gameobject::create_slider()
+slider* gameobject::create_slider(std::string _background_image_path, std::string _fill_image_path, std::vector<std::string> _handle_image_paths, float _min_value, float _max_value)
 {
-	m_ui_components.push_back(new slider(m_p_renderer));
+	slider* new_slider = new slider(m_p_renderer, _background_image_path, _fill_image_path, _handle_image_paths, _min_value, _max_value, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	m_ui_components.push_back(new_slider);
+	return new_slider;
 }
-void gameobject::create_text()
+text* gameobject::create_text(std::string _text, std::string _font_path, SDL_Color _color, int _font_size)
 {
-	m_ui_components.push_back(new text(m_p_renderer));
+	text* new_text = new text(m_p_renderer, _font_path, _color, _font_size, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	new_text->set_text(_text);
+	m_ui_components.push_back(new_text);
+	return new_text;
 }

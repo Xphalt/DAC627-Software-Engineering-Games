@@ -10,9 +10,10 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	m_tilemap_objects = m_tilemap->return_objects();
 
 	// Dominique UI Testing
-	gameobject* m_image_test = new gameobject(m_p_renderer, "");
-	m_ui_objects.push_back(m_image_test);
-	m_image_test->create_slider();
+	gameobject* m_ui_test = new gameobject(m_p_renderer, "");
+	m_ui_test->set_scale(50, 50);
+	m_ui_objects.push_back(m_ui_test);
+	m_ui_test->create_image("ui_assets/engine/DefaultImageHighlighted.png");
 }
 
 level::~level()
