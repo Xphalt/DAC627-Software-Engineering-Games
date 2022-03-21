@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 #include <vector>
 
@@ -13,27 +14,28 @@ class input_master;
 class Window;
 class tilemap;
 
-	struct position
-	{
-		float x{ 0 };
-		float y{ 0 };
-	};
+struct position
+{
+	float x{ 0 };
+	float y{ 0 };
+};
 
-	struct rotation
-	{
-		float x{ 0 };
-		float y{ 0 };
-	};
+struct rotation
+{
+	float x{ 0 };
+	float y{ 0 };
+};
 
-	struct scale
-	{
-		float x{ 0 };
-		float y{ 0 };
-	};
+struct scale
+{
+	float x{ 0 };
+	float y{ 0 };
+};
 
 class gameobject {
 public:
-	gameobject(renderer* _renderer/*, animator* anim*/);
+
+	gameobject(renderer* _renderer, std::string fileName);
 	~gameobject();
 
 	void update();
@@ -53,6 +55,8 @@ public:
 	void create_image();
 	void create_slider();
 	void create_text();
+
+	position m_testPos{};
 
 private:
 	// player constructor
