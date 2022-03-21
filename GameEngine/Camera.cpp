@@ -15,15 +15,17 @@ camera::camera()
 camera::camera(SDL_Rect _pRect, int _tileWidth, int _tileHeight, int _screenWidth, int _screenHeight, int _mapFullWidth, int _mapFullHeight)
 	:
 	m_player_rect{ _pRect },
-	m_tile_width{m_tile_width },
-	m_tile_height{_tileHeight },
+	m_tile_width{ _tileWidth },
+	m_tile_height{ _tileHeight },
 	m_camera_rect({ 0,0,_screenWidth,_screenHeight }),
-	m_map_full_width{ m_map_full_width },
-	m_map_full_height{ m_map_full_height }
+	m_map_full_width{ _mapFullWidth },
+	m_map_full_height{ _mapFullHeight }
 {
 	//Calculate plyer position
 	m_camera_rect.x = (m_player_rect.x + (m_player_rect.h / 2)) - m_camera_rect.w / 2;
 	m_camera_rect.y = (m_player_rect.y + (m_player_rect.h / 2)) - m_camera_rect.h / 2;
+
+	set_map_full_size(m_map_full_width, m_map_full_height);
 }
 
 void camera::update_target_pos(int _pX, int _pY)

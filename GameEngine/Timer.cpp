@@ -3,7 +3,7 @@
 
 float Timer::delta_time()
 {
-	return (current_tick - previous_tick) / THOUSAND;
+	return (float)(current_tick - previous_tick) / THOUSAND;
 }
 
 void Timer::update_timer()
