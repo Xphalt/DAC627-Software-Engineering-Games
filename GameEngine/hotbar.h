@@ -12,7 +12,6 @@ public:
 	// After being instantiated slots need to be given image paths and callbacks using setup_slot to have functionality
 	hotbar(renderer* _renderer);
 	hotbar(renderer* _renderer,
-		std::string _background_image_path,
 		int _number_of_slots,
 		int _x,
 		int _y,

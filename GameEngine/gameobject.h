@@ -54,9 +54,9 @@ public:
 
 	button* create_button(std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths);
 	// After being created each slot of the hotbar still needs to be setup
-	hotbar* create_hotbar(std::string _background_image_path, int _number_of_slots);
+	hotbar* create_hotbar(int _number_of_slots);
 	image* create_image(std::string _image_path);
-	slider* create_slider(std::string _background_image_path, std::string _fill_image_path, std::vector<std::string> _handle_image_paths, float _min_value, float _max_value);
+	slider* create_slider(std::string _fill_image_path, float _min_value, float _max_value);
 	text* create_text(std::string _text, std::string _font_path, SDL_Color _color, int _font_size);
 
 	position m_testPos{};

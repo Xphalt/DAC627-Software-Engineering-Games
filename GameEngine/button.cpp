@@ -107,6 +107,12 @@ void button::on_pointer_up()
 	}
 }
 
+void button::set_position(int _x, int _y)
+{ 
+	m_rect.x = _x; m_rect.y = _y; 
+	m_p_image->set_position(_x, _y);
+}
+
 void button::draw()
 {
 	if (!m_p_image)

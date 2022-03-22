@@ -87,9 +87,9 @@ button* gameobject::create_button(std::function<void()> _pointer_up_callback, st
 	m_ui_components.push_back(new_button);
 	return new_button;
 }
-hotbar* gameobject::create_hotbar(std::string _background_image_path, int _number_of_slots)
+hotbar* gameobject::create_hotbar(int _number_of_slots)
 {
-	hotbar* new_hotbar = new hotbar(m_p_renderer, _background_image_path, _number_of_slots, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	hotbar* new_hotbar = new hotbar(m_p_renderer, _number_of_slots, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
 	m_ui_components.push_back(new_hotbar);
 	return new_hotbar;
 }
@@ -99,9 +99,9 @@ image* gameobject::create_image(std::string _image_path)
 	m_ui_components.push_back(new_image);
 	return new_image;
 }
-slider* gameobject::create_slider(std::string _background_image_path, std::string _fill_image_path, std::vector<std::string> _handle_image_paths, float _min_value, float _max_value)
+slider* gameobject::create_slider(std::string _fill_image_path, float _min_value, float _max_value)
 {
-	slider* new_slider = new slider(m_p_renderer, _background_image_path, _fill_image_path, _handle_image_paths, _min_value, _max_value, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	slider* new_slider = new slider(m_p_renderer,  _fill_image_path, _min_value, _max_value, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
 	m_ui_components.push_back(new_slider);
 	return new_slider;
 }

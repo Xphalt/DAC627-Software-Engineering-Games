@@ -11,10 +11,7 @@ class slider : public ui_component {
 public:
 	slider(renderer* _renderer);
 	slider(	renderer* _renderer, 
-			std::string _background_image_path,
 			std::string _fill_image_path,
-			// Paths correspond to BUTTON_STATE enum (button.h)
-			std::vector<std::string> _handle_image_paths,
 			float _min_value, 
 			float _max_value, 
 			int _x, 

@@ -10,18 +10,20 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	m_tilemap_objects = m_tilemap->return_objects();
 
 	// Dominique UI Testing
-	/*
+	
 		gameobject* m_ui_test = new gameobject(m_p_renderer, "");
-		m_ui_test->set_scale(50, 50);
 		m_ui_objects.push_back(m_ui_test);
-	*/
+
+		m_ui_test->set_scale(100, 100);
+		m_ui_test->set_position(150, 150);
+	
 	// HOW TO CREATE AN IMAGE
 	/*
 		m_ui_test->create_image("ui_assets/engine/DefaultImageHighlighted.png");
 	*/
 	// HOW TO CREATE A HOTBAR
 	/*
-		m_ui_test->create_hotbar("ui_assets/engine/HotbarBackground.png", 3);
+		m_ui_test->create_hotbar(3);
 	*/
 	// HOW TO CREATE A BUTTON
 	/*
@@ -33,16 +35,16 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	*/
 	// HOW TO CREATE A SLIDER
 	/*
-		std::vector<std::string> slider_handle_paths;
-		slider_handle_paths.push_back("ui_assets/engine/SliderHandle.png");
-		slider_handle_paths.push_back("ui_assets/engine/SliderHandle.png");
-		slider_handle_paths.push_back("ui_assets/engine/SliderHandle.png");
-		m_ui_test->create_slider("ui_assets/engine/SliderBackground.png", "ui_assets/engine/SliderFill.png", slider_handle_paths, 0, 100);
+		m_ui_test->set_scale(300, 50);
+		slider* the_slider = m_ui_test->create_slider("ui_assets/engine/SliderFill.png", 0, 100);
+		the_slider->set_value(50);
 	*/
-	// // HOW TO CREATE TEXT
+	// HOW TO CREATE TEXT
 	/*
-		m_ui_test->create_text("Hello world", "ui_assets/fonts/VCR_OSD_MONO.ttf", { 255, 255, 255 }, 12);
+		m_ui_test->set_scale(300, 50);
+		m_ui_test->create_text("Hello world", "ui_assets/fonts/VCR_OSD_MONO.ttf", { 255, 255, 255 }, 24);
 	*/
+	
 }
 
 level::~level()

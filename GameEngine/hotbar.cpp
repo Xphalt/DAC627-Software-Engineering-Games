@@ -25,7 +25,6 @@ hotbar::hotbar(renderer* _renderer)
 	m_rotation = 0;
 }
 hotbar::hotbar(renderer* _renderer,
-	std::string _background_image_path,
 	int _number_of_slots,
 	int _x,
 	int _y,
@@ -37,7 +36,7 @@ hotbar::hotbar(renderer* _renderer,
 
 	m_number_of_slots = _number_of_slots;
 	float slot_size = _width / _number_of_slots;
-	float background_size = slot_size + 5;
+	float background_size = slot_size + 10;
 	std::vector<std::string> image_paths;
 	image_paths.push_back("ui_assets/engine/ButtonNormal.png");
 	image_paths.push_back("ui_assets/engine/ButtonHighlighted.png");
@@ -45,8 +44,8 @@ hotbar::hotbar(renderer* _renderer,
 	// Instantiate slots and position them one after the other
 	for (int i = 0; i < _number_of_slots; i++)
 	{
-		m_p_backgrounds.push_back(new image(_renderer, _background_image_path, (i * background_size), 0, background_size, background_size, 0));
-		m_slots.push_back(new button(_renderer, nullptr, nullptr, image_paths, _x + (i * background_size), _y, slot_size, slot_size, _rotation));
+		m_p_backgrounds.push_back(new image(_renderer, "ui_assets/engine/HotbarBackground.png", _x + (i * background_size), _y, background_size, background_size, 0));
+		m_slots.push_back(new button(_renderer, nullptr, nullptr, image_paths, 5 + _x + (i * background_size), 5 + _y, slot_size, slot_size, _rotation));
 	}
 
 	m_enabled = true;

@@ -39,6 +39,8 @@ public:
 	void on_pointer_move();
 	void on_pointer_up();
 
+	void set_position(int _x, int _y) override;
+
 	void draw() override;
 private:
 	// Corresponds to BUTTON_STATE enum
