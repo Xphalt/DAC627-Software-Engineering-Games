@@ -10,20 +10,25 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	m_tilemap_objects = m_tilemap->return_objects();
 
 	// Dominique UI Testing
-	
+	/*
 		gameobject* m_ui_test = new gameobject(m_p_renderer, "");
 		m_ui_objects.push_back(m_ui_test);
 
 		m_ui_test->set_scale(100, 100);
 		m_ui_test->set_position(150, 150);
-	
+	*/
 	// HOW TO CREATE AN IMAGE
 	/*
 		m_ui_test->create_image("ui_assets/engine/DefaultImageHighlighted.png");
 	*/
 	// HOW TO CREATE A HOTBAR
 	/*
-		m_ui_test->create_hotbar(3);
+		hotbar* hotbar = m_ui_test->create_hotbar(3);
+		std::vector<std::string> button_paths;
+		button_paths.push_back("ui_assets/engine/ButtonNormal.png");
+		button_paths.push_back("ui_assets/engine/ButtonHighlighted.png");
+		button_paths.push_back("ui_assets/engine/ButtonPressed.png");
+		hotbar->setup_slot(0, nullptr, button_paths);
 	*/
 	// HOW TO CREATE A BUTTON
 	/*
