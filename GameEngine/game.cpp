@@ -15,7 +15,7 @@ game::game()
 
 	m_p_renderer = new renderer(m_p_window);
 	m_p_level = new level("Sprites/Tilemaps/TestMap", m_p_renderer, m_p_camera);
-	//m_p_text = new text(m_p_renderer);
+
 	m_p_timer = new Timer();
 }
 
@@ -34,7 +34,7 @@ void game::update()
 		{
 			mytime = 0.0f;
 			i += 0.1f;
-			m_p_camera->update_target_pos(i, 360);
+			m_p_camera->update_target_pos(0, 360);
 			m_p_level->update();
 		}
 	}
