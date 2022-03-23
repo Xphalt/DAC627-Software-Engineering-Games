@@ -71,6 +71,42 @@ void gameobject::set_scale(int x, int y)
 	m_scale.y = y;
 }
 
+void gameobject::add_translation(int x, int y)
+{
+	m_position.x += x;
+	m_position.y += y;
+}
+
+void gameobject::add_translation(position pos_add)
+{
+	m_position.x += pos_add.x;
+	m_position.y += pos_add.y;
+}
+
+void gameobject::add_rotation(int x, int y)
+{
+	m_rotation.x += x;
+	m_rotation.y += y;
+}
+
+void gameobject::add_rotation(rotation rot_add)
+{
+	m_rotation.x += rot_add.x;
+	m_rotation.y += rot_add.y;
+}
+
+void gameobject::add_scale(int x, int y)
+{
+	m_scale.x += x;
+	m_scale.y += y;
+}
+
+void gameobject::add_scale(scale sc_add)
+{
+	m_scale.x += sc_add.x;
+	m_scale.y += sc_add.y;
+}
+
 gameobject* gameobject::create_player()
 {
 	return nullptr;

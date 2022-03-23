@@ -49,6 +49,13 @@ public:
 	void set_rotation(int x, int y);
 	void set_scale(int x, int y);
 
+	void add_translation(int x, int y);
+	void add_translation(position pos_add);
+	void add_rotation(int x, int y);
+	void add_rotation(rotation rot_add);
+	void add_scale(int x, int y);
+	void add_scale(scale sc_add);
+
 	gameobject* create_player();
 	gameobject* create_enemy();
 
