@@ -10,25 +10,49 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	m_tilemap_objects = m_tilemap->return_objects();
 
 	// Dominique UI Testing
-	/*
-		gameobject* m_ui_test = new gameobject(m_p_renderer, "");
-		m_ui_objects.push_back(m_ui_test);
 
-		m_ui_test->set_scale(100, 100);
-		m_ui_test->set_position(150, 150);
-	*/
+	gameobject* m_p_hotbar = new gameobject(m_p_renderer, "");
+	m_ui_objects.push_back(m_p_hotbar);
+	m_p_hotbar->set_scale(200, 200);
+	m_p_hotbar->set_position(355, 665);
+
+	hotbar* hotbar = m_p_hotbar->create_hotbar(5);
+	std::vector<std::string> button_paths;
+	button_paths.push_back("ui_assets/engine/ButtonNormal.png");
+	button_paths.push_back("ui_assets/engine/ButtonHighlighted.png");
+	button_paths.push_back("ui_assets/engine/ButtonPressed.png");
+	hotbar->setup_slot(0, nullptr, button_paths);
+
+
+	//gameobject* m_p_slider = new gameobject(m_p_renderer, "");
+	//m_ui_objects.push_back(m_p_slider);
+	//m_p_slider->set_scale(400, 50);
+	//m_p_slider->set_position(275, 610);
+
+	//slider* slider = m_p_slider->create_slider("ui_assets/engine/SliderFill.png", 0, 100);
+	//slider->set_value(20);
+
+
+	gameobject* m_p_text = new gameobject(m_p_renderer, "");
+	m_ui_objects.push_back(m_p_text);
+	m_p_text->set_scale(200, 50);
+	m_p_text->set_position(5, 5);
+
+	m_p_text->create_text("Welcome", "ui_assets/fonts/VCR_OSD_MONO.ttf", { 255, 255, 255 }, 24);
+
+
 	// HOW TO CREATE AN IMAGE
 	/*
 		m_ui_test->create_image("ui_assets/engine/DefaultImageHighlighted.png");
 	*/
 	// HOW TO CREATE A HOTBAR
 	/*
-		hotbar* hotbar = m_ui_test->create_hotbar(3);
-		std::vector<std::string> button_paths;
-		button_paths.push_back("ui_assets/engine/ButtonNormal.png");
-		button_paths.push_back("ui_assets/engine/ButtonHighlighted.png");
-		button_paths.push_back("ui_assets/engine/ButtonPressed.png");
-		hotbar->setup_slot(0, nullptr, button_paths);
+	hotbar* hotbar = m_p_hotbar->create_hotbar(5);
+	std::vector<std::string> button_paths;
+	button_paths.push_back("ui_assets/engine/ButtonNormal.png");
+	button_paths.push_back("ui_assets/engine/ButtonHighlighted.png");
+	button_paths.push_back("ui_assets/engine/ButtonPressed.png");
+	hotbar->setup_slot(0, nullptr, button_paths);
 	*/
 	// HOW TO CREATE A BUTTON
 	/*
@@ -49,7 +73,6 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 		m_ui_test->set_scale(300, 50);
 		m_ui_test->create_text("Hello world", "ui_assets/fonts/VCR_OSD_MONO.ttf", { 255, 255, 255 }, 24);
 	*/
-	
 }
 
 level::~level()
@@ -65,10 +88,10 @@ void level::update()
 	{
 		//if (m_p_camera->can_draw_tile(m_tilemap_objects[i]))
 		//{
-			m_tilemap_objects[i]->m_testPos.x = m_p_camera->get_tile_drawX(m_tilemap_objects[i]->get_position().x);
-			m_tilemap_objects[i]->m_testPos.y = m_p_camera->get_tile_drawY(m_tilemap_objects[i]->get_position().y);
+		m_tilemap_objects[i]->m_testPos.x = m_p_camera->get_tile_drawX(m_tilemap_objects[i]->get_position().x);
+		m_tilemap_objects[i]->m_testPos.y = m_p_camera->get_tile_drawY(m_tilemap_objects[i]->get_position().y);
 
-			m_tilemap_objects[i]->update();
+		m_tilemap_objects[i]->update();
 		//}
 	}
 
