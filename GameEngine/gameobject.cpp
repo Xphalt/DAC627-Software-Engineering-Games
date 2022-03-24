@@ -6,6 +6,8 @@
 #include "audioman.h"
 #include "input_master.h"
 #include "Graphics\Window.h"
+#include "Patrolling.h"
+#include "StateMachine.h"
 
 gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master)
 	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }
@@ -20,6 +22,11 @@ gameobject::gameobject(renderer* _renderer, image* _image, animation* _animation
 gameobject::gameobject(renderer* _renderer, animation* _animation, animator* _animator, audioman* _audioman)
 	: m_p_renderer{ _renderer }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }
 {
+}
+
+gameobject::gameobject()
+{
+
 }
 
 gameobject::gameobject(renderer* _renderer, std::string fileName)
@@ -49,6 +56,7 @@ void gameobject::update()
 	//if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
 	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
+	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }
 	//if (m_p_audioman != nullptr) { m_p_audioman->; }
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
@@ -114,6 +122,8 @@ gameobject* gameobject::create_player()
 
 gameobject* gameobject::create_enemy()
 {
+	m_p_statemachine = new StateMachine();
+	m_p_statemachine->ChangeState(new Patrolling());
 	return nullptr;
 }
 

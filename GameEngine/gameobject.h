@@ -15,6 +15,8 @@ class audioman;
 class input_master;
 class Window;
 class tilemap;
+class Patrolling;
+class StateMachine;
 
 struct position
 {
@@ -36,7 +38,7 @@ struct scale
 
 class gameobject {
 public:
-
+	gameobject();
 	gameobject(renderer* _renderer, std::string fileName);
 	~gameobject();
 
@@ -91,6 +93,7 @@ private:
 	animator* m_p_animator{ nullptr };
 	audioman* m_p_audioman{ nullptr };
 	input_master* m_p_input_master{ nullptr };
+	StateMachine* m_p_statemachine{ nullptr };
 
 	Window* m_p_window{ nullptr };
 };
