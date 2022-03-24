@@ -24,6 +24,7 @@ public:
 	State* GetActiveState();
 	void ChangeState(State* _newState);
 	void UpdateState();
+	void Init(gameobject* newAgent);
 
 private:
 	gameobject* m_agent;

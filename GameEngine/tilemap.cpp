@@ -69,6 +69,11 @@ std::vector<gameobject*> tilemap::return_objects()
 			}
 		}
 	}
+
+	gameobject* newObject = new gameobject(m_p_renderer, "Sprites/Potions/potion1.png");
+	newObject->set_position(5, 5);
+	newObject->create_enemy();
+	objects.push_back(newObject);
 	return objects;
 }
 

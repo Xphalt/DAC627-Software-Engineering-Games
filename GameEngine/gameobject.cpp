@@ -123,6 +123,7 @@ gameobject* gameobject::create_player()
 gameobject* gameobject::create_enemy()
 {
 	m_p_statemachine = new StateMachine();
+	m_p_statemachine->Init(this);
 	m_p_statemachine->ChangeState(new Patrolling());
 	return nullptr;
 }

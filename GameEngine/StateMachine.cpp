@@ -41,10 +41,17 @@ void StateMachine::ChangeState(State* _newState)
 
 	currentState = _newState;
 
+	currentState->InitState(m_agent);
+
 	currentState->Enter();
 }
 
 void StateMachine::UpdateState()
 {
 	currentState->Execute();
+}
+
+void StateMachine::Init(gameobject* newAgent)
+{
+	m_agent = newAgent;
 }
