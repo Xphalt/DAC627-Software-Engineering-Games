@@ -1,34 +1,50 @@
 #include "StateMachine.h"
+#include "Patrolling.h"
+#include "gameobject.h"
 
-void State::Enter(gameobject* _Agent)
+void State::InitState(gameobject* agent)
+{
+	m_p_agent = agent;
+}
+
+void State::Enter()
 {
 }
 
-void State::Execute(gameobject* _Agent)
+void State::Execute()
 {
 
 }
 
-void State::Exit(gameobject* _Agent)
+void State::Exit()
 {
 }
 
-void StateMachine::SetStartState(State _startState)
+void StateMachine::SetStartState(State* _startState)
 {
-	_startState.Enter(m_agent);
+	_startState->InitState(m_agent);
+	_startState->Enter();
 	currentState = _startState;
 }
 
-State StateMachine::GetActiveState()
+State* StateMachine::GetActiveState()
 {
 	return currentState;
 }
 
-void StateMachine::ChangeState(State _newState)
+void StateMachine::ChangeState(State* _newState)
 {
-	currentState.Exit(m_agent);
+	if (currentState != nullptr)
+	{
+		currentState->Exit();
+	}
 
 	currentState = _newState;
 
-	currentState.Enter(m_agent);
+	currentState->Enter();
+}
+
+void StateMachine::UpdateState()
+{
+	currentState->Execute();
 }

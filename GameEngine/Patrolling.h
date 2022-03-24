@@ -1,14 +1,16 @@
 #pragma once
-#include "StateMachine.h"
 #include <vector>
 #include <algorithm>
+#include "StateMachine.h"
+#include "gameobject.h"
 
 class Patrolling : public State
 {
 public:
-	void Enter(gameobject* _Agent);
-	void Execute(gameobject* _Agent);
-	void Exit(gameobject* _Agent);
+	Patrolling();
+	void Enter() override;
+	void Execute() override;
+	void Exit() override;
 	float CalculateDistance(position _one, position _two);
 
 
