@@ -43,16 +43,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="camera.cpp">
+    <ClCompile Include="Components\Camera\camera.cpp">
       <Filter>Engine\Components\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="animation.cpp">
+    <ClCompile Include="Components\Animation\animation.cpp">
       <Filter>Engine\Components\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="animator.cpp">
+    <ClCompile Include="Components\Animation\animator.cpp">
       <Filter>Engine\Components\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="ui_component.cpp">
+    <ClCompile Include="Components\UI\ui_component.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -61,10 +61,10 @@
     <ClCompile Include="gameobject.cpp">
       <Filter>Engine\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="gamepad.cpp">
+    <ClCompile Include="Components\Input\gamepad.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Input_master.cpp">
+    <ClCompile Include="Components\Input\Input_master.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
     <ClCompile Include="game.cpp">
@@ -76,49 +76,49 @@
     <ClCompile Include="tilemap.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="image.cpp">
+    <ClCompile Include="Components\UI\image.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
-    <ClCompile Include="slider.cpp">
+    <ClCompile Include="Components\UI\slider.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
-    <ClCompile Include="text.cpp">
+    <ClCompile Include="Components\UI\text.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
-    <ClCompile Include="button.cpp">
+    <ClCompile Include="Components\UI\button.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
-    <ClCompile Include="hotbar.cpp">
+    <ClCompile Include="Components\UI\hotbar.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
-    <ClCompile Include="audiolib.cpp">
+    <ClCompile Include="Components\Audio\audiolib.cpp">
       <Filter>Engine\Components\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="audioman.cpp">
+    <ClCompile Include="Components\Audio\audioman.cpp">
       <Filter>Engine\Components\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
+    <ClCompile Include="Components\Timer\Timer.cpp">
       <Filter>Engine\Components\Timer</Filter>
     </ClCompile>
-    <ClCompile Include="Attacking.cpp">
+    <ClCompile Include="Components\AI\Attacking.cpp">
       <Filter>Engine\Components\AI</Filter>
     </ClCompile>
-    <ClCompile Include="Patrolling.cpp">
+    <ClCompile Include="Components\AI\Patrolling.cpp">
       <Filter>Engine\Components\AI</Filter>
     </ClCompile>
-    <ClCompile Include="StateMachine.cpp">
+    <ClCompile Include="Components\AI\StateMachine.cpp">
       <Filter>Engine\Components\AI</Filter>
     </ClCompile>
-    <ClCompile Include="renderer.cpp">
+    <ClCompile Include="Core\renderer.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
+    <ClCompile Include="Components\Input\Keyboard.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Mouse.cpp">
+    <ClCompile Include="Components\Input\Mouse.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="vector_movement.cpp">
+    <ClCompile Include="Components\Movement\vector_movement.cpp">
       <Filter>Engine\Components\Movement</Filter>
     </ClCompile>
     <ClCompile Include="level.cpp">
@@ -126,25 +126,25 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h">
+    <ClInclude Include="Components\Camera\camera.h">
       <Filter>Engine\Components\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="animation.h">
+    <ClInclude Include="Components\Animation\animation.h">
       <Filter>Engine\Components\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="animator.h">
+    <ClInclude Include="Components\Animation\animator.h">
       <Filter>Engine\Components\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="ui_component.h">
+    <ClInclude Include="Components\UI\ui_component.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
     <ClInclude Include="gameobject.h">
       <Filter>Engine\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="gamepad.h">
+    <ClInclude Include="Components\Input\gamepad.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
-    <ClInclude Include="input_master.h">
+    <ClInclude Include="Components\Input\input_master.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Window.h">
@@ -156,52 +156,52 @@
     <ClInclude Include="tilemap.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="image.h">
+    <ClInclude Include="Components\UI\image.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="slider.h">
+    <ClInclude Include="Components\UI\slider.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="text.h">
+    <ClInclude Include="Components\UI\text.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="button.h">
+    <ClInclude Include="Components\UI\button.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="hotbar.h">
+    <ClInclude Include="Components\UI\hotbar.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="audioman.h">
+    <ClInclude Include="Components\Audio\audioman.h">
       <Filter>Engine\Components\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="audiolib.h">
+    <ClInclude Include="Components\Audio\audiolib.h">
       <Filter>Engine\Components\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
+    <ClInclude Include="Components\Timer\Timer.h">
       <Filter>Engine\Components\Timer</Filter>
     </ClInclude>
-    <ClInclude Include="StateMachine.h">
+    <ClInclude Include="Components\AI\StateMachine.h">
       <Filter>Engine\Components\AI</Filter>
     </ClInclude>
-    <ClInclude Include="Attacking.h">
+    <ClInclude Include="Components\AI\Attacking.h">
       <Filter>Engine\Components\AI</Filter>
     </ClInclude>
-    <ClInclude Include="Patrolling.h">
+    <ClInclude Include="Components\AI\Patrolling.h">
       <Filter>Engine\Components\AI</Filter>
     </ClInclude>
-    <ClInclude Include="renderer.h">
+    <ClInclude Include="Core\renderer.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Keyboard.h">
+    <ClInclude Include="Components\Input\Keyboard.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Mouse.h">
+    <ClInclude Include="Components\Input\Mouse.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
-    <ClInclude Include="ui_library.h">
+    <ClInclude Include="Components\UI\ui_library.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="vector_movement.h">
+    <ClInclude Include="Components\Movement\vector_movement.h">
       <Filter>Engine\Components\Movement</Filter>
     </ClInclude>
     <ClInclude Include="level.h">
