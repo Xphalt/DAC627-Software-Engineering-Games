@@ -1,5 +1,5 @@
 #pragma once
-#include "gameobject.h"
+#include "../../Core/gameobject.h"
 #include "SDL_mixer.h"
 #include <map>
 #include "SDL.h"

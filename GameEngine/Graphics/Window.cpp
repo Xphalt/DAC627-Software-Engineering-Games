@@ -1,5 +1,5 @@
 #include "Window.h"
-#include "../audiolib.h"
+#include "../Components/Audio/audiolib.h"
 
 #include <iostream>
 #include <SDL_ttf.h>

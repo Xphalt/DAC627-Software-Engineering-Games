@@ -1,11 +1,11 @@
 #include "gameobject.h"
 #include "renderer.h"
-#include "camera.h"
-#include "animation.h"
-#include "animator.h"
-#include "audioman.h"
-#include "input_master.h"
-#include "Graphics\Window.h"
+#include "../Components/Camera/camera.h"
+#include "../Components/Animation/animation.h"
+#include "../Components/Animation/animator.h"
+#include "../Components/Audio/audioman.h"
+#include "../Components/Input/input_master.h"
+#include "../Graphics\Window.h"
 
 gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master)
 	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }

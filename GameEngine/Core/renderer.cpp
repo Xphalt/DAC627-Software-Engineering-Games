@@ -1,5 +1,5 @@
 #include "renderer.h"
-#include "Graphics\Window.h"
+#include "../Graphics\Window.h"
 
 renderer::renderer(Window* m_Window)
 {

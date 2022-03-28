@@ -1,11 +1,11 @@
 #include "game.h"
 #include "gameobject.h"
-#include "Graphics\Window.h"
+#include "../Graphics/Window.h"
 #include "level.h"
 #include "renderer.h"
-#include "Camera.h"
-#include "text.h"
-#include "Timer.h"
+#include "../Components/Camera/camera.h"
+#include "../Components/UI/text.h"
+#include "../Components/Timer/Timer.h"
 
 game::game()
 {

@@ -1,6 +1,6 @@
 #include "level.h"
 #include "renderer.h"
-#include "Camera.h"
+#include "../Components/Camera/camera.h"
 #include "gameobject.h"
 
 level::level(std::string _fileName, renderer* renderer, camera* camera)

@@ -1,5 +1,5 @@
 #include "animation.h"
-#include "renderer.h"
+#include "../../Core/renderer.h"
 #include <iostream>
 
 std::map<FLIP, SDL_RendererFlip> FlipMap

@@ -58,22 +58,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameobject.cpp">
-      <Filter>Engine\Interfaces</Filter>
-    </ClCompile>
     <ClCompile Include="Components\Input\gamepad.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
     <ClCompile Include="Components\Input\Input_master.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Engine\Core</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Window.cpp">
-      <Filter>Engine\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="tilemap.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="Components\UI\image.cpp">
@@ -121,8 +112,17 @@
     <ClCompile Include="Components\Movement\vector_movement.cpp">
       <Filter>Engine\Components\Movement</Filter>
     </ClCompile>
-    <ClCompile Include="level.cpp">
-      <Filter>Engine\Core</Filter>
+    <ClCompile Include="Core\game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\gameobject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\tilemap.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,9 +138,6 @@
     <ClInclude Include="Components\UI\ui_component.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
-    <ClInclude Include="gameobject.h">
-      <Filter>Engine\Interfaces</Filter>
-    </ClInclude>
     <ClInclude Include="Components\Input\gamepad.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
@@ -148,12 +145,6 @@
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Window.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="tilemap.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Components\UI\image.h">
@@ -204,8 +195,9 @@
     <ClInclude Include="Components\Movement\vector_movement.h">
       <Filter>Engine\Components\Movement</Filter>
     </ClInclude>
-    <ClInclude Include="level.h">
-      <Filter>Engine\Core</Filter>
-    </ClInclude>
+    <ClInclude Include="Core\game.h" />
+    <ClInclude Include="Core\gameobject.h" />
+    <ClInclude Include="Core\level.h" />
+    <ClInclude Include="Core\tilemap.h" />
   </ItemGroup>
 </Project>

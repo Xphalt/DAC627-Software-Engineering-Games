@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{94f1e75a-6f25-4490-8376-6d0109200834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components">
+      <UniqueIdentifier>{ca07f81c-e9ec-4d02-b097-2455d3d16939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\UI">
+      <UniqueIdentifier>{b376c059-61b9-4a14-a0b0-e20a9b885ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Animation">
+      <UniqueIdentifier>{1008797c-02fa-486a-a3e4-2955a954a09c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Input">
+      <UniqueIdentifier>{ea9d5233-618e-42b2-ae70-83892127a2a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Camera">
+      <UniqueIdentifier>{4596f9f2-9bda-4dcb-b66f-a4aee8c5dcce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Interfaces">
+      <UniqueIdentifier>{0e890752-7168-439e-a4f6-24364d25b5ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core">
+      <UniqueIdentifier>{2b47b4b3-8d7e-4904-b5f1-5b86de151c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Audio">
+      <UniqueIdentifier>{e4b2294c-4865-4c4e-aed6-0263cf7e08bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Timer">
+      <UniqueIdentifier>{47f63262-6ac3-4262-a6ef-87aa0dc8c654}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\AI">
+      <UniqueIdentifier>{8a655fda-f98a-4600-ab74-218a0c0e7a63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Movement">
+      <UniqueIdentifier>{8dc3333f-81b5-4031-bb25-db0dd7e88801}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Components\Camera\camera.cpp">
+      <Filter>Engine\Components\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Animation\animation.cpp">
+      <Filter>Engine\Components\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Animation\animator.cpp">
+      <Filter>Engine\Components\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\UI\ui_component.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameobject.cpp">
+      <Filter>Engine\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Input\gamepad.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Input\Input_master.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Window.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="tilemap.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\UI\image.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\UI\slider.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\UI\text.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\UI\button.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\UI\hotbar.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Audio\audiolib.cpp">
+      <Filter>Engine\Components\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Audio\audioman.cpp">
+      <Filter>Engine\Components\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Timer\Timer.cpp">
+      <Filter>Engine\Components\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\AI\Attacking.cpp">
+      <Filter>Engine\Components\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\AI\Patrolling.cpp">
+      <Filter>Engine\Components\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\AI\StateMachine.cpp">
+      <Filter>Engine\Components\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\renderer.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Input\Keyboard.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Input\Mouse.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Movement\vector_movement.cpp">
+      <Filter>Engine\Components\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="level.cpp">
+      <Filter>Engine\Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Components\Camera\camera.h">
+      <Filter>Engine\Components\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Animation\animation.h">
+      <Filter>Engine\Components\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Animation\animator.h">
+      <Filter>Engine\Components\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\UI\ui_component.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="gameobject.h">
+      <Filter>Engine\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Input\gamepad.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Input\input_master.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Window.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="tilemap.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\UI\image.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\UI\slider.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\UI\text.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\UI\button.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\UI\hotbar.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Audio\audioman.h">
+      <Filter>Engine\Components\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Audio\audiolib.h">
+      <Filter>Engine\Components\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Timer\Timer.h">
+      <Filter>Engine\Components\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\AI\StateMachine.h">
+      <Filter>Engine\Components\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\AI\Attacking.h">
+      <Filter>Engine\Components\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\AI\Patrolling.h">
+      <Filter>Engine\Components\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\renderer.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Input\Keyboard.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Input\Mouse.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\UI\ui_library.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Movement\vector_movement.h">
+      <Filter>Engine\Components\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="level.h">
+      <Filter>Engine\Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

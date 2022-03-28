@@ -1,5 +1,5 @@
 #include "Camera.h"
-#include "gameobject.h"
+#include "../../Core/gameobject.h"
 
 
 camera::camera()

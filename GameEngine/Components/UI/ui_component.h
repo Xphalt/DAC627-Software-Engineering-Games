@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "renderer.h"
+#include "../../Core/renderer.h"
 
 class ui_component {
 public:
