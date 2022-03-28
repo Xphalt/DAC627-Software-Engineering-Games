@@ -69,7 +69,7 @@ std::vector<gameobject*> tilemap::return_objects()
 			}
 		}
 	}
-
+	//For testing ai, move this somewhere else pls
 	gameobject* newObject = new gameobject(m_p_renderer, "Sprites/Potions/potion1.png");
 	newObject->set_position(5, 5);
 	newObject->create_enemy();

@@ -17,6 +17,7 @@ class Window;
 class tilemap;
 class Patrolling;
 class StateMachine;
+class collider;
 
 struct position
 {

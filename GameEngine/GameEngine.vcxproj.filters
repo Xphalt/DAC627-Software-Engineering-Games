@@ -124,6 +124,9 @@
     <ClCompile Include="level.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="collider.cpp">
+      <Filter>Engine\Components\Movement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -206,6 +209,9 @@
     </ClInclude>
     <ClInclude Include="level.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="collider.h">
+      <Filter>Engine\Components\Movement</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
