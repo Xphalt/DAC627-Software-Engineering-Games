@@ -59,6 +59,7 @@ void gameobject::update()
 	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }
 	//if (m_p_audioman != nullptr) { m_p_audioman->; }
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
+	if (m_p_physics != nullptr) { m_p_physics->update(); }
 }
 
 void gameobject::set_position(int x, int y)
@@ -125,6 +126,12 @@ gameobject* gameobject::create_enemy()
 	m_p_statemachine = new StateMachine();
 	m_p_statemachine->Init(this);
 	m_p_statemachine->ChangeState(new Patrolling());
+	return nullptr;
+}
+
+gameobject* gameobject::add_physics()
+{
+	m_p_physics = new Physics();
 	return nullptr;
 }
 

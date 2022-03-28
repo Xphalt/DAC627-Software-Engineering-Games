@@ -17,6 +17,7 @@ class Window;
 class tilemap;
 class Patrolling;
 class StateMachine;
+class Physics;
 
 struct position
 {
@@ -60,6 +61,7 @@ public:
 
 	gameobject* create_player();
 	gameobject* create_enemy();
+	gameobject* add_physics();
 
 	button* create_button(std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths);
 	// After being created each slot of the hotbar still needs to be setup
@@ -94,6 +96,7 @@ private:
 	audioman* m_p_audioman{ nullptr };
 	input_master* m_p_input_master{ nullptr };
 	StateMachine* m_p_statemachine{ nullptr };
+	Physics* m_p_physics{ nullptr };
 
 	Window* m_p_window{ nullptr };
 };

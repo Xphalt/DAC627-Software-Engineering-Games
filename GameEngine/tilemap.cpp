@@ -75,6 +75,12 @@ std::vector<gameobject*> tilemap::return_objects()
 	newObject->create_enemy();
 	objects.push_back(newObject);
 	return objects;
+
+	gameobject* newPhysics = new gameobject(m_p_renderer, "Sprites/Misc/coin.png");
+	newPhysics->set_position(5, 5);
+
+	objects.push_back(newPhysics);
+	return objects;
 }
 
 int tilemap::get_grid_height() { return m_layout.size(); }
