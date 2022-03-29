@@ -84,7 +84,7 @@ void slider::set_value(float _value)
 	// Update fill size and handle position
 	int updated = (int)((m_p_background->GetRect().w / m_max_value) * m_value);
 	m_p_fill->set_size(updated, m_p_fill->GetRect().h);
-	m_p_handle->set_position(m_p_fill->GetRect().x + updated - (m_p_fill->GetRect().w/5), m_p_handle->GetRect().y);
+	m_p_handle->set_position(m_p_fill->GetRect().x + updated - (m_p_handle->GetRect().w/2), m_p_handle->GetRect().y);
 }
 void slider::modify_value(float _amount)
 {
@@ -104,7 +104,8 @@ void slider::set_handle(renderer* _renderer, std::vector<std::string> _handle_im
 {
 	if (m_p_handle) delete m_p_handle;
 
-	m_p_handle = new button(_renderer, nullptr, _callback, _handle_image_paths, m_rect.x, m_rect.y, m_rect.w/10, m_rect.h, m_rotation);
+	float handle_width = m_rect.h * handle_size_multiplier;
+	m_p_handle = new button(_renderer, nullptr, _callback, _handle_image_paths, m_rect.x, m_rect.y + (m_rect.h - handle_width)/2, m_rect.w * handle_width_multiplier, handle_width, m_rotation);
 }
 
 // Set slider value according to mouse pos compared to background bar

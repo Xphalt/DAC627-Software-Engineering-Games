@@ -28,8 +28,13 @@ public:
 
 	void on_handle_move();
 
+	void enable_handle(bool enable) { m_p_handle->set_enabled(enable); }
+
 	void draw() override;
 private:
+	const float handle_size_multiplier = 1.2f;
+	const float handle_width_multiplier = 0.1f;
+
 	image* m_p_background = nullptr;
 	image* m_p_fill = nullptr;
 	button* m_p_handle = nullptr;
