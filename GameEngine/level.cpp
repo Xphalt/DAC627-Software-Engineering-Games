@@ -82,8 +82,6 @@ level::~level()
 
 void level::update()
 {
-	m_p_renderer->ClearRender();
-
 	for (int i = 0; i < m_tilemap_objects.size(); i++)
 	{
 		//if (m_p_camera->can_draw_tile(m_tilemap_objects[i]))
@@ -105,7 +103,7 @@ void level::update()
 		m_ui_objects[i]->update();
 	}
 
-	m_p_renderer->PresentRender();
+	m_p_renderer->Update();
 }
 
 void level::set_filepath(std::string _filepath)

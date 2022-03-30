@@ -6,6 +6,7 @@
 #include "Camera.h"
 #include "text.h"
 #include "Timer.h"
+#include "audioman.h"
 
 game::game()
 {
@@ -17,6 +18,8 @@ game::game()
 	m_p_level = new level("Sprites/Tilemaps/TestMap", m_p_renderer, m_p_camera);
 
 	m_p_timer = new Timer();
+
+	audioman::runmusiclist(audioman::LEVELTHEME, 10, 1, 1);
 }
 
 game::~game()

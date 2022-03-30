@@ -27,19 +27,9 @@ void renderer::Update()
 {
 	if (nullptr == m_renderer) return;
 
-	SDL_RenderClear(m_renderer);
 	SDL_RenderPresent(m_renderer);
-
-}
-
-void renderer::ClearRender()
-{
 	SDL_RenderClear(m_renderer);
-}
 
-void renderer::PresentRender()
-{
-	SDL_RenderPresent(m_renderer);
 }
 
 SDL_Renderer* renderer::GetRenderer()
