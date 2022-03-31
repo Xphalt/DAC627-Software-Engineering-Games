@@ -1,5 +1,10 @@
 #include "Patrolling.h"
 
+Patrolling::Patrolling()
+{
+
+}
+
 Patrolling::Patrolling(vector<position> m_p_waypoints)
 {
 	m_waypoints = m_p_waypoints;
@@ -43,4 +48,17 @@ float Patrolling::CalculateDistance(position _one, position _two)
 	float m_delta_x = _one.x - _two.x;
 	float m_delta_y = _one.y - _two.y;
 	return (pow(m_delta_x, 2) + pow(m_delta_y, 2));
+}
+
+void Patrolling::AddWaypoint(position newWaypoint)
+{
+	m_waypoints.push_back(newWaypoint);
+}
+
+void Patrolling::AddWaypoint(vector<position> m_p_waypoints)
+{
+	for (int i = 0; i < m_p_waypoints.size(); i++)
+	{
+		m_waypoints.push_back(m_p_waypoints[i]);
+	}
 }

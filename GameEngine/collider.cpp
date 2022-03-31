@@ -1,16 +1,24 @@
 #include "collider.h"
 #include "gameobject.h"
 
-collider::collider(float radiusIn, gameobject* parent)
+collider::collider(float radiusIn, gameobject* parent, int xOffset = 0, int yOffset = 0)
 {
     m_radius = radiusIn;
     m_p_parent = parent;
+    m_position_offset = new position();
+    m_position_offset->x = xOffset;
+    m_position_offset->y = yOffset;
+}
+
+collider::~collider()
+{
+    delete m_position_offset;
 }
 
 void collider::updateColliders()
 {
-    int posx = m_p_parent->get_position().x;
-    int posy = m_p_parent->get_position().y;
+    int posx = m_p_parent->get_position().x + m_position_offset->x;
+    int posy = m_p_parent->get_position().y + m_position_offset->y;
 
     for(int i = 0; i < m_otherColliders.size(); i++ )
     {

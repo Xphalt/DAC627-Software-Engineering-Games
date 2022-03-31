@@ -7,11 +7,15 @@
 class Patrolling : public State
 {
 public:
+	Patrolling();
 	Patrolling(vector<position> m_p_waypoints);
 	void Enter() override;
 	void Execute() override;
 	void Exit() override;
 	float CalculateDistance(position _one, position _two);
+
+	void AddWaypoint(position newWaypoint);
+	void AddWaypoint(vector<position> m_p_waypoints);
 
 
 private:
