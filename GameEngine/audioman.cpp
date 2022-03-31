@@ -1,6 +1,33 @@
 #include "audioman.h"
+#include <string.h>
+#include <regex>
+#include <stdlib.h>
 
-LPCWSTR FILEPATH = L".\\*.wav";
+
+//WCHAR* FILEDIR = ".\\Audio"; // \\*.wav
+//WCHAR* FILEEXT = "*.wav";
+//WCHAR* SFILEPATH = FILEDIR + "\\" + FILEEXT;
+//LPCWSTR FILEPATH = SFILEPATH.c_str(); // \\*.wav
+
+const char* SFILEPATH = ".\\Audio"; // \\*.wav
+const char* FILEEXT = "*.*";
+// const std::regex AUDIO_FILE_EXT("*.*");
+// const std::regex AUDIO_FILE_EXT("*\.(mp3|wav|ogg|mid|flac)");
+const char* AUDIO_FILE_EXT("*.(mp3|wav|ogg|mid|flac)");
+const int MAX_LEN = 200;
+
+// strcat(SFILEPATH, "\\");
+// strcat(SFILEPATH, FILEEXT);
+// wchar_t WFILEPATH[200];
+// std::size_t mbstowcs(WFILEPATH, SFILEPATH, strlen(SFILEPATH)+1);//Plus null
+// LPCWSTR FILEPATH = wtext;
+
+ //char text[] = "something";
+ //wchar_t wtext[20];
+ //mbstowcs(wtext, text, strlen(text)+1);//Plus null
+ //LPWSTR ptr = wtext;
+
+
 
 // if any questions about this ask Morgan Sands
 
@@ -13,6 +40,70 @@ LPCWSTR FILEPATH = L".\\*.wav";
     //audioman::runmusiclist(1, 69, -1, 0);
     //audioman::volmusic(0);
     //audioman::endmusic(0);
+
+
+boolean isAudioFile(WIN32_FIND_DATA file)
+{
+    char fileName[MAX_LEN];
+    size_t i;
+    wcstombs_s(&i, fileName, MAX_LEN, file.cFileName, wcslen(file.cFileName) + 1);
+
+   if(std::strstr(fileName, ".wav") != NULL) { 
+      return true;
+   } 
+   else if (std::strstr(fileName, ".mp3") != NULL) { 
+      return true;
+   }
+   else if (std::strstr(fileName, ".mp3") != NULL) {
+       return true;
+   }
+   else if (std::strstr(fileName, ".ogg") != NULL) {
+       return true;
+   }
+   else if (std::strstr(fileName, ".flac") != NULL) {
+       return true;
+   }
+   else if (std::strstr(fileName, ".mid") != NULL) {
+       return true;
+   }
+
+   return false;
+   // return(regex_match(fileName, m, std::regex(AUDIO_FILE_EXT)));
+}
+
+
+LPCWSTR getFilePath()
+{
+    char tempFilePath[200];
+    size_t retVal;
+    strcpy_s(tempFilePath, 200, SFILEPATH);
+    strcat_s(tempFilePath, "\\");
+    strcat_s(tempFilePath, FILEEXT);
+    wchar_t WFILEPATH[200];
+    mbstowcs_s(&retVal, WFILEPATH, 200, tempFilePath, strlen(tempFilePath)+1);//Plus null // std::size_t
+    LPCWSTR FILEPATH = WFILEPATH; // \\*.wav
+    return(FILEPATH);
+}
+
+
+std::string getAudioFilePath(std::string bufferAudioFile)
+{
+    std::string audioFilePath = SFILEPATH;
+    audioFilePath += "\\";
+    audioFilePath += bufferAudioFile;
+
+    return(audioFilePath);
+}
+
+
+std::string getWAudioFilePath(WCHAR* bufferAudioFile)
+{
+    std::wstring wAudioFile(bufferAudioFile);
+    std::string audioFile(wAudioFile.begin(), wAudioFile.end());
+
+    return(getAudioFilePath(audioFile));
+}
+
 
 
 // file searched audio
@@ -30,7 +121,7 @@ void audioman::runsearchedaudiofile(int fileNumber, int volume, Uint8 channels)
 
     // Find the first file in the directory.
 
-    hFind = FindFirstFile(FILEPATH, &ffd);
+    hFind = FindFirstFile(getFilePath(), &ffd); // FILEPATH
     int fileCount = 1;
 
     if (INVALID_HANDLE_VALUE == hFind)
@@ -43,17 +134,7 @@ void audioman::runsearchedaudiofile(int fileNumber, int volume, Uint8 channels)
 
     do
     {
-        if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
-        {
-
-        }
-        else
-        {
-            filesize.LowPart = ffd.nFileSizeLow;
-            filesize.HighPart = ffd.nFileSizeHigh;
-        }
-
-        if (fileCount == fileNumber)
+        if (isAudioFile(ffd) && fileCount == fileNumber)
         {
             runfoundaudio(ffd.cFileName, volume, channels);
         }
@@ -74,8 +155,15 @@ int audioman::runfoundaudio(WCHAR* bufferSoundFile, int volume, Uint8 channels)
     // drag the sound in to the folder in which audioman.cpp is in //
 
     //converting one data type to another
-    std::wstring wSoundFile(bufferSoundFile);
-    std::string soundFile(wSoundFile.begin(), wSoundFile.end());
+    // std::wstring wSoundFile(bufferSoundFile);
+    // std::string soundFile(wSoundFile.begin(), wSoundFile.end());
+    // std::string SoundFilePath = SFILEPATH;
+    // SoundFilePath += "\\";
+    // SoundFilePath += soundFile;
+
+    std::string SoundFilePath = getWAudioFilePath(bufferSoundFile);
+
+
 
     //initialise audio
     SDL_Init(SDL_INIT_AUDIO);
@@ -91,7 +179,7 @@ int audioman::runfoundaudio(WCHAR* bufferSoundFile, int volume, Uint8 channels)
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 
     // inputting .wav in to audio
-    Mix_Chunk* audio = Mix_LoadWAV(soundFile.c_str());
+    Mix_Chunk* audio = Mix_LoadWAV(SoundFilePath.c_str());
 
     // play sound
     Mix_PlayChannel(channels, audio, 0);
@@ -121,7 +209,7 @@ void audioman::runsearchedmusicfile(int fileNumber, int volume, int loopamount, 
 
     // Find the first file in the directory.
 
-    hFind = FindFirstFile(FILEPATH, &ffdm);
+    hFind = FindFirstFile(getFilePath(), &ffdm);
     int fileCount = 1;
 
     if (INVALID_HANDLE_VALUE == hFind)
@@ -134,15 +222,11 @@ void audioman::runsearchedmusicfile(int fileNumber, int volume, int loopamount, 
 
     do
     {
-        if (ffdm.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
-        {
-
-        }
-        else
-        {
-            filesize.LowPart = ffdm.nFileSizeLow;
-            filesize.HighPart = ffdm.nFileSizeHigh;
-        }
+        //if (!(ffdm.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+        //{
+        //    filesize.LowPart = ffdm.nFileSizeLow;
+        //    filesize.HighPart = ffdm.nFileSizeHigh;
+        //}
 
         if (fileCount == fileNumber)
         {
@@ -160,13 +244,21 @@ void audioman::runsearchedmusicfile(int fileNumber, int volume, int loopamount, 
     return;
 }
 
+
 int audioman::runfoundmusic(WCHAR* bufferMusicFile, int volume, int loopamount, int fadeintime)
 {
     // drag the sound in to the folder in which audioman.cpp is in //
 
     //converting one data type to another
-    std::wstring wMusicFile(bufferMusicFile);
-    std::string musicFile(wMusicFile.begin(), wMusicFile.end());
+    // std::wstring wMusicFile(bufferMusicFile);
+    // std::string musicFile(wMusicFile.begin(), wMusicFile.end());
+    // std::string musicFilePath = SFILEPATH;
+    // musicFilePath += "\\";
+    // musicFilePath += musicFile;
+
+    std::string musicFilePath = getWAudioFilePath(bufferMusicFile);
+
+
 
     // initialise audio
     SDL_Init(SDL_INIT_AUDIO);
@@ -179,8 +271,8 @@ int audioman::runfoundmusic(WCHAR* bufferMusicFile, int volume, int loopamount, 
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 
     // inputting audio to the file
-    std::string fileInput = musicFile; //  + ".wav"
-    Mix_Music* music = Mix_LoadMUS(fileInput.c_str());
+    //std::string fileInput = musicFile; //  + ".wav"
+    Mix_Music* music = Mix_LoadMUS(musicFilePath.c_str());
 
     // play music
     Mix_FadeInMusic(music, loopamount, fadeintime);
@@ -213,8 +305,10 @@ int audioman::runSFX(std::string soundname, int volume, Uint8 channels)
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 
     // inputting audio to the file
-    std::string fileInput = soundname + ".wav";
-    Mix_Chunk* audio = Mix_LoadWAV(fileInput.c_str());
+    std::string musicFilePath = getAudioFilePath(soundname);
+
+    musicFilePath += ".wav";
+    Mix_Chunk* audio = Mix_LoadWAV(musicFilePath.c_str());
 
     // play sound
     Mix_PlayChannel(channels, audio, 0);
@@ -243,8 +337,10 @@ int audioman::runmusic(std::string audioname, int volume, int loopamount, int fa
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 
     // inputting audio to the file
-    std::string fileInput = audioname + ".wav";
-    Mix_Music* music = Mix_LoadMUS(fileInput.c_str());
+    std::string audioFilePath = getAudioFilePath(audioname);
+
+    audioFilePath += ".wav";
+    Mix_Music* music = Mix_LoadMUS(audioFilePath.c_str());
 
     // play music
     Mix_FadeInMusic(music, loopamount, fadeintime);
