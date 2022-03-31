@@ -7,7 +7,7 @@
 class Patrolling : public State
 {
 public:
-	Patrolling();
+	Patrolling(vector<position> m_p_waypoints);
 	void Enter() override;
 	void Execute() override;
 	void Exit() override;
@@ -17,9 +17,5 @@ public:
 private:
 	vector<position> m_waypoints;
 	vector<float> m_distances;
-	gameobject m_waypoint_1;
-	gameobject m_waypoint_2;
-	gameobject m_waypoint_3;
-	gameobject m_waypoint_4;
 	position m_destination;
 };
