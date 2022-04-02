@@ -8,6 +8,7 @@
 #include "Graphics\Window.h"
 #include "Patrolling.h"
 #include "StateMachine.h"
+#include "minimap.h"
 
 gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master)
 	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }
@@ -158,4 +159,11 @@ text* gameobject::create_text(std::string _text, std::string _font_path, SDL_Col
 	new_text->set_text(_text);
 	m_ui_components.push_back(new_text);
 	return new_text;
+}
+
+minimap* gameobject::create_minimap(std::string _image_path)
+{
+	minimap* new_minimap = new minimap(m_p_renderer, _image_path, m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	m_ui_components.push_back(new_minimap);
+	return new_minimap;
 }
