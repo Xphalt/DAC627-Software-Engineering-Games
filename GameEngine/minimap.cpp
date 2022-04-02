@@ -16,6 +16,7 @@ minimap::minimap(renderer* _renderer)
 }
 minimap::minimap(renderer* _renderer, std::string _image_path, int _x, int _y, int _width, int _height, double _rotation)
 {
+	m_p_renderer = _renderer->GetRenderer();
 
 	set_image(_image_path);
 

@@ -73,6 +73,15 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 		m_ui_test->set_scale(300, 50);
 		m_ui_test->create_text("Hello world", "ui_assets/fonts/VCR_OSD_MONO.ttf", { 255, 255, 255 }, 24);
 	*/
+
+
+	//Matt's minimap testing
+	gameobject* m_p_minimap = new gameobject(m_p_renderer, "");
+	m_ui_objects.push_back(m_p_minimap);
+	m_p_minimap->set_scale(200, 200);
+	m_p_minimap->set_position(355, 5);
+	m_p_minimap->create_minimap("ui_assets/engine/ButtonNormal.png");
+
 }
 
 level::~level()

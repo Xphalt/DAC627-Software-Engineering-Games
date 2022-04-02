@@ -45,9 +45,9 @@ public:
 	~gameobject();
 
 	void update();
-	position get_position() { return m_position; }
-	rotation get_rotation() { return m_rotation; }
-	scale get_scale() { return m_scale; }
+	position get_position() { return m_position; };
+	rotation get_rotation() { return m_rotation; };
+	scale get_scale() { return m_scale; };
 
 	void set_position(int x, int y);
 	void set_rotation(int x, int y);

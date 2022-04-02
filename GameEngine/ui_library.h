@@ -6,3 +6,4 @@
 #include "slider.h"
 #include "text.h"
 #include "hotbar.h"
+#include "minimap.h"
