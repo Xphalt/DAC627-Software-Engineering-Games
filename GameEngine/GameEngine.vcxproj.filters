@@ -127,6 +127,9 @@
     <ClCompile Include="collider.cpp">
       <Filter>Engine\Components\Movement</Filter>
     </ClCompile>
+    <ClCompile Include="minimap.cpp">
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -212,6 +215,9 @@
     </ClInclude>
     <ClInclude Include="collider.h">
       <Filter>Engine\Components\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="minimap.h">
+      <Filter>Engine\Components\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
