@@ -30,10 +30,6 @@ gameobject::gameobject(renderer* _renderer)
 
 	m_p_animator->add_animation(m_p_renderer, "Sprites/Isometric/Floor.bmp", "Walls");
 	m_p_animator->set_animation("Walls");
-	audioman::runsearchedmusicfile(26, 69, 4, 1); //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//audioman::runsearchedaudiofile(7, 69, 1);
-	//audioman::runmusic("Vital Whales - Unicorn Heads", 128, 4, 1);
-	//audioman::runSFX("Jump", 69, 1);
 }
 
 gameobject::~gameobject()
