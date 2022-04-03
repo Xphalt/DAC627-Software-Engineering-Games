@@ -29,7 +29,7 @@ public:
 	// SFX running functions
 	static int runSFX(std::string soundname, int volume, Uint8 channels);
 	static int runSFXlist(int soundnum, int volume, Uint8 channels);
-	
+
 	// music running functions
 	static int runmusic(std::string audioname, int volume, int loopamount, int fadeintime);
 	static int runmusiclist(int audio, int volume, int loopamount, int fadeintime);
@@ -38,7 +38,11 @@ public:
 	static int endmusic(int fadeouttime); // measured in milliseconds
 	static int volmusic(int volume); // max = 128
 
-	// file searching
-	static void searchfiles();
-};
+	// file searching sounds
+	static void runsearchedaudiofile(int fileNumber, int volume, Uint8 channels);
+	static int runfoundaudio(WCHAR* bufferSoundFile, int volume, Uint8 channels);
 
+	// file searching music
+	static void runsearchedmusicfile(int fileNumber, int volume, int loopamount, int fadeintime);
+	static int runfoundmusic(WCHAR* bufferMusicFile, int volume, int loopamount, int fadeintime);
+};
