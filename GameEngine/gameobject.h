@@ -69,7 +69,7 @@ public:
 	image* create_image(std::string _image_path);
 	slider* create_slider(std::string _fill_image_path, float _min_value, float _max_value);
 	text* create_text(std::string _text, std::string _font_path, SDL_Color _color, int _font_size);
-	minimap* create_minimap(std::string _image_path);
+	minimap* create_minimap(std::string _minimapFrame_path, std::string _playerIcon_path, std::string _minimapImage_path);
 
 	position m_testPos{};
 

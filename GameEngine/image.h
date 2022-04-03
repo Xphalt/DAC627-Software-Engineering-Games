@@ -20,6 +20,6 @@ public:
 	void set_image(std::string _image_path);
 
 	void draw() override;
-protected:
+private:
 	SDL_Texture* m_p_image = nullptr;
 };

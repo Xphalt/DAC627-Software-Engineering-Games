@@ -80,7 +80,8 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	m_ui_objects.push_back(m_p_minimap);
 	m_p_minimap->set_scale(200, 200);
 	m_p_minimap->set_position(355, 5);
-	m_p_minimap->create_minimap("ui_assets/engine/ButtonNormal.png");
+	m_p_minimap->create_minimap("ui_assets/engine/HotbarBackground.png",
+		"ui_assets/engine/DefaultImageNormal.png", "ui_assets/engine/ButtonMinimapBackground2.png");
 
 }
 
