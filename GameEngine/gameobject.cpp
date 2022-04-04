@@ -7,7 +7,7 @@
 #include "Graphics\Window.h"
 #include "Patrolling.h"
 #include "StateMachine.h"
-#include "input_wrapper.h"
+#include "player_input.h"
 
 gameobject::gameobject(renderer* _renderer, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input)
 	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_player_input{_input}
@@ -63,6 +63,11 @@ void gameobject::update()
 
 	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
 	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }
+
+		m_player_input->bind_actions(*this);
+	if (m_player_input != nullptr)
+	{
+	}
 }
 
 void gameobject::set_position(int x, int y)

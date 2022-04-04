@@ -13,7 +13,7 @@ void input_wrapper::update()
 {
 }
 
-void input_wrapper::execute(gameobject& _gameobject)
+void input_wrapper::execute_actions(gameobject& _gameobject)
 {
 	switch (m_actions)
 	{

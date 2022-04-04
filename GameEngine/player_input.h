@@ -10,7 +10,7 @@ public:
 	player_input();
 	~player_input();
 
-	void Execute();
+	void bind_actions(gameobject& _gameobject);
 
 private:
 	input_wrapper* m_input{ nullptr };

@@ -14,7 +14,7 @@ public:
 	~input_wrapper();
 
 	void update();
-	void execute(gameobject& _gameobject);
+	void execute_actions(gameobject& _gameobject);
 	void set_actions(actions _action) { m_actions = _action; }
 private:
 	actions m_actions;
