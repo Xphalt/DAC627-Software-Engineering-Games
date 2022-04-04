@@ -61,12 +61,6 @@
     <ClCompile Include="gameobject.cpp">
       <Filter>Engine\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="gamepad.cpp">
-      <Filter>Engine\Components\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Input_master.cpp">
-      <Filter>Engine\Components\Input</Filter>
-    </ClCompile>
     <ClCompile Include="game.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
@@ -112,17 +106,23 @@
     <ClCompile Include="renderer.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>Engine\Components\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>Engine\Components\Input</Filter>
-    </ClCompile>
     <ClCompile Include="vector_movement.cpp">
       <Filter>Engine\Components\Movement</Filter>
     </ClCompile>
     <ClCompile Include="level.cpp">
       <Filter>Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard_input.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="gamepad_input.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="input_wrapper.cpp">
+      <Filter>Engine\Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="player_input.cpp">
+      <Filter>Engine\Components\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,12 +140,6 @@
     </ClInclude>
     <ClInclude Include="gameobject.h">
       <Filter>Engine\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="gamepad.h">
-      <Filter>Engine\Components\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="input_master.h">
-      <Filter>Engine\Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Window.h">
       <Filter>Engine\Core</Filter>
@@ -192,12 +186,6 @@
     <ClInclude Include="renderer.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Keyboard.h">
-      <Filter>Engine\Components\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Mouse.h">
-      <Filter>Engine\Components\Input</Filter>
-    </ClInclude>
     <ClInclude Include="ui_library.h">
       <Filter>Engine\Components\UI</Filter>
     </ClInclude>
@@ -206,6 +194,18 @@
     </ClInclude>
     <ClInclude Include="level.h">
       <Filter>Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboard_input.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="input_wrapper.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="gamepad_input.h">
+      <Filter>Engine\Components\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="player_input.h">
+      <Filter>Engine\Components\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

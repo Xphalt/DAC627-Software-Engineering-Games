@@ -12,11 +12,11 @@ class camera;
 class animation;
 class animator;
 class audioman;
-class input_master;
 class Window;
 class tilemap;
 class Patrolling;
 class StateMachine;
+class player_input;
 
 struct position
 {
@@ -72,7 +72,7 @@ public:
 
 private:
 	// player constructor
-	gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master);
+	gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input);
 
 	// enemy constructor
 	gameobject(renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman);
@@ -92,8 +92,8 @@ private:
 	animation* m_p_animation{ nullptr };
 	animator* m_p_animator{ nullptr };
 	audioman* m_p_audioman{ nullptr };
-	input_master* m_p_input_master{ nullptr };
 	StateMachine* m_p_statemachine{ nullptr };
+	player_input* m_player_input{ nullptr };
 
 	Window* m_p_window{ nullptr };
 };
