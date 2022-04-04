@@ -128,13 +128,13 @@ void gameobject::add_scale(scale sc_add)
 
 gameobject* gameobject::create_player()
 {
-	m_p_collider = new collider(5, this, 0, 0);
+	m_p_collider = new collider(10, this, 0, 0);
 	return nullptr;
 }
 
 gameobject* gameobject::create_enemy()
 {
-	m_p_collider = new collider(5, this, 0, 0);
+	m_p_collider = new collider(10, this, 0, 0);
 	m_p_statemachine = new StateMachine();
 	m_p_patrolling = new Patrolling();
 	m_p_patrolling->AddWaypoint(20, 20);
