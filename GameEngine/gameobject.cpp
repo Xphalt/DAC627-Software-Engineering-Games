@@ -39,6 +39,14 @@ gameobject::gameobject(renderer* _renderer, std::string fileName)
 	m_p_animator->set_animation("Default");
 }
 
+gameobject::gameobject(renderer* _renderer, std::string fileName, int rows, int columns, int duration)
+	: m_p_renderer{ _renderer }
+{
+	m_p_animator = new animator();
+	m_p_animator->add_animation(_renderer, fileName, "Default", rows, columns, duration);
+	m_p_animator->set_animation("Default");
+}
+
 gameobject::~gameobject()
 {
 	for (int i = 0; i < m_ui_components.size(); i++)
@@ -128,8 +136,13 @@ gameobject* gameobject::create_enemy()
 {
 	m_p_collider = new collider(5, this, 0, 0);
 	m_p_statemachine = new StateMachine();
+	m_p_patrolling = new Patrolling();
+	m_p_patrolling->AddWaypoint(20, 20);
+	m_p_patrolling->AddWaypoint(50, 20);
+	m_p_patrolling->AddWaypoint(50, -50);
+	m_p_patrolling->AddWaypoint(0, -50);
 	m_p_statemachine->Init(this);
-	m_p_statemachine->ChangeState(new Patrolling());
+	m_p_statemachine->ChangeState(m_p_patrolling);
 	return nullptr;
 }
 

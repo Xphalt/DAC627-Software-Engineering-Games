@@ -29,8 +29,25 @@ game::~game()
 void game::update()
 {
 	float mytime = 0.0f;
-	while (true)
+	SDL_Event events;
+
+	bool _isRunning = true;
+
+	while (_isRunning)
 	{
+		while (SDL_PollEvent(&events) != 0)
+		{
+			switch (events.type)
+			{
+			case SDL_QUIT:
+				_isRunning = false;
+				break;
+
+			default:
+				break;
+			}
+		}
+
 		m_p_timer->update_timer();
 		mytime += m_p_timer->delta_time();
 		if (mytime > 1.0f / 60.0f)

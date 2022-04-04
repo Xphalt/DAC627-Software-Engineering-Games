@@ -42,6 +42,7 @@ class gameobject {
 public:
 	gameobject();
 	gameobject(renderer* _renderer, std::string fileName);
+	gameobject(renderer* _renderer, std::string fileName, int rows, int columns, int duration);
 	~gameobject();
 
 	void update();
@@ -97,6 +98,7 @@ private:
 	audioman* m_p_audioman{ nullptr };
 	input_master* m_p_input_master{ nullptr };
 	StateMachine* m_p_statemachine{ nullptr };
+	Patrolling* m_p_patrolling{ nullptr };
 
 	collider* m_p_collider{nullptr};
 

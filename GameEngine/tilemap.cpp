@@ -70,12 +70,13 @@ std::vector<gameobject*> tilemap::return_objects()
 			}
 		}
 	}
-	//For testing ai, move this somewhere else pls /*Sprites/Potions/potion1*/
-	gameobject* newObject = new gameobject(m_p_renderer, "Sprites/Monsters_Creatures_Fantasy/Skeleton/Walk.png");
-	newObject->set_position(5, 5);
+	gameobject* newObject = new gameobject(m_p_renderer, "Sprites/Monsters_Creatures_Fantasy/Skeleton/Walk.png", 1, 4, 200);
+	newObject->set_position(20, 20);
 	newObject->create_enemy();
+	newObject->get_collider()->addNewCollider(newObject->get_collider());
 	objects.push_back(newObject);
-	gameobject* playerObject = new gameobject(m_p_renderer, "Sprites/Potions/potion1.png");
+
+	gameobject* playerObject = new gameobject(m_p_renderer, "Sprites/Adventurer/adventurerIdle.png", 1, 4, 200);
 	playerObject->set_position(100, 5);
 	playerObject->create_player();
 	playerObject->get_collider()->addNewCollider(newObject->get_collider());

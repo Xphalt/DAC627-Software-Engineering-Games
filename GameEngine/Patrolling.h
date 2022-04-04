@@ -15,6 +15,7 @@ public:
 	float CalculateDistance(position _one, position _two);
 
 	void AddWaypoint(position newWaypoint);
+	void AddWaypoint(int x, int y);
 	void AddWaypoint(vector<position> m_p_waypoints);
 
 

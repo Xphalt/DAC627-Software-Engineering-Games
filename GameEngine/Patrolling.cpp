@@ -55,6 +55,13 @@ void Patrolling::AddWaypoint(position newWaypoint)
 	m_waypoints.push_back(newWaypoint);
 }
 
+void Patrolling::AddWaypoint(int x, int y)
+{
+	m_destination.x = x;
+	m_destination.y = y;
+	m_waypoints.push_back(m_destination);
+}
+
 void Patrolling::AddWaypoint(vector<position> m_p_waypoints)
 {
 	for (int i = 0; i < m_p_waypoints.size(); i++)
