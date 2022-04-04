@@ -57,7 +57,7 @@ level::level(std::string _fileName, renderer* renderer)
 	m_level_objects.back()->set_scale(1, 1);
 	m_level_objects.back()->set_position(0, 0);
 	m_p_camera->update_target_pos(m_level_objects.back()->get_position().x, m_level_objects.back()->get_position().y);
-	i = -0.5f;
+	i = 0.5f;
 	// HOW TO CREATE AN IMAGE
 	/*
 		m_ui_test->create_image("ui_assets/engine/DefaultImageHighlighted.png");
@@ -122,7 +122,7 @@ void level::update()
 	for (int i = 0; i < m_level_objects.size(); i++)
 	{
 		if (m_level_objects[i] == m_level_objects.back())
-			m_level_objects[i]->add_translation(position{this->i, 0});
+			m_level_objects[i]->add_translation(position{this->i, this->i });
 		m_level_objects[i]->m_testPos.x = m_p_camera->get_player_drawing_rect().x;
 		m_level_objects[i]->m_testPos.y = m_p_camera->get_player_drawing_rect().y;
 		m_level_objects[i]->update();
