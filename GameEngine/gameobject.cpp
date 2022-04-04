@@ -11,8 +11,8 @@
 #include "minimap.h"
 #include "collider.h"
 
-gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master)
-	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }
+gameobject::gameobject(renderer* _renderer, camera* _camera, animator* _animator, audioman* _audioman, input_master* _input_master)
+	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }
 {
 }
 
@@ -63,7 +63,7 @@ void gameobject::update()
 	{
 		m_ui_components[i]->draw();
 	}
-	//if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
+	if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
 	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
 	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }

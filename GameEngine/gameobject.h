@@ -74,9 +74,8 @@ public:
 	collider* get_collider();
 	position m_testPos{};
 
-private:
 	// player constructor
-	gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master);
+	gameobject(renderer* _renderer, camera* _camera, animator* _animator, audioman* _audioman, input_master* _input_master);
 
 	// enemy constructor
 	gameobject(renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman);
@@ -84,6 +83,7 @@ private:
 	// UI constructor
 	gameobject(renderer* _renderer, animation* _animation, animator* _animator, audioman* _audioman);
 
+private:
 	// for more constructors, collision/movement components need to be implemented
 
 	position m_position{ };

@@ -17,4 +17,5 @@ public:
     void Update();
 
     SDL_Renderer* GetRenderer();
+    SDL_Window* GetWindow();
 };

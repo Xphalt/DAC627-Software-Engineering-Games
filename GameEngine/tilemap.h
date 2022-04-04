@@ -47,6 +47,11 @@ public:
 	int get_stage_width();
 	int get_stage_height();
 
+	int get_last_tile_pos_right();
+	int get_last_tile_pos_down();
+	int get_last_tile_pos_left();
+	int get_last_tile_pos_top();
+
 	int get_row(int _x);
 	int get_column(int _y);
 };

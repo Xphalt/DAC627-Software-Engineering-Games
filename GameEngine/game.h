@@ -26,8 +26,7 @@ private:
 	gameobject* m_p_gameobject{ nullptr };
 	Window* m_p_window{ nullptr };
 	level* m_p_level{ nullptr };
-	renderer* m_p_renderer{ nullptr };
-	camera* m_p_camera{ nullptr };
+	renderer* m_p_renderer{ nullptr }; 
 	text* m_p_text{ nullptr };
 	Timer* m_p_timer{ nullptr };
 };

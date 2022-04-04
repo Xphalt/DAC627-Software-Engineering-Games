@@ -14,7 +14,7 @@ camera::camera()
 
 camera::camera(SDL_Rect _pRect, int _tileWidth, int _tileHeight, int _screenWidth, int _screenHeight, int _mapFullWidth, int _mapFullHeight)
 	:
-	m_player_rect{ _pRect },
+	m_player_rect{ _pRect }, 
 	m_tile_width{ _tileWidth },
 	m_tile_height{ _tileHeight },
 	m_camera_rect({ 0,0,_screenWidth,_screenHeight }),
@@ -25,26 +25,41 @@ camera::camera(SDL_Rect _pRect, int _tileWidth, int _tileHeight, int _screenWidt
 	m_camera_rect.x = (m_player_rect.x + (m_player_rect.h / 2)) - m_camera_rect.w / 2;
 	m_camera_rect.y = (m_player_rect.y + (m_player_rect.h / 2)) - m_camera_rect.h / 2;
 
-	set_map_full_size(m_map_full_width, m_map_full_height);
+	//set_map_full_size(m_map_full_width, m_map_full_height);
 }
 
 void camera::update_target_pos(int _pX, int _pY)
 {
 	//Set player in the middle 
-	m_camera_rect.x = (_pX + (m_player_rect.w / 2)) - m_camera_rect.w / 2;
-	m_camera_rect.y = (_pY + (m_player_rect.h / 2)) - m_camera_rect.h / 2;
+	m_camera_rect.x = (m_target->get_position().x + (m_player_rect.w / 2)) - m_camera_rect.w / 2;
+	m_camera_rect.y = (m_target->get_position().y + (m_player_rect.h / 2)) - m_camera_rect.h / 2;
 
 	//Avoid player in the middle when at the edge of the map
-	if (m_camera_rect.x < 0)
-		m_camera_rect.x = 0;
-	if (m_camera_rect.y < 0)
-		m_camera_rect.y = 0;
+	if (m_camera_rect.x < m_map_start_left)
+		m_camera_rect.x = m_map_start_left;
+	if (m_camera_rect.y < m_map_start_top)
+		m_camera_rect.y = m_map_start_top;
 
 	//same as up, but checks the end of the map
 	if (m_camera_rect.x > m_map_full_width - m_camera_rect.w)
 		m_camera_rect.x = m_map_full_width - m_camera_rect.w;
 	if (m_camera_rect.y > m_map_full_height - m_camera_rect.h)
 		m_camera_rect.y = m_map_full_height - m_camera_rect.h;
+}
+
+void camera::set_target(gameobject* _t)
+{
+	m_target = _t;
+}
+
+void camera::set_map_start_left(int _value)
+{
+	m_map_start_left = _value;
+}
+
+void camera::set_map_start_top(int _value)
+{
+	m_map_start_top = _value;
 }
 
 bool camera::set_screen_size(int _width, int _height)
@@ -121,4 +136,13 @@ int camera::get_end_column(int _numberOfTilesHorizontal)
 		endColumn = _numberOfTilesHorizontal;
 
 	return endColumn;
+}
+
+SDL_Rect camera::get_player_drawing_rect()
+{ 
+	SDL_Rect drawingRect = { m_target->get_position().x - m_camera_rect.x,
+							m_target->get_position().y - m_camera_rect.y,
+							128, 128 };
+
+	return drawingRect; 
 }

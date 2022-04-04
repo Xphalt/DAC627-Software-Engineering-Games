@@ -15,12 +15,15 @@ private:
 	int m_tile_width, m_tile_height;
 	//Map details 
 	int m_map_full_width, m_map_full_height;
+	int m_map_start_left, m_map_start_top;
 
 	//Screen and camera details details
 	SDL_Rect m_camera_rect;
 
 	//Zoom 
 	float m_FOV_scale_factor{ 1.0f };
+
+	gameobject* m_target;
 
 public:
 	camera();
@@ -30,6 +33,9 @@ public:
 	void update_target_pos(int _pX, int _pY); 
 
 	//Setters
+	void set_target(gameobject* _t);
+	void set_map_start_left(int _value);
+	void set_map_start_top(int _value);
 	bool set_screen_size(int _width, int _height);
 	bool set_tile_size(int _width, int _height);
 	bool set_map_full_size(int _width, int _height);
@@ -44,4 +50,6 @@ public:
 	int get_end_row(int _numberOfTilesVertical);
 	int get_start_column();
 	int get_end_column(int _numberOfTilesHorizontal); 
+
+	SDL_Rect get_player_drawing_rect();
 };

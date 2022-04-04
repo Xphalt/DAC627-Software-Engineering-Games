@@ -2,6 +2,7 @@
 #include "Graphics\Window.h"
 
 renderer::renderer(Window* m_Window)
+	:m_Window{m_Window}
 {
 	m_renderer = SDL_CreateRenderer(
 		m_Window->GetWindow(), -1, 0);
@@ -35,4 +36,9 @@ void renderer::Update()
 SDL_Renderer* renderer::GetRenderer()
 {
 	return m_renderer;
+}
+
+SDL_Window* renderer::GetWindow()
+{
+	return m_Window->GetWindow();
 }
