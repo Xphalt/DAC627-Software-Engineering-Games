@@ -7,10 +7,14 @@
 #include "Graphics\Window.h"
 #include "Patrolling.h"
 #include "StateMachine.h"
+#include "input_wrapper.h"
 
-gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input)
+gameobject::gameobject(renderer* _renderer, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input)
 	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_player_input{_input}
 {
+	this->set_position(5, 5);
+	this->set_scale(64, 64);
+	m_p_renderer->CreateTexture("Sprites/Isometric/Floor.bmp");
 }
 
 gameobject::gameobject(renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman)
@@ -47,17 +51,18 @@ gameobject::~gameobject()
 
 void gameobject::update()
 {
-	//if (m_p_renderer != nullptr) { m_p_renderer->Update(); }
+	if (m_p_renderer != nullptr)
+	{
+		m_p_renderer->Draw(this);
+	}
+
 	for (int i = 0; i < m_ui_components.size(); i++)
 	{
 		m_ui_components[i]->draw();
 	}
-	//if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
-	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
+
 	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
 	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }
-	//if (m_p_audioman != nullptr) { m_p_audioman->; }
-	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
 
 void gameobject::set_position(int x, int y)
@@ -114,9 +119,9 @@ void gameobject::add_scale(scale sc_add)
 	m_scale.y += sc_add.y;
 }
 
-gameobject* gameobject::create_player()
+gameobject* gameobject::create_player(renderer* _renderer, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input)
 {
-	return nullptr;
+	return new gameobject(_renderer, _camera, _animation, _animator, _audioman, _input);
 }
 
 gameobject* gameobject::create_enemy()

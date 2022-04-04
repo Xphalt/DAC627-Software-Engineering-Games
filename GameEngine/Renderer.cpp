@@ -1,5 +1,6 @@
 #include "renderer.h"
 #include "Graphics\Window.h"
+#include "gameobject.h"
 
 renderer::renderer(Window* m_Window)
 {
@@ -23,13 +24,11 @@ renderer::~renderer()
 	}
 }
 
-void renderer::Update()
+void renderer::Draw(gameobject* _gameobject)
 {
-	if (nullptr == m_renderer) return;
+	SDL_Rect rect = { _gameobject->get_position().x , _gameobject->get_position().y, _gameobject->get_scale().x, _gameobject->get_scale().y };
 
-	SDL_RenderClear(m_renderer);
-	SDL_RenderPresent(m_renderer);
-
+	SDL_RenderCopy(GetRenderer(), GetTexture(), nullptr, &rect);
 }
 
 void renderer::ClearRender()
@@ -42,7 +41,25 @@ void renderer::PresentRender()
 	SDL_RenderPresent(m_renderer);
 }
 
-SDL_Renderer* renderer::GetRenderer()
+void renderer::CreateTexture(std::string _filename)
 {
-	return m_renderer;
+	SDL_Surface* surface = IMG_Load(_filename.c_str());
+	if (!surface)
+	{
+		std::cerr << "Failed to create surface.\n";
+	}
+
+	// Clear the previous image
+	if (m_texture)
+	{
+		SDL_DestroyTexture(m_texture);
+	}
+
+	m_texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+	if (!m_texture)
+	{
+		std::cerr << "Failed to create texture.\n";
+	}
+
+	SDL_FreeSurface(surface);
 }

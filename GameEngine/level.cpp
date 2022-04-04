@@ -2,6 +2,10 @@
 #include "renderer.h"
 #include "Camera.h"
 #include "gameobject.h"
+#include "animation.h"
+#include "animator.h"
+#include "audioman.h"
+#include "player_input.h"
 
 level::level(std::string _fileName, renderer* renderer, camera* camera)
 	: m_p_renderer{ renderer }, m_p_camera{ camera }
@@ -9,6 +13,7 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	m_tilemap = new tilemap(128, _fileName, renderer);
 	m_tilemap_objects = m_tilemap->return_objects();
 
+#pragma region UI
 	// Dominique UI Testing
 
 	gameobject* m_p_hotbar = new gameobject(m_p_renderer, "");
@@ -73,6 +78,17 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 		m_ui_test->set_scale(300, 50);
 		m_ui_test->create_text("Hello world", "ui_assets/fonts/VCR_OSD_MONO.ttf", { 255, 255, 255 }, 24);
 	*/
+#pragma endregion
+
+	m_p_animation = new animation(m_p_renderer, "Sprites/Isometric/Floor.bmp");
+	m_p_animator = new animator();
+	m_p_audio = new audioman();
+	m_p_player_input = new player_input();
+
+	m_p_player = new gameobject();
+	m_p_player->create_player(m_p_renderer, m_p_camera, m_p_animation, m_p_animator, m_p_audio, m_p_player_input);
+
+	add_object(m_p_player);
 }
 
 level::~level()

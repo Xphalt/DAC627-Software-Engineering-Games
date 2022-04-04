@@ -1,16 +1,17 @@
 #pragma once
 
-class gameobject;
 class level;
-class renderer;
-class camera;
+class Window;
 class text;
 class Timer;
-//class input_component;
-//class output_component;
-//class logic_component;
 
-class Window;
+class gameobject;
+class renderer;
+class camera;
+class animation;
+class animator;
+class audioman;
+class player_input;
 
 using namespace std;
 
@@ -23,11 +24,14 @@ public:
 	void update();
 	float i = 0;
 private:
-	gameobject* m_p_gameobject{ nullptr };
-	Window* m_p_window{ nullptr };
 	level* m_p_level{ nullptr };
-	renderer* m_p_renderer{ nullptr };
-	camera* m_p_camera{ nullptr };
+	Window* m_p_window{ nullptr };
 	text* m_p_text{ nullptr };
 	Timer* m_p_timer{ nullptr };
+
+	gameobject* m_p_gameobject{ nullptr };
+	gameobject* m_p_player{ nullptr };
+	renderer* m_p_renderer{ nullptr };
+	camera* m_p_camera{ nullptr };
+
 };

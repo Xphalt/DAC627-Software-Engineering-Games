@@ -58,7 +58,7 @@ public:
 	void add_scale(int x, int y);
 	void add_scale(scale sc_add);
 
-	gameobject* create_player();
+	gameobject* create_player(renderer* _renderer, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input);
 	gameobject* create_enemy();
 
 	button* create_button(std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths);
@@ -72,7 +72,7 @@ public:
 
 private:
 	// player constructor
-	gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input);
+	gameobject(renderer* _renderer, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input);
 
 	// enemy constructor
 	gameobject(renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman);

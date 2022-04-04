@@ -115,9 +115,6 @@
     <ClCompile Include="keyboard_input.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="gamepad_input.cpp">
-      <Filter>Engine\Components\Input</Filter>
-    </ClCompile>
     <ClCompile Include="input_wrapper.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
@@ -199,9 +196,6 @@
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="input_wrapper.h">
-      <Filter>Engine\Components\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="gamepad_input.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="player_input.h">

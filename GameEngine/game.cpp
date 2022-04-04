@@ -6,16 +6,19 @@
 #include "Camera.h"
 #include "text.h"
 #include "Timer.h"
+#include "animation.h"
+#include "animator.h"
+#include "audioman.h"
+#include "player_input.h"
 
 game::game()
 {
 	m_p_window = new Window();
-	SDL_Rect player{ 960, 720, 64, 64 };
-	m_p_camera = new camera(player, 960, 128, 128, 720, 2000, 2000);
+	SDL_Rect player{ 5, 5, 64, 64 };
 
+	m_p_camera = new camera(player, 960, 128, 128, 720, 2000, 2000);
 	m_p_renderer = new renderer(m_p_window);
 	m_p_level = new level("Sprites/Tilemaps/TestMap", m_p_renderer, m_p_camera);
-
 	m_p_timer = new Timer();
 }
 

@@ -28,7 +28,6 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameobject.cpp" />
-    <ClCompile Include="gamepad_input.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
     <ClCompile Include="hotbar.cpp" />
     <ClCompile Include="image.cpp" />
@@ -57,7 +56,6 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameobject.h" />
-    <ClInclude Include="gamepad_input.h" />
     <ClInclude Include="Graphics\Window.h" />
     <ClInclude Include="hotbar.h" />
     <ClInclude Include="image.h" />
