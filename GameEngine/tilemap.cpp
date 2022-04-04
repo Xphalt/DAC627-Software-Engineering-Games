@@ -1,6 +1,7 @@
 #include "tilemap.h"
 #include <iostream>
 #include "renderer.h"
+#include "collider.h"
 
 tilemap::tilemap(int _block_size, std::string _tilemap_path, renderer* _renderer)
 	: m_block_size{ _block_size }, m_p_renderer{ _renderer }
@@ -74,6 +75,11 @@ std::vector<gameobject*> tilemap::return_objects()
 	newObject->set_position(5, 5);
 	newObject->create_enemy();
 	objects.push_back(newObject);
+	gameobject* playerObject = new gameobject(m_p_renderer, "Sprites/Potions/potion1.png");
+	playerObject->set_position(100, 5);
+	playerObject->create_player();
+	playerObject->get_collider()->addNewCollider(newObject->get_collider());
+	objects.push_back(playerObject);
 	return objects;
 }
 

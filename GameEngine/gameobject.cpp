@@ -9,6 +9,7 @@
 #include "Patrolling.h"
 #include "StateMachine.h"
 #include "minimap.h"
+#include "collider.h"
 
 gameobject::gameobject(renderer* _renderer, image* _image, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, input_master* _input_master)
 	: m_p_renderer{ _renderer }, m_p_camera{ _camera }, m_p_animation{ _animation }, m_p_animator{ _animator }, m_p_audioman{ _audioman }, m_p_input_master{ _input_master }
@@ -58,6 +59,7 @@ void gameobject::update()
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
 	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
 	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }
+	if (m_p_collider != nullptr) {m_p_collider->updateColliders(); }
 	//if (m_p_audioman != nullptr) { m_p_audioman->; }
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
@@ -118,11 +120,13 @@ void gameobject::add_scale(scale sc_add)
 
 gameobject* gameobject::create_player()
 {
+	m_p_collider = new collider(5, this, 0, 0);
 	return nullptr;
 }
 
 gameobject* gameobject::create_enemy()
 {
+	m_p_collider = new collider(5, this, 0, 0);
 	m_p_statemachine = new StateMachine();
 	m_p_statemachine->Init(this);
 	m_p_statemachine->ChangeState(new Patrolling());
@@ -167,4 +171,9 @@ minimap* gameobject::create_minimap(std::string _minimapFrame_path, std::string 
 		m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
 	m_ui_components.push_back(new_minimap);
 	return new_minimap;
+}
+
+collider* gameobject::get_collider()
+{
+	return m_p_collider;
 }

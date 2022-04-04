@@ -10,7 +10,7 @@ struct position;
 class collider
 {
 public:
-    collider(float radiusIn, gameobject* parent, int xOffset, int yOffset);
+    collider(int radiusIn, gameobject* parent, int xOffset, int yOffset);
     ~collider();
 
     void updateColliders();
@@ -25,5 +25,7 @@ protected:
 public:
     gameobject* getParent() { return m_p_parent; }
     float getRadius() { return m_radius; }
+
+    void addNewCollider(collider* newCol);
 };
 

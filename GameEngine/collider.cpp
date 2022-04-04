@@ -1,7 +1,7 @@
 #include "collider.h"
 #include "gameobject.h"
 
-collider::collider(float radiusIn, gameobject* parent, int xOffset = 0, int yOffset = 0)
+collider::collider(int radiusIn, gameobject* parent, int xOffset = 0, int yOffset = 0)
 {
     m_radius = radiusIn;
     m_p_parent = parent;
@@ -33,4 +33,9 @@ void collider::updateColliders()
             printf("Collided");
         }
     }
+}
+
+void collider::addNewCollider(collider* newCol)
+{
+    m_otherColliders.push_back(newCol);
 }
