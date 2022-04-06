@@ -3,6 +3,7 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <conio.h>
+#include "Graphics/Window.h"
 
 class Window;
 class gameobject;

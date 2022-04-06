@@ -32,6 +32,7 @@ private:
     std::vector<gameobject*> m_level_objects;
     std::vector<gameobject*> m_ui_objects;
     int m_object_size;
+    float i;
 
     animation* m_p_animation{ nullptr };
     animator* m_p_animator{ nullptr };

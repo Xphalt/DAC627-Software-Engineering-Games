@@ -121,6 +121,12 @@
     <ClCompile Include="player_input.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
+    <ClCompile Include="collider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="minimap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -201,5 +207,7 @@
     <ClInclude Include="player_input.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
+    <ClInclude Include="collider.h" />
+    <ClInclude Include="minimap.h" />
   </ItemGroup>
 </Project>

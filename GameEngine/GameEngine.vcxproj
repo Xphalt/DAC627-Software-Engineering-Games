@@ -26,6 +26,7 @@
     <ClCompile Include="audioman.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="collider.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameobject.cpp" />
     <ClCompile Include="Graphics\Window.cpp" />
@@ -35,6 +36,7 @@
     <ClCompile Include="keyboard_input.cpp" />
     <ClCompile Include="level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="minimap.cpp" />
     <ClCompile Include="Patrolling.cpp" />
     <ClCompile Include="player_input.cpp" />
     <ClCompile Include="renderer.cpp" />
@@ -54,6 +56,7 @@
     <ClInclude Include="audioman.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="collider.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameobject.h" />
     <ClInclude Include="Graphics\Window.h" />
@@ -62,6 +65,7 @@
     <ClInclude Include="input_wrapper.h" />
     <ClInclude Include="keyboard_input.h" />
     <ClInclude Include="level.h" />
+    <ClInclude Include="minimap.h" />
     <ClInclude Include="Patrolling.h" />
     <ClInclude Include="player_input.h" />
     <ClInclude Include="renderer.h" />
