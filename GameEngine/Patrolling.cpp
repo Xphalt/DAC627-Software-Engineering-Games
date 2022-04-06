@@ -44,7 +44,7 @@ void Patrolling::Execute()
 	float mag = (diffx * diffx) + (diffy * diffy);
 	mag = sqrt(mag);
 
-	std::cout << mag << endl;
+	//std::cout << mag << endl;
 	if (std::abs(mag < m_attackDist))
 	{
 		std::cout << "Should attack" << endl;

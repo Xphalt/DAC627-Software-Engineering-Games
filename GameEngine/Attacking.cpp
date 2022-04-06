@@ -21,9 +21,6 @@ void Attacking::Execute()
 	diffx /= mag;
 	diffy /= mag;
 
-	std::cout << diffx << endl;
-	std::cout << diffy << endl;
-
 	m_p_agent->add_translation(diffx, diffy);
 }
 
