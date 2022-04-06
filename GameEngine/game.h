@@ -6,9 +6,7 @@ class renderer;
 class camera;
 class text;
 class Timer;
-//class input_component;
-//class output_component;
-//class logic_component;
+class input_master;
 
 class Window;
 
@@ -29,4 +27,5 @@ private:
 	renderer* m_p_renderer{ nullptr }; 
 	text* m_p_text{ nullptr };
 	Timer* m_p_timer{ nullptr };
+	input_master* m_p_input{ nullptr };
 };

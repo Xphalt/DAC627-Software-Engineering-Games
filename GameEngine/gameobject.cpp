@@ -58,6 +58,14 @@ gameobject::~gameobject()
 
 void gameobject::update()
 {
+	if (m_p_input_master != nullptr)
+	{
+		if (m_p_input_master->key_pressed(ActionKeys::UP)) add_translation(0, -10);
+		if (m_p_input_master->key_pressed(ActionKeys::DOWN)) add_translation(0, 10);
+		if (m_p_input_master->key_pressed(ActionKeys::LEFT)) add_translation(-10, 0);
+		if (m_p_input_master->key_pressed(ActionKeys::RIGHT)) add_translation(10, 0);
+	}
+
 	//if (m_p_renderer != nullptr) { m_p_renderer->Update(); }
 	for (int i = 0; i < m_ui_components.size(); i++)
 	{
