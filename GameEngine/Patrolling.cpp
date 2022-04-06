@@ -5,34 +5,25 @@ Patrolling::Patrolling()
 
 }
 
+Patrolling::Patrolling(vector<position> m_p_waypoints)
+{
+	m_waypoints = m_p_waypoints;
+}
+
 void Patrolling::Enter()
 {
 	//one route for now, but set up a method to change it later
-	m_waypoints.push_back(m_waypoint_1.get_position());
-	m_distances.push_back(CalculateDistance(m_p_agent->get_position(), m_waypoint_1.get_position()));
-	m_waypoints.push_back(m_waypoint_2.get_position());
-	m_distances.push_back(CalculateDistance(m_p_agent->get_position(), m_waypoint_2.get_position()));
-	m_waypoints.push_back(m_waypoint_3.get_position());
-	m_distances.push_back(CalculateDistance(m_p_agent->get_position(), m_waypoint_3.get_position()));
-	m_waypoints.push_back(m_waypoint_4.get_position());
-	m_distances.push_back(CalculateDistance(m_p_agent->get_position(), m_waypoint_4.get_position()));
+	for (int i = 0; i < m_waypoints.size(); i++)
+	{
+		m_distances.push_back(CalculateDistance(m_p_agent->get_position(), m_waypoints[i]));
+	}
 
 	sort(m_distances.begin(), m_distances.end());
-	if (m_distances[0] = CalculateDistance(m_p_agent->get_position(), m_waypoint_1.get_position()))
+
+	for (int i = 0; i < m_waypoints.size(); i++)
 	{
-		m_destination = m_waypoint_1.get_position();
-	}
-	else if (m_distances[0] = CalculateDistance(m_p_agent->get_position(), m_waypoint_2.get_position()))
-	{
-		m_destination = m_waypoint_2.get_position();
-	}
-	else if (m_distances[0] = CalculateDistance(m_p_agent->get_position(), m_waypoint_3.get_position()))
-	{
-		m_destination = m_waypoint_3.get_position();
-	}
-	else if (m_distances[0] = CalculateDistance(m_p_agent->get_position(), m_waypoint_4.get_position()))
-	{
-		m_destination = m_waypoint_4.get_position();
+		if (m_distances[0] == CalculateDistance(m_p_agent->get_position(), m_waypoints[i]))
+			m_destination = m_waypoints[i];
 	}
 
 }
@@ -59,4 +50,22 @@ float Patrolling::CalculateDistance(position _one, position _two)
 	return (pow(m_delta_x, 2) + pow(m_delta_y, 2));
 }
 
-//need: an increment function for game object position 
+void Patrolling::AddWaypoint(position newWaypoint)
+{
+	m_waypoints.push_back(newWaypoint);
+}
+
+void Patrolling::AddWaypoint(int x, int y)
+{
+	m_destination.x = x;
+	m_destination.y = y;
+	m_waypoints.push_back(m_destination);
+}
+
+void Patrolling::AddWaypoint(vector<position> m_p_waypoints)
+{
+	for (int i = 0; i < m_p_waypoints.size(); i++)
+	{
+		m_waypoints.push_back(m_p_waypoints[i]);
+	}
+}

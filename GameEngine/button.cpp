@@ -44,6 +44,7 @@ button::~button()
 void button::set_images(std::vector<std::string> _image_paths)
 {
 	m_image_paths = _image_paths;
+	m_p_image->set_image(m_image_paths[NORMAL]);
 }
 void button::set_pointer_up_callback(std::function<void()> _pointer_up_callback)
 {
