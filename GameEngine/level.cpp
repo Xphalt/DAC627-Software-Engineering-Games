@@ -62,15 +62,15 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 
 	m_level_objects.push_back(m_p_player);
 	m_level_objects.back()->set_scale(1, 1);
-	m_level_objects.back()->set_position(0, 0);
+	m_level_objects.back()->set_position(256, 256);
 
 	m_p_camera->update_target_pos(m_level_objects.back()->get_position().x, m_level_objects.back()->get_position().y);
 	i = 0.5f;
 
 #pragma region Enemies
 	gameobject* enemy = new gameobject(m_p_renderer, "Sprites/Monsters_Creatures_Fantasy/Skeleton/Walk.png", 1, 4, 200);
-	enemy->set_position(0, 0);
-	enemy->create_enemy();
+	enemy->set_position(0, 200);
+	enemy->create_enemy(m_p_player);
 	m_level_objects.push_back(enemy);
 	// Add enemy to player's list of colliders
 	m_p_player->get_collider()->addNewCollider(enemy->get_collider());
