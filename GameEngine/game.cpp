@@ -41,7 +41,9 @@ void game::update()
 			case SDL_QUIT:
 				_isRunning = false;
 				break;
-
+			case SDL_WINDOWEVENT_RESIZED:
+				m_p_window->Resize(events.window.data1, events.window.data2);
+				break;
 			default:
 				break;
 			}
