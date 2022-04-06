@@ -6,11 +6,9 @@ class renderer;
 class camera;
 class text;
 class Timer;
+class input_master;
+
 class Window;
-class animation;
-class animator;
-class audioman;
-class player_input;
 
 using namespace std;
 
@@ -24,11 +22,10 @@ public:
 	float i = 0;
 private:
 	gameobject* m_p_gameobject{ nullptr };
-	gameobject* m_p_player{ nullptr };
 	Window* m_p_window{ nullptr };
 	level* m_p_level{ nullptr };
-	renderer* m_p_renderer{ nullptr };
+	renderer* m_p_renderer{ nullptr }; 
 	text* m_p_text{ nullptr };
 	Timer* m_p_timer{ nullptr };
-	camera* m_p_camera{ nullptr };
+	input_master* m_p_input{ nullptr };
 };
