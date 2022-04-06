@@ -27,8 +27,8 @@ void collider::updateColliders()
 
         int mag = (diffx * diffx) + (diffy * diffy);
         mag = sqrt(mag);
-        printf(std::to_string(mag).c_str());
-        printf("\n");
+        //printf(std::to_string(mag).c_str());
+        //printf("\n");
 
         if(mag < m_radius + m_otherColliders[i]->getRadius())
         {

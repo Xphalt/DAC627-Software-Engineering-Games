@@ -53,6 +53,7 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
  	m_p_camera = new camera(SDL_Rect{0,0,128,128}, 128, 128, windowWidth, windowHeight, fullWidth, fullHeight);
 
 	gameobject* m_p_player = new gameobject(m_p_renderer, m_p_camera, m_p_anim, nullptr, input );
+	m_p_player->create_player();
 
 	m_p_camera->set_target(m_p_player);
 	m_p_camera->set_map_start_left(m_tilemap->get_last_tile_pos_left());
@@ -67,11 +68,11 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 
 #pragma region Enemies
 	gameobject* enemy = new gameobject(m_p_renderer, "Sprites/Monsters_Creatures_Fantasy/Skeleton/Walk.png", 1, 4, 200);
-	enemy->set_position(20, 20);
+	enemy->set_position(0, 0);
 	enemy->create_enemy();
 	m_level_objects.push_back(enemy);
 	// Add enemy to player's list of colliders
-	//m_p_player->get_collider()->addNewCollider(enemy->get_collider());
+	m_p_player->get_collider()->addNewCollider(enemy->get_collider());
 #pragma endregion
 
 
@@ -141,8 +142,16 @@ void level::update()
 	{
 		/*if (m_level_objects[i] == m_level_objects.back())
 			m_level_objects[i]->add_translation(position{this->i, this->i });*/
-		m_level_objects[i]->m_testPos.x = m_p_camera->get_player_drawing_rect().x;
-		m_level_objects[i]->m_testPos.y = m_p_camera->get_player_drawing_rect().y;
+		if (i == 0)
+		{
+			m_level_objects[i]->m_testPos.x = m_p_camera->get_player_drawing_rect().x;
+			m_level_objects[i]->m_testPos.y = m_p_camera->get_player_drawing_rect().y;
+		}
+		else
+		{
+			m_level_objects[i]->m_testPos.x = m_p_camera->get_tile_drawX(m_level_objects[i]->get_position().x);
+			m_level_objects[i]->m_testPos.y = m_p_camera->get_tile_drawY(m_level_objects[i]->get_position().y);
+		}
 		m_level_objects[i]->update();
 	}
 
