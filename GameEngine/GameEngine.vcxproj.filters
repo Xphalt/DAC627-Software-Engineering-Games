@@ -41,6 +41,9 @@
     <Filter Include="Engine\Components\Movement">
       <UniqueIdentifier>{8dc3333f-81b5-4031-bb25-db0dd7e88801}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Components\Collision">
+      <UniqueIdentifier>{adf7adc0-a558-49a0-833f-84aa96cc066e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp">
@@ -121,11 +124,11 @@
     <ClCompile Include="player_input.cpp">
       <Filter>Engine\Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="collider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="minimap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Components\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="collider.cpp">
+      <Filter>Engine\Components\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,7 +210,11 @@
     <ClInclude Include="player_input.h">
       <Filter>Engine\Components\Input</Filter>
     </ClInclude>
-    <ClInclude Include="collider.h" />
-    <ClInclude Include="minimap.h" />
+    <ClInclude Include="minimap.h">
+      <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="collider.h">
+      <Filter>Engine\Components\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
