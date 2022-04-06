@@ -13,6 +13,8 @@ tilemap::tilemap(int _block_size, std::string _tilemap_path, renderer* _renderer
 
 void tilemap::load_from_file(std::string _path)
 {
+	m_layout.clear();
+
 	std::ifstream tilemapFile(_path + ".txt");
 	std::string row;
 
@@ -29,6 +31,9 @@ std::vector<gameobject*> tilemap::return_objects()
 {
 	std::vector<gameobject*> objects;
 
+	const float left_x_offset{ 0.25f }, right_x_offset{ 0.75f };
+	const float y_offset{ 0.15f };
+
 	for (int row = 0; row < get_grid_height(); row++)
 	{
 		for (int column = 0; column < get_grid_width(); column++)
@@ -36,30 +41,41 @@ std::vector<gameobject*> tilemap::return_objects()
 			if (get_object_at(column, row) != '.')
 			{
 				int x = (m_block_size * column * 0.5f) - (m_block_size * row * 0.5f);
-				int y = (m_block_size * row * 0.42f) + (m_block_size * column * 0.42f);
+				int y = (m_block_size * row * 0.25f) + (m_block_size * column * 0.25f);
 
 				//Create all objects in game based on text file loaded externally
-				switch (std::toupper(get_object_at(column, row)))
+				switch (get_object_at(column, row))
 				{
-				case WALL:
-					x += m_block_size * 0.5f;
-					y -= m_block_size * 0.5f;
+				case WALL_LEFT:
+					x += m_block_size * left_x_offset;
+					y -= m_block_size * y_offset;
 
-					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/Floor.bmp"));
+					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallLeft.png"));
+					objects[objects.size() - 1]->set_position(x, y);
+					break;
+				case WALL_RIGHT:
+					x += m_block_size * right_x_offset;
+					y -= m_block_size * y_offset;
+
+					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallRight.png"));
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
 				case FLOOR:
-					x += m_block_size * 0.5f;
-					y -= m_block_size * 0.5f;
-
-					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/DoorFrontLeft.png"));
+					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/floor.png"));
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
-				case DOOR:
-					x += m_block_size * 0.5f;
-					y -= m_block_size * 0.5f;
+				case DOOR_LEFT:
+					x += m_block_size * left_x_offset;
+					y -= m_block_size * y_offset;
 
-					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallLeft.png"));
+					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/doorwayLeft.png"));
+					objects[objects.size() - 1]->set_position(x, y);
+					break;
+				case DOOR_RIGHT:
+					x += m_block_size * right_x_offset;
+					y -= m_block_size * y_offset;
+
+					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/doorwayRight.png"));
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
 
@@ -69,9 +85,9 @@ std::vector<gameobject*> tilemap::return_objects()
 			}
 		}
 	}
-	
 	return objects;
 }
+
 
 int tilemap::get_grid_height() { return m_layout.size(); }
 
@@ -87,13 +103,13 @@ int tilemap::get_stage_height() { return m_stage_height; }
 
 int tilemap::get_last_tile_pos_right()
 {
-	std::vector<gameobject*> obj = return_objects(); 
+	std::vector<gameobject*> obj = return_objects();
 	int x = 0;
 	for (int i = 0; i < obj.size(); i++)
 	{
 		if (x < obj[i]->get_position().x)
 		{
-			x = obj[i]->get_position().x; 
+			x = obj[i]->get_position().x;
 		}
 	}
 

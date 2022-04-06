@@ -13,8 +13,10 @@ const std::string MAP_PATH = "Levels\\";
 enum ObjectTypes
 {
 	FLOOR = 'F',
-	WALL = 'W',
-	DOOR = 'D',
+	WALL_LEFT = 'W',
+	WALL_RIGHT = 'w',
+	DOOR_LEFT = 'D',
+	DOOR_RIGHT = 'd',
 	SPIKES = 'S',
 	ENEMY = 'E',
 	PLAYER = 'P',

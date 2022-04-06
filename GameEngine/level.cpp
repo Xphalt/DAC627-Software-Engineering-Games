@@ -11,6 +11,10 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 	m_tilemap = new tilemap(128, _fileName, renderer);
 	m_tilemap_objects = m_tilemap->return_objects();
 
+	m_tilemap->load_from_file("Sprites/Tilemaps/TestMap2");
+	std::vector<gameobject*> tilemap2 = m_tilemap->return_objects();
+	m_tilemap_objects.insert(m_tilemap_objects.end(), tilemap2.begin(), tilemap2.end());
+
 	// Dominique UI Testing
 	gameobject* m_p_hotbar = new gameobject(m_p_renderer, "");
 	m_ui_objects.push_back(m_p_hotbar);
@@ -24,15 +28,12 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 	button_paths.push_back("Sprites/Misc/bomb.png");
 	hotbar->setup_slot(0, nullptr, button_paths);
 
-
 	//gameobject* m_p_slider = new gameobject(m_p_renderer, "");
 	//m_ui_objects.push_back(m_p_slider);
 	//m_p_slider->set_scale(400, 50);
 	//m_p_slider->set_position(275, 610);
-
 	//slider* slider = m_p_slider->create_slider("ui_assets/engine/SliderFill.png", 0, 100);
 	//slider->set_value(20);
-
 
 	gameobject* m_p_text = new gameobject(m_p_renderer, "");
 	m_ui_objects.push_back(m_p_text);
