@@ -13,6 +13,8 @@ renderer::renderer(Window* m_Window)
 		std::cout << "Press a key to continue" << std::endl;
 		_getch();
 	}
+
+	m_p_window = m_Window;
 }
 
 renderer::~renderer()
