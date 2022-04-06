@@ -29,52 +29,52 @@ void input_master::Update()
 		m_pConnectedControllers[i]->Update();
 	}
 
-	while (SDL_PollEvent(&m_event))
-	{
-		switch (m_event.type)
-		{
-			case SDL_KEYDOWN:
-				m_pKeyboard->Update(m_event);
-				break;
+	//while (SDL_PollEvent(&m_event))
+	//{
+	//	switch (m_event.type)
+	//	{
+	//		case SDL_KEYDOWN:
+	//			m_pKeyboard->Update(m_event);
+	//			break;
 
-			case SDL_KEYUP:
-				m_pKeyboard->Update(m_event);
-				break;
+	//		case SDL_KEYUP:
+	//			m_pKeyboard->Update(m_event);
+	//			break;
 
-			case SDL_MOUSEBUTTONDOWN:
-				m_pMouse->Update(m_event);
-				break;
+	//		case SDL_MOUSEBUTTONDOWN:
+	//			m_pMouse->Update(m_event);
+	//			break;
 
-			case SDL_MOUSEBUTTONUP:
-				m_pMouse->Update(m_event);
-				break;
+	//		case SDL_MOUSEBUTTONUP:
+	//			m_pMouse->Update(m_event);
+	//			break;
 
-			case SDL_MOUSEMOTION:
-				m_pMouse->Update(m_event);
-				break;
+	//		case SDL_MOUSEMOTION:
+	//			m_pMouse->Update(m_event);
+	//			break;
 
-			case SDL_CONTROLLERDEVICEADDED:
-				// TODO: Maybe limit how many controllers the game register
-				if (SDL_IsGameController(m_event.cdevice.which))
-					AddController(m_event.cdevice.which);
+	//		case SDL_CONTROLLERDEVICEADDED:
+	//			// TODO: Maybe limit how many controllers the game register
+	//			if (SDL_IsGameController(m_event.cdevice.which))
+	//				AddController(m_event.cdevice.which);
 
-				break;
+	//			break;
 
-			case SDL_CONTROLLERDEVICEREMOVED:
-				RemoveController(m_event.cdevice.which);
-				break;
+	//		case SDL_CONTROLLERDEVICEREMOVED:
+	//			RemoveController(m_event.cdevice.which);
+	//			break;
 
-			default:
-				SDL_Joystick* tJoy = SDL_JoystickFromInstanceID(m_event.cdevice.which);
+	//		default:
+	//			SDL_Joystick* tJoy = SDL_JoystickFromInstanceID(m_event.cdevice.which);
 
-				for (int i = 0; i < m_numGamepads; i++)
-				{
-					if (tJoy == m_pConnectedControllers[i]->GetID())
-						m_pConnectedControllers[i]->Event(m_event);
-				}
-				break;
-		}
-	}
+	//			for (int i = 0; i < m_numGamepads; i++)
+	//			{
+	//				if (tJoy == m_pConnectedControllers[i]->GetID())
+	//					m_pConnectedControllers[i]->Event(m_event);
+	//			}
+	//			break;
+	//	}
+	//}
 	
 
 	while (SDL_PollEvent(&m_event))
@@ -88,6 +88,7 @@ void input_master::Update()
 			if (keyPressed == SDLK_s) { m_keysPressed[DOWN] = true; }
 			if (keyPressed == SDLK_a) { m_keysPressed[LEFT] = true; }
 			if (keyPressed == SDLK_d) { m_keysPressed[RIGHT] = true; }
+			if (keyPressed == SDLK_ESCAPE) { m_keysPressed[QUIT] = true; }
 			break;
 
 		case SDL_KEYUP:
@@ -109,6 +110,10 @@ void input_master::Update()
 			m_event.motion.xrel;
 			m_event.motion.yrel;
 			break;
+
+		case SDL_QUIT:
+			m_keysPressed[QUIT] = true; 
+			break;
 		}
 
 	}
@@ -121,6 +126,11 @@ void input_master::DestroyInput()
 		m_pConnectedControllers[i]->Close();
 		--m_numGamepads;
 	}
+}
+
+bool input_master::key_pressed(ActionKeys key)
+{
+	return m_keysPressed[key];
 }
 
 //bool input_master::IsControllerInitialised()
