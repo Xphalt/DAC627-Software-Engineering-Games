@@ -113,12 +113,10 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 #pragma endregion
 
 	//Matt's minimap testing
-	gameobject* m_p_minimap = new gameobject(m_p_renderer, "");
-	m_ui_objects.push_back(m_p_minimap);
-	m_p_minimap->set_scale(200, 200);
-	m_p_minimap->set_position(355, 5);
-	m_p_minimap->create_minimap("ui_assets/engine/HotbarBackground.png",
-		"ui_assets/engine/DefaultImageNormal.png", "ui_assets/engine/ButtonMinimapBackground2.png"); 
+	m_p_minimap = new minimap(m_p_renderer, "ui_assets/engine/HotbarBackground.png",
+		"ui_assets/engine/DefaultImageNormal.png", "ui_assets/engine/ButtonMinimapBackground.png",
+		355, 5, 200, 200, 0);
+	m_p_minimap->set_player(m_p_player);
 }
 
 level::~level()
@@ -160,6 +158,9 @@ void level::update()
 	{
 		m_ui_objects[i]->update();
 	}
+
+	m_p_minimap->update_minimap();
+	m_p_minimap->draw();
 
 	m_p_renderer->Update();
 }

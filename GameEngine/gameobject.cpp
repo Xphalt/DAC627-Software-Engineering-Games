@@ -186,14 +186,6 @@ text* gameobject::create_text(std::string _text, std::string _font_path, SDL_Col
 	return new_text;
 }
 
-minimap* gameobject::create_minimap(std::string _minimapFrame_path, std::string _playerIcon_path, std::string _minimapImage_path)
-{
-	minimap* new_minimap = new minimap(m_p_renderer, _minimapFrame_path, _playerIcon_path, _minimapImage_path,
-		m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
-	m_ui_components.push_back(new_minimap);
-	return new_minimap;
-}
-
 collider* gameobject::get_collider()
 {
 	return m_p_collider;

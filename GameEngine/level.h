@@ -11,6 +11,7 @@ private:
     renderer* m_p_renderer; 
     camera* m_p_camera;
     input_master* m_p_input;
+    minimap* m_p_minimap;
     std::vector<gameobject*> m_tilemap_objects;
     std::vector<gameobject*> m_level_objects;
     std::vector<gameobject*> m_ui_objects;

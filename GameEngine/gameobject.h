@@ -70,7 +70,6 @@ public:
 	image* create_image(std::string _image_path);
 	slider* create_slider(std::string _fill_image_path, float _min_value, float _max_value);
 	text* create_text(std::string _text, std::string _font_path, SDL_Color _color, int _font_size);
-	minimap* create_minimap(std::string _minimapFrame_path, std::string _playerIcon_path, std::string _minimapImage_path);
 	collider* get_collider();
 	position m_testPos{};
 
@@ -96,6 +95,7 @@ private:
 	animation* m_p_animation{ nullptr };
 	animator* m_p_animator{ nullptr };
 	audioman* m_p_audioman{ nullptr };
+	minimap* m_p_minimap{ nullptr };
 	input_master* m_p_input_master{ nullptr };
 	StateMachine* m_p_statemachine{ nullptr };
 	Patrolling* m_p_patrolling{ nullptr };
