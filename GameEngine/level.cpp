@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "gameobject.h"
 #include "animator.h"
+#include "collider.h"
 
 level::level(std::string _fileName, renderer* renderer, input_master* input)
 	: m_p_renderer{ renderer }, m_p_input{ input }
@@ -63,6 +64,16 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 
 	m_p_camera->update_target_pos(m_level_objects.back()->get_position().x, m_level_objects.back()->get_position().y);
 	i = 0.5f;
+
+#pragma region Enemies
+	gameobject* enemy = new gameobject(m_p_renderer, "Sprites/Monsters_Creatures_Fantasy/Skeleton/Walk.png", 1, 4, 200);
+	enemy->set_position(20, 20);
+	enemy->create_enemy();
+	m_level_objects.push_back(enemy);
+	// Add enemy to player's list of colliders
+	//m_p_player->get_collider()->addNewCollider(enemy->get_collider());
+#pragma endregion
+
 
 #pragma region UI_TUTORIAL
 	// HOW TO CREATE AN IMAGE
