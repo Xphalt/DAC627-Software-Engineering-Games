@@ -50,7 +50,7 @@ void text::set_font(std::string _font_path)
 		std::cerr << "Failed to load font.\n";
 	}
 
-	if (m_text = "") m_text = "Default Text";
+	if (m_text == "") m_text = "Default Text";
 	SDL_Surface* surface = TTF_RenderText_Solid(font, m_text.c_str(), m_color);
 	if (!surface)
 	{
