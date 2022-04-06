@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL.h>
+#include <SDL_image.h>
 #include <string>
 
 class Window
@@ -13,6 +14,8 @@ public:
 
 	const SDL_Window* GetWindow() const;
 	bool Resize(int width, int heigh);
+
+	void SetIcon(const char* iconPath);
 private:
 	SDL_Window* m_window;
 

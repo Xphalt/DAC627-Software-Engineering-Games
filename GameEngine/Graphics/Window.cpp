@@ -47,3 +47,13 @@ bool Window::Resize(int width, int heigh)
 	SDL_SetWindowSize(m_window, width, heigh);
 	return true;
 }
+
+void Window::SetIcon(const char* iconPath)
+{
+	SDL_Surface* surface;
+	surface = IMG_Load(iconPath);
+
+	SDL_SetWindowIcon(m_window, surface);
+	
+	SDL_FreeSurface(surface);
+}
