@@ -8,8 +8,8 @@ class Window
 {
 public:
 	Window();
-	Window(const char* title, int x, int y, int width, int height, Uint32 flags);
-	Window(const char* title, SDL_Point position, SDL_Point size, Uint32 flags);
+	Window(const char* title, int x, int y, int width, int height, Uint32 flags, const char* iconPath = "");
+	Window(const char* title, SDL_Point position, SDL_Point size, Uint32 flags, const char* iconPath = "");
 	~Window();
 
 	const SDL_Window* GetWindow() const;
