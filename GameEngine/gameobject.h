@@ -50,11 +50,11 @@ public:
 	rotation get_rotation() { return m_rotation; };
 	scale get_scale() { return m_scale; };
 
-	void set_position(int x, int y);
+	void set_position(float x, float y);
 	void set_rotation(int x, int y);
 	void set_scale(int x, int y);
 
-	void add_translation(int x, int y);
+	void add_translation(float x, float y);
 	void add_translation(position pos_add);
 	void add_rotation(int x, int y);
 	void add_rotation(rotation rot_add);
@@ -62,7 +62,7 @@ public:
 	void add_scale(scale sc_add);
 
 	gameobject* create_player();
-	gameobject* create_enemy();
+	gameobject* create_enemy(gameobject* target);
 
 	button* create_button(std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths);
 	// After being created each slot of the hotbar still needs to be setup

@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <algorithm>
+#include <math.h>
 #include "StateMachine.h"
 #include "gameobject.h"
 
@@ -23,4 +24,6 @@ private:
 	vector<position> m_waypoints;
 	vector<float> m_distances;
 	position m_destination;
+
+	int m_attackDist = 100;
 };

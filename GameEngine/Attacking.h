@@ -1,5 +1,6 @@
 #pragma once
 #include "StateMachine.h"
+#include "gameobject.h"
 
 
 class Attacking : public State
@@ -9,8 +10,7 @@ public:
 	void Execute() override;
 	void Exit() override;
 
-
 private:
-	//gameobject* m_target;
-	//position m_destination;
+
+	int moveSpeed = 1;
 };

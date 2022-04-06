@@ -80,7 +80,7 @@ void gameobject::update()
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
 
-void gameobject::set_position(int x, int y)
+void gameobject::set_position(float x, float y)
 {
 	m_position.x = x;
 	m_position.y = y;
@@ -98,7 +98,7 @@ void gameobject::set_scale(int x, int y)
 	m_scale.y = y;
 }
 
-void gameobject::add_translation(int x, int y)
+void gameobject::add_translation(float x, float y)
 {
 	m_position.x += x;
 	m_position.y += y;
@@ -140,7 +140,7 @@ gameobject* gameobject::create_player()
 	return nullptr;
 }
 
-gameobject* gameobject::create_enemy()
+gameobject* gameobject::create_enemy(gameobject* target)
 {
 	m_p_collider = new collider(10, this, 0, 0);
 	m_p_statemachine = new StateMachine();
@@ -149,7 +149,7 @@ gameobject* gameobject::create_enemy()
 	m_p_patrolling->AddWaypoint(50, 20);
 	m_p_patrolling->AddWaypoint(50, -50);
 	m_p_patrolling->AddWaypoint(0, -50);
-	m_p_statemachine->Init(this);
+	m_p_statemachine->Init(this, target);
 	m_p_statemachine->ChangeState(m_p_patrolling);
 	return nullptr;
 }
