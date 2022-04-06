@@ -77,18 +77,60 @@ std::vector<gameobject*> tilemap::return_objects()
 	return objects;
 }
 
-int tilemap::get_grid_height() { return m_layout.size(); }
+int tilemap::get_last_tile_pos_right()
+{
+	std::vector<gameobject*> obj = return_objects();
+	int x = 0;
+	for (int i = 0; i < obj.size(); i++)
+	{
+		if (x < obj[i]->get_position().x)
+		{
+			x = obj[i]->get_position().x;
+		}
+	}
 
-int tilemap::get_grid_width() { return m_layout[0].length(); }
+	return x + (m_block_size);
+}
 
-char tilemap::get_object_at(int _x, int _y) { return m_layout[_y][_x]; }
+int tilemap::get_last_tile_pos_down()
+{
+	std::vector<gameobject*> obj = return_objects();
+	int y = 0;
+	for (int i = 0; i < obj.size(); i++)
+	{
+		if (y < obj[i]->get_position().y)
+		{
+			y = obj[i]->get_position().y;
+		}
+	}
+	return y + m_block_size;
+}
 
-int tilemap::get_block_size() { return m_block_size; }
+int tilemap::get_last_tile_pos_left()
+{
+	std::vector<gameobject*> obj = return_objects();
+	int x = 0;
+	for (int i = 0; i < obj.size(); i++)
+	{
+		if (x > obj[i]->get_position().x)
+		{
+			x = obj[i]->get_position().x;
+		}
+	}
 
-int tilemap::get_stage_width() { return m_stage_width; }
+	return x;
+}
 
-int tilemap::get_stage_height() { return m_stage_height; }
-
-int tilemap::get_row(int _y) { return std::floor(_y / m_block_size); }
-
-int tilemap::get_column(int _x) { return std::floor(_x / m_block_size); }
+int tilemap::get_last_tile_pos_top()
+{
+	std::vector<gameobject*> obj = return_objects();
+	int y = 0;
+	for (int i = 0; i < obj.size(); i++)
+	{
+		if (y > obj[i]->get_position().y)
+		{
+			y = obj[i]->get_position().y;
+		}
+	}
+	return y;
+}

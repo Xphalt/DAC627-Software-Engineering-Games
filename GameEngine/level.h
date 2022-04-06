@@ -16,7 +16,7 @@ class level
 {
 
 public:
-    level(std::string _fileName, renderer* renderer, camera* camera);
+    level(std::string _fileName, renderer* renderer);
     ~level();
     void update();
 

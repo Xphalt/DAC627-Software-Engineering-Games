@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <functional>
-
 #include "ui_library.h"
 
 class renderer;
@@ -17,6 +16,8 @@ class tilemap;
 class Patrolling;
 class StateMachine;
 class player_input;
+class collider;
+class minimap;
 
 struct position
 {
@@ -46,6 +47,7 @@ public:
 	position get_position() { return m_position; }
 	rotation get_rotation() { return m_rotation; }
 	scale get_scale() { return m_scale; }
+	collider* get_collider() { return m_p_collider; }
 
 	void set_position(int x, int y);
 	void set_rotation(int x, int y);
@@ -67,6 +69,7 @@ public:
 	image* create_image(std::string _image_path);
 	slider* create_slider(std::string _fill_image_path, float _min_value, float _max_value);
 	text* create_text(std::string _text, std::string _font_path, SDL_Color _color, int _font_size);
+	minimap* create_minimap(std::string _minimapFrame_path, std::string _playerIcon_path, std::string _minimapImage_path);
 
 	position m_testPos{};
 
@@ -86,6 +89,7 @@ private:
 	rotation m_rotation{ };
 	scale m_scale{ };
 
+	Window* m_p_window{ nullptr };
 	renderer* m_p_renderer{ nullptr };
 	std::vector<ui_component*> m_ui_components;
 	camera* m_p_camera{ nullptr };
@@ -94,6 +98,6 @@ private:
 	audioman* m_p_audioman{ nullptr };
 	StateMachine* m_p_statemachine{ nullptr };
 	player_input* m_player_input{ nullptr };
-
-	Window* m_p_window{ nullptr };
+	collider* m_p_collider{ nullptr };
+	minimap* m_p_minimap{ nullptr };
 };

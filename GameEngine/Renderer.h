@@ -14,10 +14,11 @@ public:
     ~renderer();
 
     void Draw(gameobject* _gameobject);
+    void CreateTexture(std::string _filename);
     void ClearRender();
     void PresentRender();
-    void CreateTexture(std::string _filename);
 
+    SDL_Window* GetWindow() { return m_Window->GetWindow(); }
     SDL_Renderer* GetRenderer() { return m_renderer; };
     SDL_Texture* GetTexture() { return m_texture; };
 

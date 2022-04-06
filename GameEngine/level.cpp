@@ -7,8 +7,8 @@
 #include "audioman.h"
 #include "player_input.h"
 
-level::level(std::string _fileName, renderer* renderer, camera* camera)
-	: m_p_renderer{ renderer }, m_p_camera{ camera }
+level::level(std::string _fileName, renderer* renderer)
+	: m_p_renderer{ renderer }
 {
 	m_tilemap = new tilemap(128, _fileName, renderer);
 	m_tilemap_objects = m_tilemap->return_objects();
@@ -89,6 +89,25 @@ level::level(std::string _fileName, renderer* renderer, camera* camera)
 	m_p_player->create_player(m_p_renderer, m_p_camera, m_p_animation, m_p_animator, m_p_audio, m_p_player_input);
 
 	add_object(m_p_player);
+
+	int windowWidth = 0, windowHeight = 0;
+	SDL_GetWindowSize(m_p_renderer->GetWindow(), &windowWidth, &windowHeight);
+	int fullWidth = m_tilemap->get_last_tile_pos_right();
+	int fullHeight = m_tilemap->get_last_tile_pos_down();
+	m_p_camera = new camera(SDL_Rect{ 0,0,128,128 }, 128, 128, windowWidth, windowHeight, fullWidth, fullHeight);
+	m_p_camera->set_target(m_p_player);
+	m_p_camera->set_map_start_left(m_tilemap->get_last_tile_pos_left());
+	m_p_camera->set_map_start_top(m_tilemap->get_last_tile_pos_top());
+	m_p_camera->update_target_pos(m_level_objects.back()->get_position().x, m_level_objects.back()->get_position().y);
+
+
+	//Matt's minimap testing
+	gameobject* m_p_minimap = new gameobject(m_p_renderer, "");
+	m_ui_objects.push_back(m_p_minimap);
+	m_p_minimap->set_scale(200, 200);
+	m_p_minimap->set_position(355, 5);
+	m_p_minimap->create_minimap("ui_assets/engine/HotbarBackground.png",
+		"ui_assets/engine/DefaultImageNormal.png", "ui_assets/engine/ButtonMinimapBackground2.png");
 }
 
 level::~level()
@@ -113,6 +132,11 @@ void level::update()
 
 	for (int i = 0; i < m_level_objects.size(); i++)
 	{
+		if (m_level_objects[i] == m_level_objects.back())
+			m_level_objects[i]->add_translation(position{ this->i, this->i });
+		m_level_objects[i]->m_testPos.x = m_p_camera->get_player_drawing_rect().x;
+		m_level_objects[i]->m_testPos.y = m_p_camera->get_player_drawing_rect().y;
+
 		m_level_objects[i]->update();
 	}
 

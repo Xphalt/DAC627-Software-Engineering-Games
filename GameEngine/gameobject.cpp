@@ -8,6 +8,8 @@
 #include "Patrolling.h"
 #include "StateMachine.h"
 #include "player_input.h"
+#include "collider.h"
+#include "minimap.h"
 
 #pragma region Constructors
 gameobject::gameobject(renderer* _renderer, camera* _camera, animation* _animation, animator* _animator, audioman* _audioman, player_input* _input)
@@ -15,7 +17,11 @@ gameobject::gameobject(renderer* _renderer, camera* _camera, animation* _animati
 {
 	this->set_position(5, 5);
 	this->set_scale(64, 64);
-	m_p_renderer->CreateTexture("Sprites/Isometric/Floor.bmp");
+	m_p_renderer->CreateTexture("Sprites/Adventurer/adventurerIdle.png");
+	m_p_animator->add_animation(m_p_renderer, "Sprites/Adventurer/adventurerIdle.png", "Player_Idle", 1, 4, 0.2f);
+	m_p_animator->set_animation("Player_Idle");
+
+	m_p_collider = new collider(10, this, 0, 0);
 }
 
 gameobject::gameobject(renderer* _renderer, image* _image, animation* _animation, animator* _animator, audioman* _audioman)
@@ -63,6 +69,8 @@ void gameobject::update()
 		m_ui_components[i]->draw();
 	}
 
+	if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
+
 	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
 	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }
 
@@ -70,6 +78,8 @@ void gameobject::update()
 	{
 		m_player_input->bind_actions(*this);
 	}
+
+	if (m_p_collider != nullptr) { m_p_collider->updateColliders(); }
 }
 
 #pragma region Create gameobjects
@@ -80,9 +90,12 @@ gameobject* gameobject::create_player(renderer* _renderer, camera* _camera, anim
 
 gameobject* gameobject::create_enemy()
 {
+	m_p_collider = new collider(10, this, 0, 0);
+
 	m_p_statemachine = new StateMachine();
 	m_p_statemachine->Init(this);
 	m_p_statemachine->ChangeState(new Patrolling());
+
 	return nullptr;
 }
 #pragma endregion
@@ -118,6 +131,14 @@ text* gameobject::create_text(std::string _text, std::string _font_path, SDL_Col
 	new_text->set_text(_text);
 	m_ui_components.push_back(new_text);
 	return new_text;
+}
+
+minimap* gameobject::create_minimap(std::string _minimapFrame_path, std::string _playerIcon_path, std::string _minimapImage_path)
+{
+	minimap* new_minimap = new minimap(m_p_renderer, _minimapFrame_path, _playerIcon_path, _minimapImage_path,
+		m_position.x, m_position.y, m_scale.x, m_scale.y, 0);
+	m_ui_components.push_back(new_minimap);
+	return new_minimap;
 }
 #pragma endregion
 
