@@ -64,9 +64,12 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 	m_p_camera->update_target_pos(m_level_objects.back()->get_position().x, m_level_objects.back()->get_position().y);
 	i = 0.5f;
 
-	m_tilemap->load_from_file("Sprites/Tilemaps/TestMap2");
-	std::vector<gameobject*> tilemap2 = m_tilemap->return_objects();
-	m_level_objects.insert(m_level_objects.end(), tilemap2.begin(), tilemap2.end());
+	int mapIndex = 2;
+	while (m_tilemap->load_from_file("Sprites/Tilemaps/TestMap" + std::to_string(mapIndex++)))
+	{
+		std::vector<gameobject*> tilemap2 = m_tilemap->return_objects();
+		m_level_objects.insert(m_level_objects.end(), tilemap2.begin(), tilemap2.end());
+	}
 
 #pragma region Enemies
 	gameobject* enemy = new gameobject(m_p_renderer, "Sprites/Monsters_Creatures_Fantasy/Skeleton/Walk.png", 1, 4, 200);

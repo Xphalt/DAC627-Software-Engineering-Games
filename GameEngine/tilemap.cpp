@@ -11,7 +11,7 @@ tilemap::tilemap(int _block_size, std::string _tilemap_path, renderer* _renderer
 	m_stage_height = m_block_size * get_grid_height();
 }
 
-void tilemap::load_from_file(std::string _path)
+bool tilemap::load_from_file(std::string _path)
 {
 	m_layout.clear();
 
@@ -24,15 +24,18 @@ void tilemap::load_from_file(std::string _path)
 		{
 			m_layout.push_back(row);
 		}
+
+		return true;
 	}
+	return false;
 }
 
 std::vector<gameobject*> tilemap::return_objects()
 {
 	std::vector<gameobject*> objects;
 
-	const float left_x_offset{ 0.25f }, right_x_offset{ 0.75f };
-	const float y_offset{ 0.15f };
+	const float x_offset{ 0.25f };
+	const float y_offset{ 0.65f };
 
 	for (int row = 0; row < get_grid_height(); row++)
 	{
@@ -47,14 +50,14 @@ std::vector<gameobject*> tilemap::return_objects()
 				switch (get_object_at(column, row))
 				{
 				case WALL_LEFT:
-					x += m_block_size * left_x_offset;
+					x += m_block_size * x_offset;
 					y -= m_block_size * y_offset;
 
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallLeft.png"));
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
 				case WALL_RIGHT:
-					x += m_block_size * right_x_offset;
+					x -= m_block_size * x_offset;
 					y -= m_block_size * y_offset;
 
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallRight.png"));
@@ -65,14 +68,14 @@ std::vector<gameobject*> tilemap::return_objects()
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
 				case DOOR_LEFT:
-					x += m_block_size * left_x_offset;
+					x += m_block_size * x_offset;
 					y -= m_block_size * y_offset;
 
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/doorwayLeft.png"));
 					objects[objects.size() - 1]->set_position(x, y);
 					break;
 				case DOOR_RIGHT:
-					x += m_block_size * right_x_offset;
+					x -= m_block_size * x_offset;
 					y -= m_block_size * y_offset;
 
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/doorwayRight.png"));

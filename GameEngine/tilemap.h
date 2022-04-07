@@ -36,7 +36,7 @@ private:
 public:
 	tilemap(int _block_size, std::string _tilaemap_path, renderer* _renderer);
 
-	void load_from_file(std::string _path);
+	bool load_from_file(std::string _path);
 	std::vector<gameobject*> return_objects();
 
 	int get_grid_height();
