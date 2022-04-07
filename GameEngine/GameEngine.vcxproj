@@ -37,6 +37,7 @@
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mathFunctions.cpp" />
     <ClCompile Include="minimap.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Patrolling.cpp" />
@@ -67,6 +68,7 @@
     <ClInclude Include="input_master.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="level.h" />
+    <ClInclude Include="mathFunctions.h" />
     <ClInclude Include="minimap.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Patrolling.h" />

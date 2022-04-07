@@ -41,6 +41,9 @@
     <Filter Include="Engine\Components\Movement">
       <UniqueIdentifier>{8dc3333f-81b5-4031-bb25-db0dd7e88801}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Math">
+      <UniqueIdentifier>{9ff075ec-18f4-494b-b644-d5ae301707e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp">
@@ -130,6 +133,9 @@
     <ClCompile Include="minimap.cpp">
       <Filter>Engine\Components\UI</Filter>
     </ClCompile>
+    <ClCompile Include="mathFunctions.cpp">
+      <Filter>Engine\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -218,6 +224,9 @@
     </ClInclude>
     <ClInclude Include="minimap.h">
       <Filter>Engine\Components\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="mathFunctions.h">
+      <Filter>Engine\Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
