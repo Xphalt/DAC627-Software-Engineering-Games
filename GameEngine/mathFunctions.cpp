@@ -22,6 +22,10 @@ float mathFunctions::get_triangle_area(position* a, position* b, position* c)
 
 bool mathFunctions::get_circle_line_intersecting(float radius, position* o, position* p, position* q)
 {
+	if (o->y > q->y || o->x < p->x || o->x > q->x || o->y < p->y)
+	{
+		return false;
+	}
 	float minDistance = get_triangle_area(o, p, q) * 2;
 	minDistance = minDistance / get_distance(p, q);
 
@@ -33,7 +37,6 @@ bool mathFunctions::get_circle_line_intersecting(float radius, position* o, posi
 	{
 		return false;
 	}
-
 }
 
 float mathFunctions::get_distance(position* a, position* b)

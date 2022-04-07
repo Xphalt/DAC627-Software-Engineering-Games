@@ -58,6 +58,7 @@ public:
 
 	void add_translation(float x, float y);
 	void add_translation(position pos_add);
+	void add_col_translation(float x, float y);
 	void add_rotation(int x, int y);
 	void add_rotation(rotation rot_add);
 	void add_scale(int x, int y);
@@ -65,6 +66,8 @@ public:
 
 	gameobject* create_player();
 	gameobject* create_enemy(gameobject* target);
+	collider* create_line_collider(float startx, float starty, float endx, float endy);
+	void set_collider_walls(std::vector<collider*> walls);
 
 	button* create_button(std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths);
 	// After being created each slot of the hotbar still needs to be setup

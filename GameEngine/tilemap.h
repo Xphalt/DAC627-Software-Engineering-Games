@@ -26,6 +26,7 @@ class tilemap
 {
 private:
 	std::vector<std::string> m_layout;
+	std::vector<collider*> m_lineColliders;
 
 	int m_block_size;
 
@@ -38,6 +39,7 @@ public:
 
 	bool load_from_file(std::string _path);
 	std::vector<gameobject*> return_objects();
+	std::vector<collider*> get_line_colliders();
 
 	int get_grid_height();
 	int get_grid_width();

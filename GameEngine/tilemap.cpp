@@ -1,6 +1,7 @@
 #include "tilemap.h"
 #include <iostream>
 #include "renderer.h"
+#include "collider.h"
 
 tilemap::tilemap(int _block_size, std::string _tilemap_path, renderer* _renderer)
 	: m_block_size{ _block_size }, m_p_renderer{ _renderer }
@@ -55,6 +56,8 @@ std::vector<gameobject*> tilemap::return_objects()
 
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallLeft.png"));
 					objects[objects.size() - 1]->set_position(x, y);
+					m_lineColliders.push_back(objects.back()->create_line_collider(x, y + 20, x + 20, y));
+					m_lineColliders.back()->m_left = true;
 					break;
 				case WALL_RIGHT:
 					x -= m_block_size * x_offset;
@@ -62,6 +65,7 @@ std::vector<gameobject*> tilemap::return_objects()
 
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallRight.png"));
 					objects[objects.size() - 1]->set_position(x, y);
+					m_lineColliders.push_back(objects.back()->create_line_collider(x, y, x + 20, y + 20));
 					break;
 				case FLOOR:
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/floor.png"));
@@ -89,6 +93,11 @@ std::vector<gameobject*> tilemap::return_objects()
 		}
 	}
 	return objects;
+}
+
+std::vector<collider*> tilemap::get_line_colliders()
+{
+	return m_lineColliders;
 }
 
 

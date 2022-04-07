@@ -2,9 +2,9 @@
 ......W.....W..W
 W..wwwwwww..W..D
 W..W...........W
-W..wdww..wwdw..W
-D.....W..W.....W
-W..W..W..wwww..W
+W..wd.....wdw..W
+D..............W
+W..W......www..W
 W..W..W..W.....W
 Wwww..W..wwwwwww
 W...............

@@ -59,7 +59,7 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 
 	m_level_objects.push_back(m_p_player);
 	m_level_objects.back()->set_scale(1, 1);
-	m_level_objects.back()->set_position(256, 256);
+	m_level_objects.back()->set_position(200, 240);
 
 	m_p_camera->update_target_pos(m_level_objects.back()->get_position().x, m_level_objects.back()->get_position().y);
 	i = 0.5f;
@@ -70,6 +70,7 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 		std::vector<gameobject*> tilemap2 = m_tilemap->return_objects();
 		m_level_objects.insert(m_level_objects.end(), tilemap2.begin(), tilemap2.end());
 	}
+	m_p_player->set_collider_walls(m_tilemap->get_line_colliders());
 
 #pragma region Enemies
 	gameobject* enemy = new gameobject(m_p_renderer, "Sprites/Monsters_Creatures_Fantasy/Skeleton/Walk.png", 1, 4, 200);

@@ -60,10 +60,10 @@ void gameobject::update(bool autodisplay)
 {
 	if (m_p_input_master != nullptr)
 	{
-		if (m_p_input_master->key_pressed(ActionKeys::UP)) add_translation(0, -10);
-		if (m_p_input_master->key_pressed(ActionKeys::DOWN)) add_translation(0, 10);
-		if (m_p_input_master->key_pressed(ActionKeys::LEFT)) add_translation(-10, 0);
-		if (m_p_input_master->key_pressed(ActionKeys::RIGHT)) add_translation(10, 0);
+		if (m_p_input_master->key_pressed(ActionKeys::UP)) add_col_translation(0, -10);
+		if (m_p_input_master->key_pressed(ActionKeys::DOWN)) add_col_translation(0, 10);
+		if (m_p_input_master->key_pressed(ActionKeys::LEFT)) add_col_translation(-10, 0);
+		if (m_p_input_master->key_pressed(ActionKeys::RIGHT)) add_col_translation(10, 0);
 	}
 
 	//if (m_p_renderer != nullptr) { m_p_renderer->Update(); }
@@ -115,6 +115,21 @@ void gameobject::add_translation(position pos_add)
 	m_position.y += pos_add.y;
 }
 
+void gameobject::add_col_translation(float x, float y)
+{
+	position* newPos = new position{ x,y };
+	newPos->x += m_position.x;
+	newPos->y += m_position.y;
+	bool validMove = m_p_collider->isMoveValid(newPos);
+
+	if (validMove)
+	{
+		m_position.x += x;
+		m_position.y += y;
+	}
+	delete newPos;
+}
+
 void gameobject::add_rotation(int x, int y)
 {
 	m_rotation.x += x;
@@ -141,13 +156,13 @@ void gameobject::add_scale(scale sc_add)
 
 gameobject* gameobject::create_player()
 {
-	m_p_collider = new collider(10, this, 0, 0);
+	m_p_collider = new collider(10, this, 5, 5);
 	return nullptr;
 }
 
 gameobject* gameobject::create_enemy(gameobject* target)
 {
-	m_p_collider = new collider(10, this, 0, 0);
+	m_p_collider = new collider(10, this, 5, 5);
 	m_p_statemachine = new StateMachine();
 	m_p_patrolling = new Patrolling();
 	m_p_patrolling->AddWaypoint(20, 20);
@@ -157,6 +172,17 @@ gameobject* gameobject::create_enemy(gameobject* target)
 	m_p_statemachine->Init(this, target);
 	m_p_statemachine->ChangeState(m_p_patrolling);
 	return nullptr;
+}
+
+collider* gameobject::create_line_collider(float startx, float starty, float endx, float endy)
+{
+	m_p_collider = new collider(startx, starty, endx, endy, this);
+	return m_p_collider;
+}
+
+void gameobject::set_collider_walls(std::vector<collider*> walls)
+{
+	m_p_collider->setWallLineColliderVector(walls);
 }
 
 button* gameobject::create_button(std::function<void()> _pointer_up_callback, std::function<void()> _pointer_move_callback, std::vector<std::string> _image_paths)
