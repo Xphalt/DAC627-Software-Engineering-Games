@@ -4,16 +4,13 @@
 #include "gameobject.h"
 #include "animator.h"
 #include "collider.h"
+#include <algorithm>
 
 level::level(std::string _fileName, renderer* renderer, input_master* input)
 	: m_p_renderer{ renderer }, m_p_input{ input }
 {
 	m_tilemap = new tilemap(128, _fileName, renderer);
 	m_tilemap_objects = m_tilemap->return_objects();
-
-	m_tilemap->load_from_file("Sprites/Tilemaps/TestMap2");
-	std::vector<gameobject*> tilemap2 = m_tilemap->return_objects();
-	m_tilemap_objects.insert(m_tilemap_objects.end(), tilemap2.begin(), tilemap2.end());
 
 	// Dominique UI Testing
 	gameobject* m_p_hotbar = new gameobject(m_p_renderer, "");
@@ -66,6 +63,10 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 
 	m_p_camera->update_target_pos(m_level_objects.back()->get_position().x, m_level_objects.back()->get_position().y);
 	i = 0.5f;
+
+	m_tilemap->load_from_file("Sprites/Tilemaps/TestMap2");
+	std::vector<gameobject*> tilemap2 = m_tilemap->return_objects();
+	m_level_objects.insert(m_level_objects.end(), tilemap2.begin(), tilemap2.end());
 
 #pragma region Enemies
 	gameobject* enemy = new gameobject(m_p_renderer, "Sprites/Monsters_Creatures_Fantasy/Skeleton/Walk.png", 1, 4, 200);
@@ -141,7 +142,7 @@ void level::update()
 	{
 		/*if (m_level_objects[i] == m_level_objects.back())
 			m_level_objects[i]->add_translation(position{this->i, this->i });*/
-		if (i == 0)
+		if (m_level_objects[i]->is_player())
 		{
 			m_level_objects[i]->m_testPos.x = m_p_camera->get_player_drawing_rect().x;
 			m_level_objects[i]->m_testPos.y = m_p_camera->get_player_drawing_rect().y;
@@ -153,6 +154,8 @@ void level::update()
 		}
 		m_level_objects[i]->update();
 	}
+
+	sort_objects();
 
 	for (int i = 0; i < m_ui_objects.size(); i++)
 	{
@@ -182,4 +185,29 @@ void level::add_object(gameobject* _object)
 void level::add_tile()
 {
 
+}
+
+void level::sort_objects()
+{
+	std::vector<gameobject*> sorted;
+
+	int total = m_level_objects.size();
+	for (int g1 = 0; g1 < total; g1++)
+	{
+		float highest = m_level_objects[0]->get_height();
+		int index = 0;
+		for (int g2 = 1; g2 < m_level_objects.size(); g2++)
+		{
+			if (m_level_objects[g2]->get_position().y < highest)
+			{
+				highest = m_level_objects[g2]->get_height();
+				index = g2;
+			}
+		}
+
+		sorted.push_back(m_level_objects[index]);
+		m_level_objects.erase(m_level_objects.begin() + index);
+	}
+
+	m_level_objects.swap(sorted);
 }

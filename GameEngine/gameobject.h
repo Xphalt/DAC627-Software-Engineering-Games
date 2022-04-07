@@ -49,6 +49,7 @@ public:
 	position get_position() { return m_position; };
 	rotation get_rotation() { return m_rotation; };
 	scale get_scale() { return m_scale; };
+	float get_height() { return m_position.y + m_scale.y; }
 
 	void set_position(float x, float y);
 	void set_rotation(int x, int y);
@@ -81,6 +82,8 @@ public:
 
 	// UI constructor
 	gameobject(renderer* _renderer, animation* _animation, animator* _animator, audioman* _audioman);
+
+	bool is_player() { return m_p_input_master != nullptr; }
 
 private:
 	// for more constructors, collision/movement components need to be implemented

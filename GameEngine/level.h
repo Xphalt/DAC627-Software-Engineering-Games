@@ -26,4 +26,6 @@ public:
     void set_filepath(std::string _filepath);
     void add_object(gameobject* _object);
     void add_tile();
+
+    void sort_objects();
 };
