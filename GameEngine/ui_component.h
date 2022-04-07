@@ -15,7 +15,7 @@ public:
 	~ui_component();
 	
 	void set_enabled(bool _enabled) { m_enabled = _enabled; }
-	void set_position(int _x, int _y) { m_rect.x = _x; m_rect.y = _y; }
+	virtual void set_position(int _x, int _y) { m_rect.x = _x; m_rect.y = _y; }
 	void set_size(int _w, int _h) { m_rect.w = _w; m_rect.h = _h; }
 	void set_rotation(double _rotation) { m_rotation = _rotation; }
 

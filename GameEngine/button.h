@@ -25,7 +25,6 @@ public:
 		int _width,
 		int _height,
 		double _rotation);
-	button(renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation);
 	~button();
 
 	void set_images(std::vector<std::string> _image_paths);
@@ -39,6 +38,8 @@ public:
 	void on_pointer_down();
 	void on_pointer_move();
 	void on_pointer_up();
+
+	void set_position(int _x, int _y) override;
 
 	void draw() override;
 private:

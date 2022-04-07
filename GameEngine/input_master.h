@@ -10,7 +10,7 @@
 
 enum ActionKeys
 {
-	PAUSE, UP, DOWN, LEFT, RIGHT, MELEEATTACK, RANGEATTACK, SIZE_OF_ACTION_KEYS
+	PAUSE, UP, DOWN, LEFT, RIGHT, MELEEATTACK, RANGEATTACK, QUIT, SIZE_OF_ACTION_KEYS
 };
 
 enum Controllers
@@ -31,6 +31,8 @@ public:
 	bool IsButtonPressed(Controllers controllerID, SDL_GameControllerButton button);
 	bool IsButtonHeld(Controllers controllerID, SDL_GameControllerButton button);
 	float GetControllerAxis(Controllers controllerID, SDL_GameControllerAxis axis);
+
+	bool key_pressed(ActionKeys key);
 
 	bool IsControllerInitialised();
 	int GetNumberOfConnectedControllers() { return m_numGamepads; }

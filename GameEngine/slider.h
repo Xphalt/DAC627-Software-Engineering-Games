@@ -11,10 +11,7 @@ class slider : public ui_component {
 public:
 	slider(renderer* _renderer);
 	slider(	renderer* _renderer, 
-			std::string _background_image_path,
 			std::string _fill_image_path,
-			// Paths correspond to BUTTON_STATE enum (button.h)
-			std::vector<std::string> _handle_image_paths,
 			float _min_value, 
 			float _max_value, 
 			int _x, 
@@ -31,8 +28,13 @@ public:
 
 	void on_handle_move();
 
+	void enable_handle(bool enable) { m_p_handle->set_enabled(enable); }
+
 	void draw() override;
 private:
+	const float handle_size_multiplier = 1.2f;
+	const float handle_width_multiplier = 0.1f;
+
 	image* m_p_background = nullptr;
 	image* m_p_fill = nullptr;
 	button* m_p_handle = nullptr;

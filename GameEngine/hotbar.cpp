@@ -6,24 +6,26 @@ hotbar::hotbar(renderer* _renderer)
 {
 	m_p_renderer = _renderer->GetRenderer();
 
-	m_p_background = new image(_renderer, "ui_assets/engine/HotbarBackground.png", 0, 0, 50, 50, 0);
-
+	std::vector<std::string> image_paths;
+	image_paths.push_back("ui_assets/engine/ButtonNormal.png");
+	image_paths.push_back("ui_assets/engine/ButtonHighlighted.png");
+	image_paths.push_back("ui_assets/engine/ButtonPressed.png");
 	// Instantiate slots and position them one after the other
-	float slot_size = 50.0 / 3.0;
+	float slot_size = (150 - 10) / 3.0;
+	float background_size = slot_size + 10;
 	for (int i = 0; i < 3; i++)
 	{
-		m_slots.push_back(new button(_renderer, (i * slot_size), 0, slot_size, slot_size, 0));
+		m_p_backgrounds.push_back(new image(_renderer, "ui_assets/engine/HotbarBackground.png", (i * background_size), 0, background_size, background_size, 0));
+		m_slots.push_back(new button(_renderer, nullptr, nullptr, image_paths, 5 + (i * background_size), 5, slot_size, slot_size, 0));
 	}
 
 	m_enabled = true;
-	m_rect.w = 50; m_rect.h = 50;
+	m_rect.w = 150; m_rect.h = 50;
 	m_rect.x = 0; m_rect.y = 0;
 	m_rotation = 0;
 }
 hotbar::hotbar(renderer* _renderer,
-	std::string _background_image_path,
 	int _number_of_slots,
-	int _slot_size,
 	int _x,
 	int _y,
 	int _width,
@@ -32,12 +34,18 @@ hotbar::hotbar(renderer* _renderer,
 {
 	m_p_renderer = _renderer->GetRenderer();
 
-	m_p_background = new image(_renderer, _background_image_path, _x, _y, _width, _height, _rotation);
-
+	m_number_of_slots = _number_of_slots;
+	float slot_size = _width / _number_of_slots;
+	float background_size = slot_size + 10;
+	std::vector<std::string> image_paths;
+	image_paths.push_back("ui_assets/engine/ButtonNormal.png");
+	image_paths.push_back("ui_assets/engine/ButtonHighlighted.png");
+	image_paths.push_back("ui_assets/engine/ButtonPressed.png");
 	// Instantiate slots and position them one after the other
 	for (int i = 0; i < _number_of_slots; i++)
 	{
-		m_slots.push_back(new button(_renderer, _x + (i * _slot_size), _y, _slot_size, _slot_size, _rotation));
+		m_p_backgrounds.push_back(new image(_renderer, "ui_assets/engine/HotbarBackground.png", _x + (i * background_size), _y, background_size, background_size, 0));
+		m_slots.push_back(new button(_renderer, nullptr, nullptr, image_paths, 5 + _x + (i * background_size), 5 + _y, slot_size, slot_size, _rotation));
 	}
 
 	m_enabled = true;
@@ -47,10 +55,10 @@ hotbar::hotbar(renderer* _renderer,
 }
 hotbar::~hotbar()
 {
-	if (m_p_background)
+	for (int i = 0; i < m_p_backgrounds.size(); i++)
 	{
-		delete m_p_background;
-		m_p_background = nullptr;
+		delete m_p_backgrounds[i];
+		m_p_backgrounds[i] = nullptr;
 	}
 	for (int i = 0; i < m_slots.size(); i++)
 	{
@@ -78,15 +86,15 @@ void hotbar::setup_slot(int _index, std::function<void()> _pointer_up_callback, 
 
 void hotbar::draw()
 {
-	if (!m_p_background || !m_slots.size())
+	if (!m_p_backgrounds.size() || !m_slots.size())
 	{
 		std::cerr << "Not got hotbar images.\n";
 	}
 	else if (m_enabled)
 	{
-		m_p_background->draw();
 		for (int i = 0; i < m_slots.size(); i++)
 		{
+			m_p_backgrounds[i]->draw();
 			m_slots[i]->draw();
 		}
 	}

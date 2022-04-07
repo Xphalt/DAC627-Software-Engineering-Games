@@ -2,6 +2,7 @@
 #include "Graphics\Window.h"
 
 renderer::renderer(Window* m_Window)
+	:m_Window{m_Window}
 {
 	m_renderer = SDL_CreateRenderer(
 		m_Window->GetWindow(), -1, 0);
@@ -27,22 +28,17 @@ void renderer::Update()
 {
 	if (nullptr == m_renderer) return;
 
-	SDL_RenderClear(m_renderer);
 	SDL_RenderPresent(m_renderer);
-
-}
-
-void renderer::ClearRender()
-{
 	SDL_RenderClear(m_renderer);
-}
 
-void renderer::PresentRender()
-{
-	SDL_RenderPresent(m_renderer);
 }
 
 SDL_Renderer* renderer::GetRenderer()
 {
 	return m_renderer;
+}
+
+SDL_Window* renderer::GetWindow()
+{
+	return m_Window->GetWindow();
 }

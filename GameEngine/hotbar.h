@@ -12,9 +12,7 @@ public:
 	// After being instantiated slots need to be given image paths and callbacks using setup_slot to have functionality
 	hotbar(renderer* _renderer);
 	hotbar(renderer* _renderer,
-		std::string _background_image_path,
 		int _number_of_slots,
-		int _slot_size,
 		int _x,
 		int _y,
 		int _width,
@@ -26,7 +24,7 @@ public:
 
 	void draw() override;
 private:
-	image* m_p_background;
+	std::vector<image*> m_p_backgrounds;
 	int m_number_of_slots;
 	std::vector<button*> m_slots;
 };

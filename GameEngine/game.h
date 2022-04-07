@@ -6,9 +6,7 @@ class renderer;
 class camera;
 class text;
 class Timer;
-//class input_component;
-//class output_component;
-//class logic_component;
+class input_master;
 
 class Window;
 
@@ -26,9 +24,8 @@ private:
 	gameobject* m_p_gameobject{ nullptr };
 	Window* m_p_window{ nullptr };
 	level* m_p_level{ nullptr };
-	level* m_p_walls{ nullptr };
-	renderer* m_p_renderer{ nullptr };
-	camera* m_p_camera{ nullptr };
+	renderer* m_p_renderer{ nullptr }; 
 	text* m_p_text{ nullptr };
 	Timer* m_p_timer{ nullptr };
+	input_master* m_p_input{ nullptr };
 };

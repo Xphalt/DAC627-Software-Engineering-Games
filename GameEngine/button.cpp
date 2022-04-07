@@ -36,27 +36,6 @@ button::button(renderer* _renderer, std::function<void()> _pointer_up_callback, 
 	m_rect.x = _x; m_rect.y = _y;
 	m_rotation = _rotation;
 }
-// Instantiate a button with default images and no callbacks
-button::button(renderer* _renderer, int _x, int _y, int _width, int _height, double _rotation)
-{
-	m_p_renderer = _renderer->GetRenderer();
-
-	m_pointer_move_callback = nullptr;
-	m_pointer_up_callback = nullptr;
-
-	std::vector<std::string> default_image_paths;
-	default_image_paths.push_back("ui_assets/engine/sad_panda.png");
-	default_image_paths.push_back("ui_assets/engine/sad_panda.png");
-	default_image_paths.push_back("ui_assets/engine/sad_panda.png");
-	m_image_paths = default_image_paths;
-
-	m_p_image = new image(_renderer, default_image_paths[NORMAL], _x, _y, _width, _height, _rotation);
-
-	m_enabled = true;
-	m_rect.w = _width; m_rect.h = _height;
-	m_rect.x = _x; m_rect.y = _y;
-	m_rotation = _rotation;
-}
 button::~button()
 {
 	delete m_p_image;
@@ -65,6 +44,7 @@ button::~button()
 void button::set_images(std::vector<std::string> _image_paths)
 {
 	m_image_paths = _image_paths;
+	m_p_image->set_image(m_image_paths[NORMAL]);
 }
 void button::set_pointer_up_callback(std::function<void()> _pointer_up_callback)
 {
@@ -126,6 +106,12 @@ void button::on_pointer_up()
 	{
 		m_p_image->set_image(m_image_paths[PRESSED]);
 	}
+}
+
+void button::set_position(int _x, int _y)
+{ 
+	m_rect.x = _x; m_rect.y = _y; 
+	m_p_image->set_position(_x, _y);
 }
 
 void button::draw()
