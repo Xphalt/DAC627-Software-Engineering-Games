@@ -142,7 +142,7 @@ void level::update()
 	{
 		/*if (m_level_objects[i] == m_level_objects.back())
 			m_level_objects[i]->add_translation(position{this->i, this->i });*/
-		if (m_level_objects[i]->is_player())
+		if (i == 0)
 		{
 			m_level_objects[i]->m_testPos.x = m_p_camera->get_player_drawing_rect().x;
 			m_level_objects[i]->m_testPos.y = m_p_camera->get_player_drawing_rect().y;
@@ -152,10 +152,10 @@ void level::update()
 			m_level_objects[i]->m_testPos.x = m_p_camera->get_tile_drawX(m_level_objects[i]->get_position().x);
 			m_level_objects[i]->m_testPos.y = m_p_camera->get_tile_drawY(m_level_objects[i]->get_position().y);
 		}
-		m_level_objects[i]->update();
+		m_level_objects[i]->update(false);
 	}
 
-	sort_objects();
+	display_objects();
 
 	for (int i = 0; i < m_ui_objects.size(); i++)
 	{
@@ -187,27 +187,26 @@ void level::add_tile()
 
 }
 
-void level::sort_objects()
+void level::display_objects()
 {
-	std::vector<gameobject*> sorted;
+	std::vector<gameobject*> waiting;
+	waiting.insert(waiting.begin(), m_level_objects.begin(), m_level_objects.end());
 
 	int total = m_level_objects.size();
 	for (int g1 = 0; g1 < total; g1++)
 	{
-		float highest = m_level_objects[0]->get_height();
+		float highest = waiting[0]->get_height();
 		int index = 0;
-		for (int g2 = 1; g2 < m_level_objects.size(); g2++)
+		for (int g2 = 1; g2 < waiting.size(); g2++)
 		{
-			if (m_level_objects[g2]->get_position().y < highest)
+			if (waiting[g2]->get_position().y < highest)
 			{
-				highest = m_level_objects[g2]->get_height();
+				highest = waiting[g2]->get_height();
 				index = g2;
 			}
 		}
 
-		sorted.push_back(m_level_objects[index]);
-		m_level_objects.erase(m_level_objects.begin() + index);
-	}
-
-	m_level_objects.swap(sorted);
+		waiting[index]->display();
+		waiting.erase(waiting.begin() + index);
+	}	
 }

@@ -45,7 +45,8 @@ public:
 	gameobject(renderer* _renderer, std::string fileName, int rows, int columns, int duration);
 	~gameobject();
 
-	void update();
+	void update(bool autodisplay = true);
+	void display();
 	position get_position() { return m_position; };
 	rotation get_rotation() { return m_rotation; };
 	scale get_scale() { return m_scale; };

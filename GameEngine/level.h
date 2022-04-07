@@ -27,5 +27,5 @@ public:
     void add_object(gameobject* _object);
     void add_tile();
 
-    void sort_objects();
+    void display_objects();
 };

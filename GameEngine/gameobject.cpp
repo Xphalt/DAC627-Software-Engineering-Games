@@ -56,7 +56,7 @@ gameobject::~gameobject()
 	m_ui_components.clear();
 }
 
-void gameobject::update()
+void gameobject::update(bool autodisplay)
 {
 	if (m_p_input_master != nullptr)
 	{
@@ -73,11 +73,16 @@ void gameobject::update()
 	}
 	if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
-	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
+	if (autodisplay) display();
 	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }
 	if (m_p_collider != nullptr) {m_p_collider->updateColliders(); }
 	//if (m_p_audioman != nullptr) { m_p_audioman->; }
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
+}
+
+void gameobject::display()
+{
+	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
 }
 
 void gameobject::set_position(float x, float y)
