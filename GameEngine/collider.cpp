@@ -44,7 +44,8 @@ void collider::updateColliders()
 
     for(int i = 0; i < m_otherColliders.size(); i++ )
     {
-        float mag = mathFunctions::get_distance(thisPos, &m_otherColliders[i]->getParent()->get_position());
+        position pos = m_otherColliders[i]->getParent()->get_position();
+        float mag = mathFunctions::get_distance(thisPos, &pos);
 
         if(mag < m_radius + m_otherColliders[i]->getRadius())
         {
