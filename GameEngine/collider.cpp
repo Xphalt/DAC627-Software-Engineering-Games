@@ -49,7 +49,7 @@ void collider::updateColliders()
 
         if(mag < m_radius + m_otherColliders[i]->getRadius())
         {
-            printf("Collided");
+            //printf("Collided");
         }
     }
 
@@ -75,19 +75,19 @@ bool collider::isMoveValid(position* newPos)
         position end = start;
         if (m_lineColliders[i]->m_left)
         {
-            end.y -= 30;
-            end.x += 50;
+            start.y += 32;
+            end.x += 64;
         }
         else
         {
-            start.y -= 30;
-            end.x += 50;
+            end.y += 32;
+            end.x += 64;
         }
 
         if (mathFunctions::get_circle_line_intersecting(m_radius, newPos, &start, &end))
         {
             valid = false;
-            std::cout << i << std::endl;
+            //std::cout << i << std::endl;
         }
         /*
         if (mathFunctions::get_circle_line_intersecting(m_radius, newPos, m_lineColliders[i]->getLineStart(), m_lineColliders[i]->getLineStart()))

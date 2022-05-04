@@ -36,7 +36,7 @@ std::vector<gameobject*> tilemap::return_objects()
 	std::vector<gameobject*> objects;
 
 	const float x_offset{ 0.25f };
-	const float y_offset{ 0.65f };
+	const float y_offset{ 0.625f };
 
 	for (int row = 0; row < get_grid_height(); row++)
 	{
@@ -56,7 +56,7 @@ std::vector<gameobject*> tilemap::return_objects()
 
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallLeft.png"));
 					objects[objects.size() - 1]->set_position(x, y);
-					m_lineColliders.push_back(objects.back()->create_line_collider(x, y + 20, x + 20, y));
+					m_lineColliders.push_back(objects.back()->create_line_collider(x, y, x, y));
 					break;
 				case WALL_RIGHT:
 					x -= m_block_size * x_offset;
@@ -64,7 +64,7 @@ std::vector<gameobject*> tilemap::return_objects()
 
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallRight.png"));
 					objects[objects.size() - 1]->set_position(x, y);
-					m_lineColliders.push_back(objects.back()->create_line_collider(x, y, x + 20, y + 20));
+					m_lineColliders.push_back(objects.back()->create_line_collider(x, y, x, y));
 					break;
 				case FLOOR:
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/floor.png"));
