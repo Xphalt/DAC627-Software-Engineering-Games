@@ -42,7 +42,8 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 
 	animator* m_p_anim = new animator();
 	m_p_anim->add_animation(m_p_renderer, "Sprites/Adventurer/adventurerIdle.png", "Player_Idle", 1, 4, 0.2f);
-	m_p_anim->set_animation("Player_Idle");
+	m_p_anim->add_animation(m_p_renderer, "Sprites/Adventurer/adventurerRun.png", "Player_Run", 1, 8, 0.2f);
+	m_p_anim->set_animation("Player_Idle"); 
 
 	int windowWidth = 0, windowHeight = 0;
 	SDL_GetWindowSize(m_p_renderer->GetWindow(), &windowWidth, &windowHeight);
@@ -210,7 +211,7 @@ void level::display_objects()
 			}
 		}
 
-		waiting[index]->display();
+		waiting[index]->display(FLIP::NONE);
 		waiting.erase(waiting.begin() + index);
 	}	
 }

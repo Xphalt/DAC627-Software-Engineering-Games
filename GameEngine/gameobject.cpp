@@ -57,13 +57,32 @@ gameobject::~gameobject()
 }
 
 void gameobject::update(bool autodisplay)
-{
+{ 
 	if (m_p_input_master != nullptr)
 	{
-		if (m_p_input_master->key_pressed(ActionKeys::UP)) add_col_translation(0, -10);
-		if (m_p_input_master->key_pressed(ActionKeys::DOWN)) add_col_translation(0, 10);
-		if (m_p_input_master->key_pressed(ActionKeys::LEFT)) add_col_translation(-10, 0);
-		if (m_p_input_master->key_pressed(ActionKeys::RIGHT)) add_col_translation(10, 0);
+		m_p_animator->set_animation("Player_Idle");
+		if (m_p_input_master->key_pressed(ActionKeys::UP))
+		{
+			add_col_translation(0, -10);
+			m_p_animator->set_animation("Player_Run");
+		}
+		if (m_p_input_master->key_pressed(ActionKeys::DOWN))
+		{
+			add_col_translation(0, 10);
+			m_p_animator->set_animation("Player_Run");
+		}
+		if (m_p_input_master->key_pressed(ActionKeys::LEFT))
+		{
+			add_col_translation(-10, 0);
+			m_p_animator->set_animation("Player_Run");
+			flipStatus = FLIP::HORIZONTAL;
+		}
+		if (m_p_input_master->key_pressed(ActionKeys::RIGHT))
+		{
+			add_col_translation(10, 0);
+			m_p_animator->set_animation("Player_Run");
+			flipStatus = FLIP::NONE;
+		}
 	}
 
 	//if (m_p_renderer != nullptr) { m_p_renderer->Update(); }
@@ -73,16 +92,16 @@ void gameobject::update(bool autodisplay)
 	}
 	if (m_p_camera != nullptr) { m_p_camera->update_target_pos(m_position.x, m_position.y); }
 	//if (m_p_animation != nullptr) { m_p_animation->draw(); }
-	if (autodisplay) display();
+	if (autodisplay) display(flipStatus);
 	if (m_p_statemachine != nullptr) { m_p_statemachine->UpdateState(); }
 	if (m_p_collider != nullptr) {m_p_collider->updateColliders(); }
 	//if (m_p_audioman != nullptr) { m_p_audioman->; }
 	//if (m_p_input_master != nullptr) { m_p_input_master->Update(); }
 }
 
-void gameobject::display()
+void gameobject::display(FLIP _flipStatus)
 {
-	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, FLIP::NONE); }
+	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, flipStatus); }
 }
 
 void gameobject::set_position(float x, float y)

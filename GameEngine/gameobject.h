@@ -4,6 +4,7 @@
 #include <functional>
 
 #include "ui_library.h"
+#include "animation.h"
 
 class renderer;
 class image;
@@ -46,7 +47,7 @@ public:
 	~gameobject();
 
 	void update(bool autodisplay = true);
-	void display();
+	void display(FLIP _flipStatus);
 	position get_position() { return m_position; };
 	rotation get_rotation() { return m_rotation; };
 	scale get_scale() { return m_scale; };
@@ -95,6 +96,8 @@ private:
 	position m_position{ };
 	rotation m_rotation{ };
 	scale m_scale{ };
+
+	FLIP flipStatus = FLIP::NONE;
 
 	renderer* m_p_renderer{ nullptr };
 	std::vector<ui_component*> m_ui_components;
