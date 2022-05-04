@@ -1,11 +1,11 @@
-...wwwwwwwwwwwww
-......W.....W..W
+Wwwwwwwwwwwwwwww
+W.....W.....W..W
 W..wwwwwww..W..D
 W..W...........W
-W..wd.....wdw..W
+W..ww.....www..W
 D..............W
 W..W......www..W
 W..W..W..W.....W
-Wwww..W..wwwwwww
-W...............
-Wwwwwwwwwwwww...
+Wwww..W..wwwwwwW
+W..............W
+WwwwwwwwwwwwwwwW

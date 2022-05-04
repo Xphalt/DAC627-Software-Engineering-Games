@@ -35,9 +35,9 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 	gameobject* m_p_text = new gameobject(m_p_renderer, "");
 	m_ui_objects.push_back(m_p_text);
 	m_p_text->set_scale(200, 50);
-	m_p_text->set_position(5, 5);
+	m_p_text->set_position(5, 660);
 
-	m_p_text->create_text("Welcome", "ui_assets/fonts/VCR_OSD_MONO.ttf", { 255, 255, 255 }, 24);
+	m_p_text->create_text("Lives: 5", "ui_assets/fonts/VCR_OSD_MONO.ttf", { 255, 255, 255 }, 24);
 
 
 	animator* m_p_anim = new animator();
@@ -123,11 +123,12 @@ level::level(std::string _fileName, renderer* renderer, input_master* input)
 		"ui_assets/engine/DefaultImageNormal.png", "ui_assets/engine/ButtonMinimapBackground.png",
 		355, 5, 200, 200, 0);
 	m_p_minimap->set_player(m_p_player);
+	
+	m_p_player->set_scale(0.5f, 0.5f);
 }
 
 level::~level()
 {
-
 }
 
 void level::update()

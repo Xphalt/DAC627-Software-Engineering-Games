@@ -34,6 +34,9 @@ gameobject::gameobject()
 gameobject::gameobject(renderer* _renderer, std::string fileName)
 	: m_p_renderer{ _renderer }
 {
+	m_scale.x = 1;
+	m_scale.y = 1;
+
 	m_p_animator = new animator();
 	m_p_animator->add_animation(_renderer, fileName, "Default");
 	m_p_animator->set_animation("Default");
@@ -42,6 +45,9 @@ gameobject::gameobject(renderer* _renderer, std::string fileName)
 gameobject::gameobject(renderer* _renderer, std::string fileName, int rows, int columns, int duration)
 	: m_p_renderer{ _renderer }
 {
+	m_scale.x = 1;
+	m_scale.y = 1;
+
 	m_p_animator = new animator();
 	m_p_animator->add_animation(_renderer, fileName, "Default", rows, columns, duration);
 	m_p_animator->set_animation("Default");
@@ -101,7 +107,7 @@ void gameobject::update(bool autodisplay)
 
 void gameobject::display(FLIP _flipStatus)
 {
-	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128, 128, 0.0, flipStatus); }
+	if (m_p_animator != nullptr) { m_p_animator->play(m_testPos.x, m_testPos.y, 128 * m_scale.x, 128 * m_scale.y, 0.0, flipStatus); }
 }
 
 void gameobject::set_position(float x, float y)
@@ -116,7 +122,7 @@ void gameobject::set_rotation(int x, int y)
 	m_rotation.y = y;
 }
 
-void gameobject::set_scale(int x, int y)
+void gameobject::set_scale(float x, float y)
 {
 	m_scale.x = x;
 	m_scale.y = y;

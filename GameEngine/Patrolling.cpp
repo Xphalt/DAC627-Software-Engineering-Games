@@ -36,6 +36,7 @@ void Patrolling::Execute()
 	//use an increment function (will be put in later)
 	//iterate through the vector for each waypoint
 	//if agent position is equal to the waypoint, move to next one in the vector
+
 	m_p_agent->add_translation(1, 0);
 
 	float diffx = m_p_agent->get_position().x - m_p_target->get_position().x;
@@ -47,7 +48,7 @@ void Patrolling::Execute()
 	//std::cout << mag << endl;
 	if (std::abs(mag < m_attackDist))
 	{
-		std::cout << "Should attack" << endl;
+		//std::cout << "Should attack" << endl;
 		m_p_parentMachine->ChangeState(new Attacking());
 	}
 

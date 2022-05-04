@@ -21,7 +21,7 @@ game::game()
 
 	m_p_timer = new Timer();
 
-	audioman::runmusiclist(audioman::LEVELTHEME, 10, 1, 1);
+	audioman::runsearchedaudiofile(15, 1, 1);
 }
 
 game::~game()

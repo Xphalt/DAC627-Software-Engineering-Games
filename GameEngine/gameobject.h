@@ -55,7 +55,7 @@ public:
 
 	void set_position(float x, float y);
 	void set_rotation(int x, int y);
-	void set_scale(int x, int y);
+	void set_scale(float x, float y);
 
 	void add_translation(float x, float y);
 	void add_translation(position pos_add);

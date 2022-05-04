@@ -57,7 +57,6 @@ std::vector<gameobject*> tilemap::return_objects()
 					objects.push_back(new gameobject(m_p_renderer, "Sprites/Isometric/WallLeft.png"));
 					objects[objects.size() - 1]->set_position(x, y);
 					m_lineColliders.push_back(objects.back()->create_line_collider(x, y + 20, x + 20, y));
-					m_lineColliders.back()->m_left = true;
 					break;
 				case WALL_RIGHT:
 					x -= m_block_size * x_offset;
